@@ -1,240 +1,286 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AO Tochka - Powering Russia's Digital Economy</title>
-    <meta name="description" content="AO Tochka - Leading fintech company powering Russia's digital economy">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/main.css">
+    <title>АО Точка - Развиваем цифровую экономику России</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/variables.css">
+    <link rel="stylesheet" href="/css/base.css">
     <link rel="stylesheet" href="/css/layout.css">
     <link rel="stylesheet" href="/css/components.css">
     <link rel="stylesheet" href="/css/animations.css">
-    <link rel="alternate" hreflang="ru" href="https://aotochka.com/ru">
-    <link rel="alternate" hreflang="en" href="https://aotochka.com/en">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-    </script>
 </head>
 <body>
-    <!-- Navigation Menu -->
-    <nav id="sidebar-menu" class="sidebar-menu">
-        <div class="menu-container">
-            <div class="menu-items">
-                <div class="menu-item logo-item">
-                    <div class="logo-placeholder" data-i18n="navigation.logo">AO Tochka</div>
-                </div>
-                <a href="#hero" data-section="hero" class="menu-item active">
-                    <div class="menu-card">
-                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#home"></use></svg>
-                        <span class="menu-label" data-i18n="navigation.home">Home</span>
-                    </div>
-                </a>
-                <a href="#ecosystem" data-section="ecosystem" class="menu-item">
-                    <div class="menu-card">
-                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#globe"></use></svg>
-                        <span class="menu-label" data-i18n="navigation.ecosystem">Ecosystem</span>
-                    </div>
-                </a>
-                <a href="#solutions" data-section="solutions" class="menu-item">
-                    <div class="menu-card">
-                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#lightbulb"></use></svg>
-                        <span class="menu-label" data-i18n="navigation.solutions">Solutions</span>
-                    </div>
-                </a>
-                <a href="#partners" data-section="partners" class="menu-item">
-                    <div class="menu-card">
-                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#handshake"></use></svg>
-                        <span class="menu-label" data-i18n="navigation.partners">Partners</span>
-                    </div>
-                </a>
-                <a href="#careers" data-section="careers" class="menu-item">
-                    <div class="menu-card">
-                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#users"></use></svg>
-                        <span class="menu-label" data-i18n="navigation.careers">Careers</span>
-                    </div>
-                </a>
-                <a href="#news" data-section="news" class="menu-item">
-                    <div class="menu-card">
-                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#newspaper"></use></svg>
-                        <span class="menu-label" data-i18n="navigation.news">News</span>
-                    </div>
-                </a>
-            </div>
-            <div class="menu-bottom">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" data-i18n="[aria-label]labels.theme">
-                    <svg class="icon icon-md theme-icon-sun"><use xlink:href="/img/sprite.svg#sun"></use></svg>
-                    <svg class="icon icon-md theme-icon-moon"><use xlink:href="/img/sprite.svg#moon"></use></svg>
-                </button>
-                <button id="language-switcher" class="language-switcher" aria-label="Switch language" data-i18n="[aria-label]labels.language">
-                    <span class="current-lang">EN</span>
-                </button>
-            </div>
+    <!-- Desktop Sidebar -->
+    <aside class="sidebar" id="desktopSidebar">
+        <div class="logo-area">
+            <img src="/img/logo.svg" alt="АО Точка" class="logo-image">
+            <span class="logo-text">АО Точка</span>
         </div>
-    </nav>
-
-    <!-- Mobile Navigation -->
-    <nav id="mobile-menu" class="mobile-menu">
-        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open menu">
-            <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#menu"></use></svg>
-        </button>
-        <div id="mobile-menu-panel" class="mobile-menu-panel">
-            <button id="close-mobile-menu" class="close-mobile-menu" aria-label="Close menu">
-                <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#close"></use></svg>
-            </button>
-            <div class="mobile-menu-content">
-                <a href="#hero" data-section="hero" class="mobile-menu-button">
-                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#home"></use></svg>
-                    <span class="mobile-menu-label" data-i18n="navigation.home">Home</span>
-                </a>
-                <a href="#ecosystem" data-section="ecosystem" class="mobile-menu-button">
-                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#globe"></use></svg>
-                    <span class="mobile-menu-label" data-i18n="navigation.ecosystem">Ecosystem</span>
-                </a>
-                <a href="#solutions" data-section="solutions" class="mobile-menu-button">
-                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#lightbulb"></use></svg>
-                    <span class="mobile-menu-label" data-i18n="navigation.solutions">Solutions</span>
-                </a>
-                <a href="#partners" data-section="partners" class="mobile-menu-button">
-                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#handshake"></use></svg>
-                    <span class="mobile-menu-label" data-i18n="navigation.partners">Partners</span>
-                </a>
-                <a href="#contacts" data-section="contacts" class="mobile-menu-button">
-                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#email"></use></svg>
-                    <span class="mobile-menu-label" data-i18n="navigation.contacts">Contacts</span>
-                </a>
-            </div>
+        
+        <nav class="menu">
+            <a href="#hero" class="menu-item active" data-target="hero">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L3 10V20H21V10L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 21V14H15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="menu-text" data-i18n="nav.home">Главная</span>
+            </a>
+            
+            <a href="#ecosystem" class="menu-item" data-target="ecosystem">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="2"/>
+                    <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span class="menu-text" data-i18n="nav.ecosystem">Экосистема</span>
+            </a>
+            
+            <a href="#solutions" class="menu-item" data-target="solutions">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                    <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span class="menu-text" data-i18n="nav.solutions">Решения</span>
+            </a>
+            
+            <a href="#partners" class="menu-item" data-target="partners">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 3.13C17.8604 3.35031 18.623 3.85071 19.1676 4.55232C19.7122 5.25392 20.0078 6.11683 20.0078 7.005C20.0078 7.89318 19.7122 8.75608 19.1676 9.45769C18.623 10.1593 17.8604 10.6597 17 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="menu-text" data-i18n="nav.partners">Партнеры</span>
+            </a>
+            
+            <a href="#careers" class="menu-item" data-target="careers">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="menu-text" data-i18n="nav.careers">Карьера</span>
+            </a>
+            
+            <a href="#news" class="menu-item" data-target="news">
+                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2"/>
+                    <path d="M15 7H9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M15 11H9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M15 15H9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <span class="menu-text" data-i18n="nav.news">Новости</span>
+            </a>
+        </nav>
+        
+        <div class="theme-toggle" title="Переключить тему">
+            <span>🌙</span>
         </div>
-    </nav>
+        
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="ru">RU</button>
+            <span class="lang-separator">/</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </aside>
 
-    <!-- Scroll Progress Bar -->
-    <div id="scroll-progress" class="scroll-progress"></div>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
-        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#arrow-up"></use></svg>
+    <!-- Mobile Hamburger Button -->
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Открыть меню">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
     </button>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="section hero">
+    <!-- Mobile Menu Panel -->
+    <div class="mobile-menu-panel" id="mobileMenuPanel">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+        
+        <div class="mobile-menu-grid">
+            <a href="#hero" class="mobile-menu-btn" data-target="hero">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 3L3 10V20H21V10L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 21V14H15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span data-i18n="nav.home">Главная</span>
+            </a>
+            
+            <a href="#ecosystem" class="mobile-menu-btn" data-target="ecosystem">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="2"/>
+                    <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span data-i18n="nav.ecosystem">Экосистема</span>
+            </a>
+            
+            <a href="#solutions" class="mobile-menu-btn" data-target="solutions">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                    <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                    <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+                </svg>
+                <span data-i18n="nav.solutions">Решения</span>
+            </a>
+            
+            <a href="#partners" class="mobile-menu-btn" data-target="partners">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M17 3.13C17.8604 3.35031 18.623 3.85071 19.1676 4.55232C19.7122 5.25392 20.0078 6.11683 20.0078 7.005C20.0078 7.89318 19.7122 8.75608 19.1676 9.45769C18.623 10.1593 17.8604 10.6597 17 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span data-i18n="nav.partners">Партнеры</span>
+            </a>
+            
+            <a href="#careers" class="mobile-menu-btn" data-target="careers">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span data-i18n="nav.careers">Карьера</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section id="hero" class="section hero" data-section="hero">
             <div class="container">
-                <div class="card hero-card">
-                    <h1 class="hero-title" data-i18n="hero.title">Powering Russia's Digital Economy</h1>
-                    <p class="hero-subtitle" data-i18n="hero.subtitle">Leading fintech innovation and financial technology solutions</p>
-                </div>
+                <h1 class="hero-title" data-i18n="hero.title">Развиваем цифровую экономику России</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">Инновационные финтех решения для бизнеса любого размера</p>
             </div>
         </section>
 
-        <!-- Ecosystem Section -->
-        <section id="ecosystem" class="section ecosystem">
+        <section id="ecosystem" class="section ecosystem" data-section="ecosystem">
             <div class="container">
-                <h2 class="section-title" data-i18n="sections.ecosystem.title">Our Ecosystem</h2>
-                <div class="card ecosystem-card">
-                    <p data-i18n="sections.ecosystem.description">AO Tochka Ecosystem Diagram</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Solutions Section -->
-        <section id="solutions" class="section solutions">
-            <div class="container">
-                <h2 class="section-title" data-i18n="sections.solutions.title">Our Solutions</h2>
-                <div class="grid">
-                    <div class="card solution-card">
-                        <h3 data-i18n="sections.solutions.paymentProcessing">Payment Processing</h3>
-                        <p data-i18n="sections.solutions.paymentProcessingDesc">Advanced payment solutions for businesses</p>
+                <h2 class="section-title" data-i18n="ecosystem.title">Наша экосистема</h2>
+                <div class="ecosystem-grid">
+                    <div class="ecosystem-card">
+                        <h3>АО Точка</h3>
+                        <p>Материнская компания</p>
                     </div>
-                    <div class="card solution-card">
-                        <h3 data-i18n="sections.solutions.loyaltyPrograms">Loyalty Programs</h3>
-                        <p data-i18n="sections.solutions.loyaltyProgramsDesc">Customer retention and engagement solutions</p>
+                    <div class="ecosystem-card">
+                        <h3>АО Платформа (76%)</h3>
+                        <p>Дочерняя структура</p>
                     </div>
-                    <div class="card solution-card">
-                        <h3 data-i18n="sections.solutions.whiteLabelServices">White-Label Services</h3>
-                        <p data-i18n="sections.solutions.whiteLabelServicesDesc">Customizable financial technology solutions</p>
+                    <div class="ecosystem-card">
+                        <h3>ПК Академия</h3>
+                        <p>Образовательная платформа</p>
                     </div>
-                    <div class="card solution-card">
-                        <h3 data-i18n="sections.solutions.digitalBanking">Digital Banking</h3>
-                        <p data-i18n="sections.solutions.digitalBankingDesc">Modern banking infrastructure and services</p>
-                    </div>
-                    <div class="card solution-card">
-                        <h3 data-i18n="sections.solutions.riskManagement">Risk Management</h3>
-                        <p data-i18n="sections.solutions.riskManagementDesc">Comprehensive risk assessment tools</p>
-                    </div>
-                    <div class="card solution-card">
-                        <h3 data-i18n="sections.solutions.dataAnalytics">Data Analytics</h3>
-                        <p data-i18n="sections.solutions.dataAnalyticsDesc">Business intelligence and analytics platform</p>
+                    <div class="ecosystem-card">
+                        <h3>ЛОВИИ</h3>
+                        <p>Инвестиционный фонд</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Partners Section -->
-        <section id="partners" class="section partners">
+        <section id="solutions" class="section solutions" data-section="solutions">
             <div class="container">
-                <h2 class="section-title" data-i18n="sections.partners.title">Our Partners</h2>
-                <div class="card partners-card">
-                    <p data-i18n="sections.partners.description">Partner logos and information</p>
+                <h2 class="section-title" data-i18n="solutions.title">Наши решения</h2>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <h3>Платежные решения</h3>
+                        <p>Обработка платежей для бизнеса</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Программы лояльности</h3>
+                        <p>Системы вознаграждений клиентов</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Белый лейбл</h3>
+                        <p>Готовые решения под ваш бренд</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>API интеграции</h3>
+                        <p>Техническая инфраструктура</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Аналитика</h3>
+                        <p>Бизнес-аналитика и отчеты</p>
+                    </div>
+                    <div class="solution-card">
+                        <h3>Мобильные приложения</h3>
+                        <p>Приложения для клиентов</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Business Model Section -->
-        <section id="business-model" class="section business-model">
+        <section id="partners" class="section partners" data-section="partners">
             <div class="container">
-                <h2 class="section-title" data-i18n="sections.businessModel.title">Business Model</h2>
-                <div class="card business-model-card">
-                    <p data-i18n="sections.businessModel.description">Animated ownership structure with incentive shares</p>
+                <h2 class="section-title" data-i18n="partners.title">Наши партнёры</h2>
+                <div class="partners-grid">
+                    <div class="partner-logo">Partner 1</div>
+                    <div class="partner-logo">Partner 2</div>
+                    <div class="partner-logo">Partner 3</div>
+                    <div class="partner-logo">Partner 4</div>
                 </div>
             </div>
         </section>
 
-        <!-- Technology Section -->
-        <section id="technology" class="section technology">
+        <section id="business-model" class="section business-model" data-section="business-model">
             <div class="container">
-                <h2 class="section-title" data-i18n="sections.technology.title">Technology</h2>
-                <div class="card technology-card">
-                    <p data-i18n="sections.technology.description">Innovative technology stack and infrastructure</p>
+                <h2 class="section-title">Бизнес-модель</h2>
+                <div class="business-model-diagram">
+                    <p>Структурная схема компании</p>
                 </div>
             </div>
         </section>
 
-        <!-- Careers Section -->
-        <section id="careers" class="section careers">
+        <section id="technology" class="section technology" data-section="technology">
             <div class="container">
-                <h2 class="section-title" data-i18n="sections.careers.title">Careers</h2>
-                <div class="card careers-card">
-                    <p data-i18n="sections.careers.description">Culture focus, Saint Petersburg HQ, events and retreats</p>
+                <h2 class="section-title">Технологии</h2>
+                <div class="tech-stack">
+                    <span class="tech-badge">React</span>
+                    <span class="tech-badge">Node.js</span>
+                    <span class="tech-badge">PostgreSQL</span>
+                    <span class="tech-badge">AWS</span>
                 </div>
             </div>
         </section>
 
-        <!-- News Section -->
-        <section id="news" class="section news">
+        <section id="careers" class="section careers" data-section="careers">
             <div class="container">
-                <h2 class="section-title" data-i18n="sections.news.title">News</h2>
-                <div class="card news-card">
-                    <p data-i18n="sections.news.description">Latest company news and updates</p>
+                <h2 class="section-title" data-i18n="careers.title">Карьера в AO Tochka</h2>
+                <div class="careers-content">
+                    <p>Присоединяйтесь к нашей команде инноваторов</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="news" class="section news" data-section="news">
+            <div class="container">
+                <h2 class="section-title" data-i18n="news.title">Новости и пресс-релизы</h2>
+                <div class="news-grid">
+                    <article class="news-item">
+                        <h3>Новость 1</h3>
+                        <p>Описание новости</p>
+                    </article>
+                    <article class="news-item">
+                        <h3>Новость 2</h3>
+                        <p>Описание новости</p>
+                    </article>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p class="copyright" data-i18n="footer.copyright">&copy; 2026 AO Tochka. All rights reserved.</p>
-                <p class="legal-info" data-i18n="footer.legalInfo">Legal Entity: АО Точка, ОГРН/ИНН</p>
-                <div class="social-icons">
-                    <a href="#" aria-label="MAX social media" data-i18n="[aria-label]footer.social.max"><svg class="icon icon-md"><use xlink:href="/img/sprite.svg#max"></use></svg></a>
-                    <a href="#" aria-label="VK social media" data-i18n="[aria-label]footer.social.vk"><svg class="icon icon-md"><use xlink:href="/img/sprite.svg#vk"></use></svg></a>
-                    <a href="#" aria-label="OK social media" data-i18n="[aria-label]footer.social.ok"><svg class="icon icon-md"><use xlink:href="/img/sprite.svg#ok"></use></svg></a>
-                </div>
-                <p class="disclaimer" data-i18n="footer.disclaimer">Bank Payment Agent licensed under Federal Law 161-FZ</p>
-            </div>
+            <p>&copy; 2024 AO Tochka. Все права защищены.</p>
+            <p>АО Точка - Развиваем цифровую экономику России</p>
         </div>
     </footer>
 
@@ -243,6 +289,5 @@
     <script src="/js/theme.js"></script>
     <script src="/js/language.js"></script>
     <script src="/js/gsap-init.js"></script>
-    <script src="/js/scroll-observer.js"></script>
 </body>
 </html>
