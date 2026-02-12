@@ -3,195 +3,383 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АО "Точка" - Современная управляющая компания</title>
+    <title>АО Точка | Лидер цифровой экономики России</title>
+    <meta name="description" content="АО Точка - ведущая российская финтех-корпорация, предоставляющая инновационные решения для бизнеса всех размеров">
+    
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:title" content="АО Точка | Лидер цифровой экономики России">
+    <meta property="og:description" content="АО Точка - ведущая российская финтех-корпорация, предоставляющая инновационные решения для бизнеса всех размеров">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aotochka.ru">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    
+    <!-- Styles -->
     <link rel="stylesheet" href="styles.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="video" href="assets/videos/digital-bg.mp4">
 </head>
 <body>
+    <!-- Header -->
     <header class="header">
-        <div class="container">
-            <div class="logo-container">
-                <svg class="logo-svg" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Фоновый круг -->
-                    <circle cx="30" cy="30" r="25" fill="var(--primary-color)" />
-                    <!-- Буква "А" -->
-                    <path d="M22 15 L28 40 M25 25 L30 25 M28 40 L33 25 L38 40" stroke="white" stroke-width="3" fill="none" />
-                    <!-- Контурная рамка -->
-                    <rect x="50" y="10" width="140" height="40" rx="5" fill="none" stroke="var(--primary-color)" stroke-width="2"/>
-                    <!-- Название компании -->
-                    <text x="120" y="37" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="var(--text-color)" text-anchor="middle">АО "ТОЧКА"</text>
-                </svg>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <h1>АО Точка</h1>
+                </div>
+                <div class="nav-menu">
+                    <ul>
+                        <li><a href="#ecosystem">Экосистема</a></li>
+                        <li><a href="#solutions">Решения</a></li>
+                        <li><a href="#partners">Партнеры</a></li>
+                        <li><a href="#technology">Технологии</a></li>
+                        <li><a href="#about">О компании</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                <div class="nav-controls">
+                    <button class="theme-toggle" id="themeToggle">🌙</button>
+                    <button class="lang-toggle" id="langToggle">RU</button>
+                    <button class="menu-toggle" id="menuToggle">☰</button>
+                </div>
             </div>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#products">Продукты</a></li>
-                    <li><a href="#clients">Клиенты</a></li>
-                    <li><a href="#careers">Карьера</a></li>
-                    <li><a href="#contact">Контакты</a></li>
-                </ul>
-            </nav>
-            <div class="theme-switcher">
-                <label class="switch">
-                    <input type="checkbox" id="theme-toggle">
-                    <span class="slider"></span>
-                </label>
-            </div>
-        </div>
+        </nav>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="hero">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="video-background">
+            <video autoplay muted loop playsinline>
+                <source src="assets/videos/digital-bg.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        <div class="overlay"></div>
+        <div class="gradient-overlay"></div>
+        <div class="hero-content">
             <div class="container">
-                <h1>Акционерное Общество "Точка"</h1>
-                <p>Современная управляющая компания холдинга, специализирующаяся на ИТ-платформах и финансовых технологиях</p>
-                <div class="metrics">
-                    <div class="metric-card">
-                        <h3>40 000+</h3>
-                        <p>ТСП</p>
-                    </div>
-                    <div class="metric-card">
-                        <h3>8 000 000+</h3>
-                        <p>Пользователей</p>
-                    </div>
+                <h1 class="hero-title">ПОДДЕРЖКА ЦИФРОВОЙ ЭКОНОМИКИ РОССИИ</h1>
+                <p class="hero-subtitle">Инновационные финтех-решения для бизнеса любого масштаба</p>
+                <div class="cta-buttons">
+                    <a href="#business" class="btn btn-primary">Для бизнеса</a>
+                    <a href="#partnership" class="btn btn-secondary">Для партнеров</a>
+                    <a href="#ecosystem" class="btn btn-tertiary">Наша экосистема</a>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="about">
-            <div class="container">
-                <h2>О нашей компании</h2>
-                <p>АО "Точка" - это передовая управляющая компания холдинга, объединяющая инновационные технологии и финансовые решения. Мы создаем цифровые платформы, которые обеспечивают эффективное управление активами и развитие технологического сектора.</p>
-            </div>
-        </section>
-
-        <!-- Products Section -->
-        <section id="products" class="products">
-            <div class="container">
-                <h2>Продукты и услуги</h2>
-                <div class="product-grid">
-                    <div class="product-card">
-                        <h3>ИТ-платформы</h3>
-                        <p>Современные цифровые решения для автоматизации бизнес-процессов</p>
-                    </div>
-                    <div class="product-card">
-                        <h3>Финансовые технологии</h3>
-                        <p>Инновационные платежные системы и инвестиционные платформы</p>
-                    </div>
-                    <div class="product-card">
-                        <h3>Управление активами</h3>
-                        <p>Эффективные решения для управления портфелями и инвестициями</p>
-                    </div>
-                    <div class="product-card">
-                        <h3>Кибербезопасность</h3>
-                        <p>Защита данных и обеспечение безопасности цифровых активов</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Clients Section -->
-        <section id="clients" class="clients">
-            <div class="container">
-                <h2>Наши клиенты и партнеры</h2>
-                <div class="partners-grid">
-                    <div class="partner-card">Крупный банк</div>
-                    <div class="partner-card">Технологическая компания</div>
-                    <div class="partner-card">Инвестиционный фонд</div>
-                    <div class="partner-card">Государственная структура</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- News Section -->
-        <section id="news" class="news">
-            <div class="container">
-                <h2>Новости и события</h2>
-                <div class="news-grid">
-                    <article class="news-card">
-                        <h3>Запуск новой платформы</h3>
-                        <p>Мы запустили инновационную ИТ-платформу для управления цифровыми активами</p>
-                    </article>
-                    <article class="news-card">
-                        <h3>Расширение команды</h3>
-                        <p>АО "Точка" приглашает талантливых специалистов в команду разработчиков</p>
-                    </article>
-                    <article class="news-card">
-                        <h3>Партнерство с технологическим гигантом</h3>
-                        <p>Подписано соглашение о сотрудничестве в области финтех-решений</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Careers Section -->
-        <section id="careers" class="careers">
-            <div class="container">
-                <h2>Карьера в АО "Точка"</h2>
-                <div class="vacancies">
-                    <div class="vacancy-card">
-                        <h3>Frontend-разработчик</h3>
-                        <p>Разработка современных веб-интерфейсов с использованием последних технологий</p>
-                    </div>
-                    <div class="vacancy-card">
-                        <h3>Backend-архитектор</h3>
-                        <p>Проектирование и реализация серверных решений для ИТ-платформ</p>
-                    </div>
-                    <div class="vacancy-card">
-                        <h3>Специалист по кибербезопасности</h3>
-                        <p>Обеспечение безопасности цифровых активов и данных клиентов</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Feedback Form -->
-        <section id="feedback" class="feedback">
-            <div class="container">
-                <h2>Свяжитесь с нами</h2>
-                <form class="feedback-form">
-                    <div class="form-group">
-                        <label for="name">Имя</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Сообщение</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit">Отправить</button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <footer id="contact" class="footer">
+    <!-- Ecosystem Visualization -->
+    <section class="ecosystem" id="ecosystem">
         <div class="container">
-            <div class="footer-content">
-                <div class="contact-info">
-                    <h3>Контактная информация</h3>
-                    <p>Телефон: +7 (XXX) XXX-XX-XX</p>
-                    <p>Email: info@ao-tochka.ru</p>
-                    <p>Адрес: г. Москва, ул. Примерная, д. 1</p>
+            <h2 class="section-title">Наша экосистема</h2>
+            <p class="section-subtitle">АО Точка - центральная точка сложной бизнес-экосистемы</p>
+            
+            <div class="ecosystem-diagram">
+                <div class="ecosystem-center">
+                    <h3>АО Точка</h3>
+                    <p>Материнская компания</p>
                 </div>
-                <div class="social-links">
-                    <h3>Мы в социальных сетях</h3>
-                    <a href="#">LinkedIn</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Telegram</a>
+                
+                <div class="ecosystem-branches">
+                    <div class="branch platform">
+                        <h4>АО Платформа</h4>
+                        <p>Операционное подразделение</p>
+                    </div>
+                    
+                    <div class="branch academy">
+                        <h4>ПК Академия</h4>
+                        <p>Сеть дистрибуции</p>
+                    </div>
+                    
+                    <div class="branch lovi">
+                        <h4>LOVII</h4>
+                        <p>Лояльность и каталоги</p>
+                    </div>
+                </div>
+                
+                <div class="data-flows">
+                    <div class="flow flow-1"></div>
+                    <div class="flow flow-2"></div>
+                    <div class="flow flow-3"></div>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2026 Акционерное Общество "Точка". Все права защищены.</p>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <h2 class="section-title">Наши решения</h2>
+            <p class="section-subtitle">Полный спектр цифровых решений для вашего бизнеса</p>
+            
+            <div class="solutions-grid">
+                <div class="solution-card">
+                    <div class="card-icon">💳</div>
+                    <h3>Обработка платежей</h3>
+                    <p>Лицензия Банковского Платежного Агента по 161-ФЗ</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="card-icon">🎁</div>
+                    <h3>Программы лояльности</h3>
+                    <p>Платформа LOVII для повышения удержания клиентов</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="card-icon">🏪</div>
+                    <h3>Торговые каталоги</h3>
+                    <p>Интеграция с Vitrina для онлайн-торговли</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="card-icon">🏦</div>
+                    <h3>Белый лейбл</h3>
+                    <p>Финансовые услуги под вашим брендом</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="card-icon">🤝</div>
+                    <h3>Франчайзинг</h3>
+                    <p>Сеть дистрибуции через ПК Академия</p>
+                </div>
+                
+                <div class="solution-card">
+                    <div class="card-icon">🌐</div>
+                    <h3>Инфраструктура</h3>
+                    <p>Цифровая экономика для всех регионов РФ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="container">
+            <h2 class="section-title">Наши партнёры</h2>
+            <p class="section-subtitle">Работаем с крупнейшими ритейлерами и агрегаторами по всей России</p>
+            
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number" data-target="1000000">0</span>
+                    <p>транзакций обработано</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="50000">0</span>
+                    <p>бизнесов обслужено</p>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" data-target="85">0</span>
+                    <p>регионов охвачено</p>
+                </div>
+            </div>
+            
+            <div class="partners-carousel">
+                <div class="partner-logo">Retailer 1</div>
+                <div class="partner-logo">Aggregator 1</div>
+                <div class="partner-logo">Tech Partner</div>
+                <div class="partner-logo">Fotstrana</div>
+                <div class="partner-logo">Major Retailer</div>
+                <div class="partner-logo">Digital Platform</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Model -->
+    <section class="business-model" id="about">
+        <div class="container">
+            <h2 class="section-title">Наша бизнес-модель</h2>
+            <p class="section-subtitle">Структура владения и распределения интересов</p>
+            
+            <div class="model-diagram">
+                <div class="ownership-structure">
+                    <div class="ao-tochka">
+                        <h3>АО Точка (76%)</h3>
+                        <p>Управляющая компания</p>
+                    </div>
+                    
+                    <div class="operational-arm">
+                        <h4>АО Платформа</h4>
+                        <p>Операционное подразделение</p>
+                    </div>
+                    
+                    <div class="distribution">
+                        <h4>ПК Академия</h4>
+                        <p>Сеть дистрибуции</p>
+                    </div>
+                    
+                    <div class="partnership">
+                        <h4>Региональные партнёры</h4>
+                        <p>24% акций распределены</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <h2 class="section-title">Технологии</h2>
+            <p class="section-subtitle">Современные технологии для надежных решений</p>
+            
+            <div class="tech-stack">
+                <div class="tech-badge">React</div>
+                <div class="tech-badge">Node.js</div>
+                <div class="tech-badge">Three.js</div>
+                <div class="tech-badge">GSAP</div>
+                <div class="tech-badge">API First</div>
+                <div class="tech-badge">Security</div>
+            </div>
+            
+            <div class="api-preview">
+                <h3>Пример интеграции API</h3>
+                <pre><code>// Пример вызова API
+const response = await fetch('/api/v1/payments', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_TOKEN'
+  },
+  body: JSON.stringify({
+    amount: 1000,
+    currency: 'RUB',
+    description: 'Payment description'
+  })
+});</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers -->
+    <section class="careers">
+        <div class="container">
+            <h2 class="section-title">Карьера</h2>
+            <p class="section-subtitle">Присоединяйтесь к команде лидеров цифровой трансформации</p>
+            
+            <div class="career-highlights">
+                <div class="highlight-item">
+                    <div class="highlight-icon">🏢</div>
+                    <h3>Офис в СПб</h3>
+                    <p>Современное пространство в центре Санкт-Петербурга</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">🎯</div>
+                    <h3>Профессиональный рост</h3>
+                    <p>Возможности развития в передовой отрасли</p>
+                </div>
+                
+                <div class="highlight-item">
+                    <div class="highlight-icon">🎉</div>
+                    <h3>Корпоративная культура</h3>
+                    <p>События, тренинги и командные мероприятия</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News & Insights -->
+    <section class="news" id="news">
+        <div class="container">
+            <h2 class="section-title">Новости и аналитика</h2>
+            <p class="section-subtitle">Последние новости компании и отраслевые инсайты</p>
+            
+            <div class="news-grid">
+                <article class="news-card">
+                    <img src="assets/images/news1.jpg" alt="Новость 1">
+                    <div class="news-content">
+                        <h3>Расширение сети в Сибири</h3>
+                        <p>АО Точка открыла новые точки присутствия в Новосибирске и Красноярске...</p>
+                        <a href="#" class="read-more">Читать далее</a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <img src="assets/images/news2.jpg" alt="Новость 2">
+                    <div class="news-content">
+                        <h3>Новое API для партнёров</h3>
+                        <p>Релиз новой версии API с расширенными возможностями интеграции...</p>
+                        <a href="#" class="read-more">Читать далее</a>
+                    </div>
+                </article>
+                
+                <article class="news-card">
+                    <img src="assets/images/news3.jpg" alt="Новость 3">
+                    <div class="news-content">
+                        <h3>Финансовый отчет за 2023</h3>
+                        <p>Итоги года: рост на 340% и расширение функционала платформы...</p>
+                        <a href="#" class="read-more">Читать далее</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>АО Точка</h3>
+                    <p>Лидер российской цифровой экономики</p>
+                    <p>Г. Санкт-Петербург<br>ул. Примерная, д. 123</p>
+                    <p>ИНН: 1234567890<br>ОГРН: 1234567890123</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#ecosystem">Экосистема</a></li>
+                        <li><a href="#solutions">Решения</a></li>
+                        <li><a href="#partners">Партнеры</a></li>
+                        <li><a href="#technology">Технологии</a></li>
+                        <li><a href="#careers">Карьера</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Правовая информация</h3>
+                    <ul>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Условия использования</a></li>
+                        <li><a href="#">Лицензии и сертификаты</a></li>
+                        <li><a href="#">Реквизиты</a></li>
+                        <li><a href="#">Документы</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>Email: info@aotochka.ru</p>
+                    <p>Телефон: +7 (800) 123-45-67</p>
+                    <p>Поддержка: support@aotochka.ru</p>
+                    
+                    <div class="social-links">
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Telegram</a>
+                        <a href="#">VK</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 АО Точка. Все права защищены.</p>
+                <p>АО Точка действует в качестве Банковского Платежного Агента в соответствии с Федеральным законом №161-ФЗ</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
