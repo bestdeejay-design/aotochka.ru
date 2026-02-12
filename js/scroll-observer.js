@@ -7,9 +7,9 @@ function initScrollObserver() {
 function setupScrollAnimations() {
     // Define elements that should animate when scrolled into view
     const animatedElements = [
-        { selector: '.card', offset: '0 0 0 0' },
-        { selector: '.section', offset: '0 0 -100px 0' },
-        { selector: '.btn', offset: '0 0 0 0' }
+        { selector: '.card', rootMargin: '0px 0px 0px 0px' },
+        { selector: '.section', rootMargin: '0px 0px -100px 0px' },
+        { selector: '.btn', rootMargin: '0px 0px 0px 0px' }
     ];
     
     animatedElements.forEach(elementConfig => {
@@ -28,7 +28,7 @@ function setupScrollAnimations() {
                 });
             }, {
                 threshold: 0.1,
-                rootMargin: elementConfig.offset
+                rootMargin: elementConfig.rootMargin || '0px'
             });
             
             observer.observe(element);
