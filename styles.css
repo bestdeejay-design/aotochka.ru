@@ -1,13 +1,13 @@
 /* Основные переменные для светлой темы */
 :root {
-  --bg-color: #ffffff;
-  --text-color: #333333;
-  --primary-color: #4a6fa5;
-  --secondary-color: #6b8cbc;
-  --accent-color: #ff6b35;
-  --card-bg: #f8f9fa;
-  --border-color: #e0e0e0;
-  --shadow: rgba(0, 0, 0, 0.1);
+  --bg-color: #f8f9ff;
+  --text-color: #2c3e50;
+  --primary-color: #3498db;
+  --secondary-color: #2980b9;
+  --accent-color: #e74c3c;
+  --card-bg: #ffffff;
+  --border-color: #e1e8ed;
+  --shadow: rgba(0, 0, 0, 0.08);
   --header-bg: rgba(255, 255, 255, 0.95);
 }
 
@@ -34,7 +34,7 @@
   --card-bg: #ffffff;
   --border-color: #bdc3c7;
   --shadow: rgba(0, 0, 0, 0.08);
-  --header-bg: rgba(240, 248, 255, 0.95);
+  --header-bg: rgba(255, 255, 255, 0.95);
 }
 
 /* Базовые стили */

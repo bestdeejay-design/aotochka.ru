@@ -10,10 +10,15 @@
     <header class="header">
         <div class="container">
             <div class="logo-container">
-                <svg class="logo-svg" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10,10 L30,10 L30,30 L10,30 Z" fill="var(--primary-color)" />
-                    <path d="M35,10 L55,10 L75,20 L55,30 L35,30 L55,20 Z" fill="var(--secondary-color)" />
-                    <text x="80" y="25" font-family="Arial" font-size="12" fill="var(--text-color)">ТОЧКА</text>
+                <svg class="logo-svg" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Фоновый круг -->
+                    <circle cx="30" cy="30" r="25" fill="var(--primary-color)" />
+                    <!-- Буква "А" -->
+                    <path d="M22 15 L28 40 M25 25 L30 25 M28 40 L33 25 L38 40" stroke="white" stroke-width="3" fill="none" />
+                    <!-- Контурная рамка -->
+                    <rect x="50" y="10" width="140" height="40" rx="5" fill="none" stroke="var(--primary-color)" stroke-width="2"/>
+                    <!-- Название компании -->
+                    <text x="120" y="37" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="var(--text-color)" text-anchor="middle">АО "ТОЧКА"</text>
                 </svg>
             </div>
             <nav class="nav">
