@@ -1,110 +1,71 @@
-let translations = {};
-
-async function initLanguage() {
-    try {
-        // Load both language files
-        const [enData, ruData] = await Promise.all([
-            fetch('/lang/en.json').then(response => response.json()),
-            fetch('/lang/ru.json').then(response => response.json())
-        ]);
-        
-        translations = {
-            en: enData,
-            ru: ruData
-        };
-        
-        // Determine language to use
-        const savedLanguage = localStorage.getItem('language');
-        const urlParams = new URLSearchParams(window.location.search);
-        const urlLang = urlParams.get('lang');
-        const browserLang = navigator.language.startsWith('ru') ? 'ru' : 'en';
-        
-        let languageToUse = 'en'; // Default to English
-        
-        if (urlLang && ['en', 'ru'].includes(urlLang)) {
-            languageToUse = urlLang;
-        } else if (savedLanguage && ['en', 'ru'].includes(savedLanguage)) {
-            languageToUse = savedLanguage;
-        } else if (browserLang && ['en', 'ru'].includes(browserLang)) {
-            languageToUse = browserLang;
-        }
-        
-        // Update the language switcher display
-        const langSwitcher = document.getElementById('language-switcher');
-        if (langSwitcher) {
-            langSwitcher.querySelector('.current-lang').textContent = languageToUse.toUpperCase();
-        }
-        
-        // Apply the selected language
-        applyTranslations(languageToUse);
-        
-    } catch (error) {
-        console.error('Error loading language files:', error);
-    }
-}
-
-function applyTranslations(lang) {
-    if (!translations[lang]) {
-        console.error(`Translations for ${lang} not loaded`);
-        return;
-    }
+// Language switcher functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Load translations
+    let translations = {};
+    let currentLang = localStorage.getItem('language') || 'ru';
     
-    // Update all translatable elements
-    const translatableElements = document.querySelectorAll('[data-i18n]');
-    
-    translatableElements.forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        const translation = getNestedTranslation(translations[lang], key);
-        
-        if (translation) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                element.placeholder = translation;
-            } else {
-                element.textContent = translation;
+    async function loadTranslations() {
+        try {
+            const response = await fetch(`/lang/${currentLang}.json`);
+            if (!response.ok) {
+                throw new Error(`Failed to load ${currentLang}.json`);
+            }
+            translations = await response.json();
+            applyTranslations();
+        } catch (error) {
+            console.error('Error loading translations:', error);
+            // Fallback to English if Russian file is not found
+            if (currentLang === 'ru') {
+                currentLang = 'en';
+                localStorage.setItem('language', 'en');
+                updateLanguageButtons();
+                loadTranslations();
             }
         }
-    });
-    
-    // Update page title
-    const titleTranslation = getNestedTranslation(translations[lang], 'pageTitle');
-    if (titleTranslation) {
-        document.title = titleTranslation;
     }
     
-    // Update meta description
-    const metaDescription = document.querySelector('meta[name="description"]');
-    const descriptionTranslation = getNestedTranslation(translations[lang], 'pageDescription');
-    if (metaDescription && descriptionTranslation) {
-        metaDescription.setAttribute('content', descriptionTranslation);
-    }
-}
-
-function getNestedTranslation(obj, path) {
-    return path.split('.').reduce((current, key) => {
-        return current && current[key] !== undefined ? current[key] : null;
-    }, obj);
-}
-
-// Add event listener for language switcher
-document.addEventListener('DOMContentLoaded', () => {
-    const languageSwitcher = document.getElementById('language-switcher');
-    
-    if (languageSwitcher) {
-        languageSwitcher.addEventListener('click', () => {
-            const currentLang = localStorage.getItem('language') || 'en';
-            const newLang = currentLang === 'en' ? 'ru' : 'en';
-            
-            localStorage.setItem('language', newLang);
-            
-            // Update the displayed language
-            languageSwitcher.querySelector('.current-lang').textContent = newLang.toUpperCase();
-            
-            // Apply translations
-            applyTranslations(newLang);
+    function applyTranslations() {
+        document.querySelectorAll('[data-i18n]').forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[key]) {
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = translations[key];
+                } else {
+                    element.textContent = translations[key];
+                }
+            }
         });
     }
+    
+    // Update language buttons UI
+    function updateLanguageButtons() {
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.getAttribute('data-lang') === currentLang) {
+                btn.classList.add('active');
+            }
+        });
+    }
+    
+    // Language switcher
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const newLang = this.getAttribute('data-lang');
+            
+            if (newLang !== currentLang) {
+                currentLang = newLang;
+                localStorage.setItem('language', newLang);
+                
+                // Update button states
+                updateLanguageButtons();
+                
+                // Reload translations
+                loadTranslations();
+            }
+        });
+    });
+    
+    // Initialize
+    updateLanguageButtons();
+    loadTranslations();
 });
-
-// Export functions for main.js
-window.initLanguage = initLanguage;
-window.applyTranslations = applyTranslations;

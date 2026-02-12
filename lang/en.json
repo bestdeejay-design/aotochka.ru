@@ -1,70 +1,15 @@
 {
-  "pageTitle": "AO Tochka - Powering Russia's Digital Economy",
-  "pageDescription": "AO Tochka - Leading fintech company powering Russia's digital economy",
-  "navigation": {
-    "home": "Home",
-    "ecosystem": "Ecosystem",
-    "solutions": "Solutions",
-    "partners": "Partners",
-    "careers": "Careers",
-    "news": "News"
-  },
-  "hero": {
-    "title": "Powering Russia's Digital Economy",
-    "subtitle": "Leading fintech innovation and financial technology solutions"
-  },
-  "sections": {
-    "ecosystem": {
-      "title": "Our Ecosystem",
-      "description": "AO Tochka Ecosystem"
-    },
-    "solutions": {
-      "title": "Our Solutions",
-      "paymentProcessing": "Payment Processing",
-      "loyaltyPrograms": "Loyalty Programs",
-      "whiteLabelServices": "White-Label Services",
-      "digitalBanking": "Digital Banking",
-      "riskManagement": "Risk Management",
-      "dataAnalytics": "Data Analytics"
-    },
-    "partners": {
-      "title": "Our Partners",
-      "description": "Partner logos and information"
-    },
-    "businessModel": {
-      "title": "Business Model",
-      "description": "Animated ownership structure with incentive shares"
-    },
-    "technology": {
-      "title": "Technology",
-      "description": "Innovative technology stack and infrastructure"
-    },
-    "careers": {
-      "title": "Careers",
-      "description": "Culture focus, Saint Petersburg HQ, events and retreats"
-    },
-    "news": {
-      "title": "News",
-      "description": "Latest company news and updates"
-    }
-  },
-  "footer": {
-    "copyright": "&copy; 2026 AO Tochka. All rights reserved.",
-    "legalInfo": "Legal Entity: АО Точка, ОГРН/ИНН",
-    "disclaimer": "Bank Payment Agent licensed under Federal Law 161-FZ",
-    "social": {
-      "max": "MAX social media",
-      "vk": "VK social media",
-      "ok": "OK social media"
-    }
-  },
-  "buttons": {
-    "learnMore": "Learn More",
-    "contactUs": "Contact Us",
-    "getStarted": "Get Started"
-  },
-  "labels": {
-    "theme": "Toggle theme",
-    "language": "Toggle language"
-  }
+  "nav.home": "Home",
+  "nav.ecosystem": "Ecosystem",
+  "nav.solutions": "Solutions",
+  "nav.partners": "Partners",
+  "nav.careers": "Careers",
+  "nav.news": "News",
+  "hero.title": "Powering Russia's Digital Economy",
+  "hero.subtitle": "Innovative fintech solutions for businesses of any size",
+  "ecosystem.title": "Our Ecosystem",
+  "solutions.title": "Our Solutions",
+  "partners.title": "Our Partners",
+  "careers.title": "Careers at AO Tochka",
+  "news.title": "News and Press Releases"
 }
