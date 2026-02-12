@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АО Точка</title>
+    <meta name="mailru-domain" content="QhGcJHd9QlLP2ErE" />
+    <style>
+        :root {
+            --bg-color: #f0f0f0;
+            --text-color: #333;
+            --primary-color: #4a6fa5;
+            --secondary-color: #6b8cbc;
+            --card-bg: #ffffff;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-theme {
+            --bg-color: #1a1a1a;
+            --text-color: #f0f0f0;
+            --primary-color: #5d7ea3;
+            --secondary-color: #8aa2c1;
+            --card-bg: #2d2d2d;
+            --shadow: rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(121, 161, 255, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(90, 180, 230, 0.1) 0%, transparent 20%),
+                linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        header {
+            margin-bottom: 2rem;
+        }
+
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+            filter: drop-shadow(0 4px 6px var(--shadow));
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px var(--shadow);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            background-color: var(--secondary-color);
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 8px 16px var(--shadow);
+            margin: 1rem 0;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">☀️</button>
+    
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <svg class="logo" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background circle -->
+                    <circle cx="100" cy="50" r="40" fill="#4a6fa5"/>
+                    
+                    <!-- Main shape -->
+                    <path d="M60,30 Q100,10 140,30 L140,70 Q100,90 60,70 Z" fill="white"/>
+                    
+                    <!-- Dot in the center -->
+                    <circle cx="100" cy="50" r="8" fill="#4a6fa5"/>
+                    
+                    <!-- Text -->
+                    <text x="100" y="85" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">АО Точка</text>
+                </svg>
+            </div>
+            <h1>АО Точка</h1>
+            <p class="tagline">Инновационные решения для вашего бизнеса</p>
+        </header>
+        
+        <main>
+            <div class="card">
+                <p>АО "Точка" - современная компания, специализирующаяся на предоставлении инновационных решений в области информационных технологий и цифровых сервисов.</p>
+            </div>
+            
+            <div class="card">
+                <p>Наша миссия - помогать бизнесу достигать новых высот через передовые технологии и качественные услуги.</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>&copy; 2026 АО Точка. Все права защищены.</p>
+        </footer>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        let isDarkTheme = false;
+
+        // Check for saved theme preference or respect OS preference
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            body.classList.add('dark-theme');
+            themeToggle.textContent = '🌙';
+            isDarkTheme = true;
+        } else {
+            themeToggle.textContent = '☀️';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            isDarkTheme = !isDarkTheme;
+            
+            if (isDarkTheme) {
+                themeToggle.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeToggle.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
