@@ -1,385 +1,248 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АО Точка | Лидер цифровой экономики России</title>
-    <meta name="description" content="АО Точка - ведущая российская финтех-корпорация, предоставляющая инновационные решения для бизнеса всех размеров">
-    
-    <!-- Open Graph / Social Media Tags -->
-    <meta property="og:title" content="АО Точка | Лидер цифровой экономики России">
-    <meta property="og:description" content="АО Точка - ведущая российская финтех-корпорация, предоставляющая инновационные решения для бизнеса всех размеров">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://aotochka.ru">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="styles.css">
-    
-    <!-- Preload critical resources -->
-    <link rel="preload" as="video" href="assets/videos/digital-bg.mp4">
+    <title>AO Tochka - Powering Russia's Digital Economy</title>
+    <meta name="description" content="AO Tochka - Leading fintech company powering Russia's digital economy">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/animations.css">
+    <link rel="alternate" hreflang="ru" href="https://aotochka.com/ru">
+    <link rel="alternate" hreflang="en" href="https://aotochka.com/en">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+    </script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="navbar">
+    <!-- Navigation Menu -->
+    <nav id="sidebar-menu" class="sidebar-menu">
+        <div class="menu-container">
+            <div class="menu-items">
+                <div class="menu-item logo-item">
+                    <div class="logo-placeholder" data-i18n="navigation.logo">AO Tochka</div>
+                </div>
+                <a href="#hero" data-section="hero" class="menu-item active">
+                    <div class="menu-card">
+                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#home"></use></svg>
+                        <span class="menu-label" data-i18n="navigation.home">Home</span>
+                    </div>
+                </a>
+                <a href="#ecosystem" data-section="ecosystem" class="menu-item">
+                    <div class="menu-card">
+                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#globe"></use></svg>
+                        <span class="menu-label" data-i18n="navigation.ecosystem">Ecosystem</span>
+                    </div>
+                </a>
+                <a href="#solutions" data-section="solutions" class="menu-item">
+                    <div class="menu-card">
+                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#lightbulb"></use></svg>
+                        <span class="menu-label" data-i18n="navigation.solutions">Solutions</span>
+                    </div>
+                </a>
+                <a href="#partners" data-section="partners" class="menu-item">
+                    <div class="menu-card">
+                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#handshake"></use></svg>
+                        <span class="menu-label" data-i18n="navigation.partners">Partners</span>
+                    </div>
+                </a>
+                <a href="#careers" data-section="careers" class="menu-item">
+                    <div class="menu-card">
+                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#users"></use></svg>
+                        <span class="menu-label" data-i18n="navigation.careers">Careers</span>
+                    </div>
+                </a>
+                <a href="#news" data-section="news" class="menu-item">
+                    <div class="menu-card">
+                        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#newspaper"></use></svg>
+                        <span class="menu-label" data-i18n="navigation.news">News</span>
+                    </div>
+                </a>
+            </div>
+            <div class="menu-bottom">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme" data-i18n="[aria-label]labels.theme">
+                    <svg class="icon icon-md theme-icon-sun"><use xlink:href="/img/sprite.svg#sun"></use></svg>
+                    <svg class="icon icon-md theme-icon-moon"><use xlink:href="/img/sprite.svg#moon"></use></svg>
+                </button>
+                <button id="language-switcher" class="language-switcher" aria-label="Switch language" data-i18n="[aria-label]labels.language">
+                    <span class="current-lang">EN</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <nav id="mobile-menu" class="mobile-menu">
+        <button id="mobile-menu-toggle" class="mobile-menu-toggle" aria-label="Open menu">
+            <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#menu"></use></svg>
+        </button>
+        <div id="mobile-menu-panel" class="mobile-menu-panel">
+            <button id="close-mobile-menu" class="close-mobile-menu" aria-label="Close menu">
+                <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#close"></use></svg>
+            </button>
+            <div class="mobile-menu-content">
+                <a href="#hero" data-section="hero" class="mobile-menu-button">
+                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#home"></use></svg>
+                    <span class="mobile-menu-label" data-i18n="navigation.home">Home</span>
+                </a>
+                <a href="#ecosystem" data-section="ecosystem" class="mobile-menu-button">
+                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#globe"></use></svg>
+                    <span class="mobile-menu-label" data-i18n="navigation.ecosystem">Ecosystem</span>
+                </a>
+                <a href="#solutions" data-section="solutions" class="mobile-menu-button">
+                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#lightbulb"></use></svg>
+                    <span class="mobile-menu-label" data-i18n="navigation.solutions">Solutions</span>
+                </a>
+                <a href="#partners" data-section="partners" class="mobile-menu-button">
+                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#handshake"></use></svg>
+                    <span class="mobile-menu-label" data-i18n="navigation.partners">Partners</span>
+                </a>
+                <a href="#contacts" data-section="contacts" class="mobile-menu-button">
+                    <svg class="icon icon-lg"><use xlink:href="/img/sprite.svg#email"></use></svg>
+                    <span class="mobile-menu-label" data-i18n="navigation.contacts">Contacts</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg class="icon icon-md"><use xlink:href="/img/sprite.svg#arrow-up"></use></svg>
+    </button>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="section hero">
             <div class="container">
-                <div class="logo">
-                    <h1>АО Точка</h1>
-                </div>
-                <div class="nav-menu">
-                    <ul>
-                        <li><a href="#ecosystem">Экосистема</a></li>
-                        <li><a href="#solutions">Решения</a></li>
-                        <li><a href="#partners">Партнеры</a></li>
-                        <li><a href="#technology">Технологии</a></li>
-                        <li><a href="#about">О компании</a></li>
-                        <li><a href="#contact">Контакты</a></li>
-                    </ul>
-                </div>
-                <div class="nav-controls">
-                    <button class="theme-toggle" id="themeToggle">🌙</button>
-                    <button class="lang-toggle" id="langToggle">RU</button>
-                    <button class="menu-toggle" id="menuToggle">☰</button>
+                <div class="card hero-card">
+                    <h1 class="hero-title" data-i18n="hero.title">Powering Russia's Digital Economy</h1>
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Leading fintech innovation and financial technology solutions</p>
                 </div>
             </div>
-        </nav>
-    </header>
+        </section>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="video-background">
-            <video autoplay muted loop playsinline>
-                <source src="assets/videos/digital-bg.mp4" type="video/mp4">
-                Ваш браузер не поддерживает видео.
-            </video>
-        </div>
-        <div class="overlay"></div>
-        <div class="gradient-overlay"></div>
-        <div class="hero-content">
+        <!-- Ecosystem Section -->
+        <section id="ecosystem" class="section ecosystem">
             <div class="container">
-                <h1 class="hero-title">ПОДДЕРЖКА ЦИФРОВОЙ ЭКОНОМИКИ РОССИИ</h1>
-                <p class="hero-subtitle">Инновационные финтех-решения для бизнеса любого масштаба</p>
-                <div class="cta-buttons">
-                    <a href="#business" class="btn btn-primary">Для бизнеса</a>
-                    <a href="#partnership" class="btn btn-secondary">Для партнеров</a>
-                    <a href="#ecosystem" class="btn btn-tertiary">Наша экосистема</a>
+                <h2 class="section-title" data-i18n="sections.ecosystem.title">Our Ecosystem</h2>
+                <div class="card ecosystem-card">
+                    <p data-i18n="sections.ecosystem.description">AO Tochka Ecosystem Diagram</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Ecosystem Visualization -->
-    <section class="ecosystem" id="ecosystem">
-        <div class="container">
-            <h2 class="section-title">Наша экосистема</h2>
-            <p class="section-subtitle">АО Точка - центральная точка сложной бизнес-экосистемы</p>
-            
-            <div class="ecosystem-diagram">
-                <div class="ecosystem-center">
-                    <h3>АО Точка</h3>
-                    <p>Материнская компания</p>
-                </div>
-                
-                <div class="ecosystem-branches">
-                    <div class="branch platform">
-                        <h4>АО Платформа</h4>
-                        <p>Операционное подразделение</p>
+        <!-- Solutions Section -->
+        <section id="solutions" class="section solutions">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.solutions.title">Our Solutions</h2>
+                <div class="grid">
+                    <div class="card solution-card">
+                        <h3 data-i18n="sections.solutions.paymentProcessing">Payment Processing</h3>
+                        <p data-i18n="sections.solutions.paymentProcessingDesc">Advanced payment solutions for businesses</p>
                     </div>
-                    
-                    <div class="branch academy">
-                        <h4>ПК Академия</h4>
-                        <p>Сеть дистрибуции</p>
+                    <div class="card solution-card">
+                        <h3 data-i18n="sections.solutions.loyaltyPrograms">Loyalty Programs</h3>
+                        <p data-i18n="sections.solutions.loyaltyProgramsDesc">Customer retention and engagement solutions</p>
                     </div>
-                    
-                    <div class="branch lovi">
-                        <h4>LOVII</h4>
-                        <p>Лояльность и каталоги</p>
+                    <div class="card solution-card">
+                        <h3 data-i18n="sections.solutions.whiteLabelServices">White-Label Services</h3>
+                        <p data-i18n="sections.solutions.whiteLabelServicesDesc">Customizable financial technology solutions</p>
                     </div>
-                </div>
-                
-                <div class="data-flows">
-                    <div class="flow flow-1"></div>
-                    <div class="flow flow-2"></div>
-                    <div class="flow flow-3"></div>
+                    <div class="card solution-card">
+                        <h3 data-i18n="sections.solutions.digitalBanking">Digital Banking</h3>
+                        <p data-i18n="sections.solutions.digitalBankingDesc">Modern banking infrastructure and services</p>
+                    </div>
+                    <div class="card solution-card">
+                        <h3 data-i18n="sections.solutions.riskManagement">Risk Management</h3>
+                        <p data-i18n="sections.solutions.riskManagementDesc">Comprehensive risk assessment tools</p>
+                    </div>
+                    <div class="card solution-card">
+                        <h3 data-i18n="sections.solutions.dataAnalytics">Data Analytics</h3>
+                        <p data-i18n="sections.solutions.dataAnalyticsDesc">Business intelligence and analytics platform</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Solutions Section -->
-    <section class="solutions" id="solutions">
-        <div class="container">
-            <h2 class="section-title">Наши решения</h2>
-            <p class="section-subtitle">Полный спектр цифровых решений для вашего бизнеса</p>
-            
-            <div class="solutions-grid">
-                <div class="solution-card">
-                    <div class="card-icon">💳</div>
-                    <h3>Обработка платежей</h3>
-                    <p>Лицензия Банковского Платежного Агента по 161-ФЗ</p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-icon">🎁</div>
-                    <h3>Программы лояльности</h3>
-                    <p>Платформа LOVII для повышения удержания клиентов</p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-icon">🏪</div>
-                    <h3>Торговые каталоги</h3>
-                    <p>Интеграция с Vitrina для онлайн-торговли</p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-icon">🏦</div>
-                    <h3>Белый лейбл</h3>
-                    <p>Финансовые услуги под вашим брендом</p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-icon">🤝</div>
-                    <h3>Франчайзинг</h3>
-                    <p>Сеть дистрибуции через ПК Академия</p>
-                </div>
-                
-                <div class="solution-card">
-                    <div class="card-icon">🌐</div>
-                    <h3>Инфраструктура</h3>
-                    <p>Цифровая экономика для всех регионов РФ</p>
+        <!-- Partners Section -->
+        <section id="partners" class="section partners">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.partners.title">Our Partners</h2>
+                <div class="card partners-card">
+                    <p data-i18n="sections.partners.description">Partner logos and information</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Partners Section -->
-    <section class="partners" id="partners">
-        <div class="container">
-            <h2 class="section-title">Наши партнёры</h2>
-            <p class="section-subtitle">Работаем с крупнейшими ритейлерами и агрегаторами по всей России</p>
-            
-            <div class="stats-container">
-                <div class="stat-item">
-                    <span class="stat-number" data-target="1000000">0</span>
-                    <p>транзакций обработано</p>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="50000">0</span>
-                    <p>бизнесов обслужено</p>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number" data-target="85">0</span>
-                    <p>регионов охвачено</p>
+        <!-- Business Model Section -->
+        <section id="business-model" class="section business-model">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.businessModel.title">Business Model</h2>
+                <div class="card business-model-card">
+                    <p data-i18n="sections.businessModel.description">Animated ownership structure with incentive shares</p>
                 </div>
             </div>
-            
-            <div class="partners-carousel">
-                <div class="partner-logo">Retailer 1</div>
-                <div class="partner-logo">Aggregator 1</div>
-                <div class="partner-logo">Tech Partner</div>
-                <div class="partner-logo">Fotstrana</div>
-                <div class="partner-logo">Major Retailer</div>
-                <div class="partner-logo">Digital Platform</div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Business Model -->
-    <section class="business-model" id="about">
-        <div class="container">
-            <h2 class="section-title">Наша бизнес-модель</h2>
-            <p class="section-subtitle">Структура владения и распределения интересов</p>
-            
-            <div class="model-diagram">
-                <div class="ownership-structure">
-                    <div class="ao-tochka">
-                        <h3>АО Точка (76%)</h3>
-                        <p>Управляющая компания</p>
-                    </div>
-                    
-                    <div class="operational-arm">
-                        <h4>АО Платформа</h4>
-                        <p>Операционное подразделение</p>
-                    </div>
-                    
-                    <div class="distribution">
-                        <h4>ПК Академия</h4>
-                        <p>Сеть дистрибуции</p>
-                    </div>
-                    
-                    <div class="partnership">
-                        <h4>Региональные партнёры</h4>
-                        <p>24% акций распределены</p>
-                    </div>
+        <!-- Technology Section -->
+        <section id="technology" class="section technology">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.technology.title">Technology</h2>
+                <div class="card technology-card">
+                    <p data-i18n="sections.technology.description">Innovative technology stack and infrastructure</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Technology Stack -->
-    <section class="technology" id="technology">
-        <div class="container">
-            <h2 class="section-title">Технологии</h2>
-            <p class="section-subtitle">Современные технологии для надежных решений</p>
-            
-            <div class="tech-stack">
-                <div class="tech-badge">React</div>
-                <div class="tech-badge">Node.js</div>
-                <div class="tech-badge">Three.js</div>
-                <div class="tech-badge">GSAP</div>
-                <div class="tech-badge">API First</div>
-                <div class="tech-badge">Security</div>
+        <!-- Careers Section -->
+        <section id="careers" class="section careers">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.careers.title">Careers</h2>
+                <div class="card careers-card">
+                    <p data-i18n="sections.careers.description">Culture focus, Saint Petersburg HQ, events and retreats</p>
+                </div>
             </div>
-            
-            <div class="api-preview">
-                <h3>Пример интеграции API</h3>
-                <pre><code>// Пример вызова API
-const response = await fetch('/api/v1/payments', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-    'Authorization': 'Bearer YOUR_TOKEN'
-  },
-  body: JSON.stringify({
-    amount: 1000,
-    currency: 'RUB',
-    description: 'Payment description'
-  })
-});</code></pre>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Careers -->
-    <section class="careers">
-        <div class="container">
-            <h2 class="section-title">Карьера</h2>
-            <p class="section-subtitle">Присоединяйтесь к команде лидеров цифровой трансформации</p>
-            
-            <div class="career-highlights">
-                <div class="highlight-item">
-                    <div class="highlight-icon">🏢</div>
-                    <h3>Офис в СПб</h3>
-                    <p>Современное пространство в центре Санкт-Петербурга</p>
-                </div>
-                
-                <div class="highlight-item">
-                    <div class="highlight-icon">🎯</div>
-                    <h3>Профессиональный рост</h3>
-                    <p>Возможности развития в передовой отрасли</p>
-                </div>
-                
-                <div class="highlight-item">
-                    <div class="highlight-icon">🎉</div>
-                    <h3>Корпоративная культура</h3>
-                    <p>События, тренинги и командные мероприятия</p>
+        <!-- News Section -->
+        <section id="news" class="section news">
+            <div class="container">
+                <h2 class="section-title" data-i18n="sections.news.title">News</h2>
+                <div class="card news-card">
+                    <p data-i18n="sections.news.description">Latest company news and updates</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- News & Insights -->
-    <section class="news" id="news">
-        <div class="container">
-            <h2 class="section-title">Новости и аналитика</h2>
-            <p class="section-subtitle">Последние новости компании и отраслевые инсайты</p>
-            
-            <div class="news-grid">
-                <article class="news-card">
-                    <img src="assets/images/news1.jpg" alt="Новость 1">
-                    <div class="news-content">
-                        <h3>Расширение сети в Сибири</h3>
-                        <p>АО Точка открыла новые точки присутствия в Новосибирске и Красноярске...</p>
-                        <a href="#" class="read-more">Читать далее</a>
-                    </div>
-                </article>
-                
-                <article class="news-card">
-                    <img src="assets/images/news2.jpg" alt="Новость 2">
-                    <div class="news-content">
-                        <h3>Новое API для партнёров</h3>
-                        <p>Релиз новой версии API с расширенными возможностями интеграции...</p>
-                        <a href="#" class="read-more">Читать далее</a>
-                    </div>
-                </article>
-                
-                <article class="news-card">
-                    <img src="assets/images/news3.jpg" alt="Новость 3">
-                    <div class="news-content">
-                        <h3>Финансовый отчет за 2023</h3>
-                        <p>Итоги года: рост на 340% и расширение функционала платформы...</p>
-                        <a href="#" class="read-more">Читать далее</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
-                    <h3>АО Точка</h3>
-                    <p>Лидер российской цифровой экономики</p>
-                    <p>Г. Санкт-Петербург<br>ул. Примерная, д. 123</p>
-                    <p>ИНН: 1234567890<br>ОГРН: 1234567890123</p>
+            <div class="footer-content">
+                <p class="copyright" data-i18n="footer.copyright">&copy; 2026 AO Tochka. All rights reserved.</p>
+                <p class="legal-info" data-i18n="footer.legalInfo">Legal Entity: АО Точка, ОГРН/ИНН</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="MAX social media" data-i18n="[aria-label]footer.social.max"><svg class="icon icon-md"><use xlink:href="/img/sprite.svg#max"></use></svg></a>
+                    <a href="#" aria-label="VK social media" data-i18n="[aria-label]footer.social.vk"><svg class="icon icon-md"><use xlink:href="/img/sprite.svg#vk"></use></svg></a>
+                    <a href="#" aria-label="OK social media" data-i18n="[aria-label]footer.social.ok"><svg class="icon icon-md"><use xlink:href="/img/sprite.svg#ok"></use></svg></a>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Быстрые ссылки</h3>
-                    <ul>
-                        <li><a href="#ecosystem">Экосистема</a></li>
-                        <li><a href="#solutions">Решения</a></li>
-                        <li><a href="#partners">Партнеры</a></li>
-                        <li><a href="#technology">Технологии</a></li>
-                        <li><a href="#careers">Карьера</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Правовая информация</h3>
-                    <ul>
-                        <li><a href="#">Политика конфиденциальности</a></li>
-                        <li><a href="#">Условия использования</a></li>
-                        <li><a href="#">Лицензии и сертификаты</a></li>
-                        <li><a href="#">Реквизиты</a></li>
-                        <li><a href="#">Документы</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Контакты</h3>
-                    <p>Email: info@aotochka.ru</p>
-                    <p>Телефон: +7 (800) 123-45-67</p>
-                    <p>Поддержка: support@aotochka.ru</p>
-                    
-                    <div class="social-links">
-                        <a href="#">LinkedIn</a>
-                        <a href="#">Telegram</a>
-                        <a href="#">VK</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2026 АО Точка. Все права защищены.</p>
-                <p>АО Точка действует в качестве Банковского Платежного Агента в соответствии с Федеральным законом №161-ФЗ</p>
+                <p class="disclaimer" data-i18n="footer.disclaimer">Bank Payment Agent licensed under Federal Law 161-FZ</p>
             </div>
         </div>
     </footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="script.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/navigation.js"></script>
+    <script src="/js/theme.js"></script>
+    <script src="/js/language.js"></script>
+    <script src="/js/gsap-init.js"></script>
+    <script src="/js/scroll-observer.js"></script>
 </body>
 </html>
