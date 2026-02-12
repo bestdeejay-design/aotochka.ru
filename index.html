@@ -3,196 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АО Точка</title>
-    <meta name="mailru-domain" content="QhGcJHd9QlLP2ErE" />
-    <style>
-        :root {
-            --bg-color: #f0f0f0;
-            --text-color: #333;
-            --primary-color: #4a6fa5;
-            --secondary-color: #6b8cbc;
-            --card-bg: #ffffff;
-            --shadow: rgba(0, 0, 0, 0.1);
-        }
-
-        .dark-theme {
-            --bg-color: #1a1a1a;
-            --text-color: #f0f0f0;
-            --primary-color: #5d7ea3;
-            --secondary-color: #8aa2c1;
-            --card-bg: #2d2d2d;
-            --shadow: rgba(0, 0, 0, 0.4);
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            transition: background-color 0.3s ease, color 0.3s ease;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(121, 161, 255, 0.1) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(90, 180, 230, 0.1) 0%, transparent 20%),
-                linear-gradient(to bottom, var(--bg-color) 0%, var(--bg-color) 100%);
-            background-attachment: fixed;
-        }
-
-        .container {
-            max-width: 800px;
-            width: 90%;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        header {
-            margin-bottom: 2rem;
-        }
-
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .logo {
-            width: 150px;
-            height: auto;
-            filter: drop-shadow(0 4px 6px var(--shadow));
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .tagline {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--secondary-color);
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px var(--shadow);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            background-color: var(--secondary-color);
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 8px 16px var(--shadow);
-            margin: 1rem 0;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        footer {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: var(--secondary-color);
-        }
-    </style>
+    <title>АО "Точка" - Современная управляющая компания</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <button class="theme-toggle" id="themeToggle">☀️</button>
-    
-    <div class="container">
-        <header>
+    <header class="header">
+        <div class="container">
             <div class="logo-container">
-                <svg class="logo" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
-                    <!-- Background circle -->
-                    <circle cx="100" cy="50" r="40" fill="#4a6fa5"/>
-                    
-                    <!-- Main shape -->
-                    <path d="M60,30 Q100,10 140,30 L140,70 Q100,90 60,70 Z" fill="white"/>
-                    
-                    <!-- Dot in the center -->
-                    <circle cx="100" cy="50" r="8" fill="#4a6fa5"/>
-                    
-                    <!-- Text -->
-                    <text x="100" y="85" text-anchor="middle" fill="white" font-family="Arial" font-size="14" font-weight="bold">АО Точка</text>
+                <svg class="logo-svg" viewBox="0 0 100 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10,10 L30,10 L30,30 L10,30 Z" fill="var(--primary-color)" />
+                    <path d="M35,10 L55,10 L75,20 L55,30 L35,30 L55,20 Z" fill="var(--secondary-color)" />
+                    <text x="80" y="25" font-family="Arial" font-size="12" fill="var(--text-color)">ТОЧКА</text>
                 </svg>
             </div>
-            <h1>АО Точка</h1>
-            <p class="tagline">Инновационные решения для вашего бизнеса</p>
-        </header>
-        
-        <main>
-            <div class="card">
-                <p>АО "Точка" - современная компания, специализирующаяся на предоставлении инновационных решений в области информационных технологий и цифровых сервисов.</p>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">О нас</a></li>
+                    <li><a href="#products">Продукты</a></li>
+                    <li><a href="#clients">Клиенты</a></li>
+                    <li><a href="#careers">Карьера</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+            </nav>
+            <div class="theme-switcher">
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
             </div>
-            
-            <div class="card">
-                <p>Наша миссия - помогать бизнесу достигать новых высот через передовые технологии и качественные услуги.</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Акционерное Общество "Точка"</h1>
+                <p>Современная управляющая компания холдинга, специализирующаяся на ИТ-платформах и финансовых технологиях</p>
+                <div class="metrics">
+                    <div class="metric-card">
+                        <h3>40 000+</h3>
+                        <p>ТСП</p>
+                    </div>
+                    <div class="metric-card">
+                        <h3>8 000 000+</h3>
+                        <p>Пользователей</p>
+                    </div>
+                </div>
             </div>
-        </main>
-        
-        <footer>
-            <p>&copy; 2026 АО Точка. Все права защищены.</p>
-        </footer>
-    </div>
+        </section>
 
-    <script>
-        const themeToggle = document.getElementById('themeToggle');
-        const body = document.body;
-        let isDarkTheme = false;
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>О нашей компании</h2>
+                <p>АО "Точка" - это передовая управляющая компания холдинга, объединяющая инновационные технологии и финансовые решения. Мы создаем цифровые платформы, которые обеспечивают эффективное управление активами и развитие технологического сектора.</p>
+            </div>
+        </section>
 
-        // Check for saved theme preference or respect OS preference
-        if (localStorage.getItem('theme') === 'dark' || 
-            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            body.classList.add('dark-theme');
-            themeToggle.textContent = '🌙';
-            isDarkTheme = true;
-        } else {
-            themeToggle.textContent = '☀️';
-        }
+        <!-- Products Section -->
+        <section id="products" class="products">
+            <div class="container">
+                <h2>Продукты и услуги</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <h3>ИТ-платформы</h3>
+                        <p>Современные цифровые решения для автоматизации бизнес-процессов</p>
+                    </div>
+                    <div class="product-card">
+                        <h3>Финансовые технологии</h3>
+                        <p>Инновационные платежные системы и инвестиционные платформы</p>
+                    </div>
+                    <div class="product-card">
+                        <h3>Управление активами</h3>
+                        <p>Эффективные решения для управления портфелями и инвестициями</p>
+                    </div>
+                    <div class="product-card">
+                        <h3>Кибербезопасность</h3>
+                        <p>Защита данных и обеспечение безопасности цифровых активов</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-theme');
-            isDarkTheme = !isDarkTheme;
-            
-            if (isDarkTheme) {
-                themeToggle.textContent = '🌙';
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeToggle.textContent = '☀️';
-                localStorage.setItem('theme', 'light');
-            }
-        });
-    </script>
+        <!-- Clients Section -->
+        <section id="clients" class="clients">
+            <div class="container">
+                <h2>Наши клиенты и партнеры</h2>
+                <div class="partners-grid">
+                    <div class="partner-card">Крупный банк</div>
+                    <div class="partner-card">Технологическая компания</div>
+                    <div class="partner-card">Инвестиционный фонд</div>
+                    <div class="partner-card">Государственная структура</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section id="news" class="news">
+            <div class="container">
+                <h2>Новости и события</h2>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <h3>Запуск новой платформы</h3>
+                        <p>Мы запустили инновационную ИТ-платформу для управления цифровыми активами</p>
+                    </article>
+                    <article class="news-card">
+                        <h3>Расширение команды</h3>
+                        <p>АО "Точка" приглашает талантливых специалистов в команду разработчиков</p>
+                    </article>
+                    <article class="news-card">
+                        <h3>Партнерство с технологическим гигантом</h3>
+                        <p>Подписано соглашение о сотрудничестве в области финтех-решений</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Careers Section -->
+        <section id="careers" class="careers">
+            <div class="container">
+                <h2>Карьера в АО "Точка"</h2>
+                <div class="vacancies">
+                    <div class="vacancy-card">
+                        <h3>Frontend-разработчик</h3>
+                        <p>Разработка современных веб-интерфейсов с использованием последних технологий</p>
+                    </div>
+                    <div class="vacancy-card">
+                        <h3>Backend-архитектор</h3>
+                        <p>Проектирование и реализация серверных решений для ИТ-платформ</p>
+                    </div>
+                    <div class="vacancy-card">
+                        <h3>Специалист по кибербезопасности</h3>
+                        <p>Обеспечение безопасности цифровых активов и данных клиентов</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feedback Form -->
+        <section id="feedback" class="feedback">
+            <div class="container">
+                <h2>Свяжитесь с нами</h2>
+                <form class="feedback-form">
+                    <div class="form-group">
+                        <label for="name">Имя</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Сообщение</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="contact-info">
+                    <h3>Контактная информация</h3>
+                    <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+                    <p>Email: info@ao-tochka.ru</p>
+                    <p>Адрес: г. Москва, ул. Примерная, д. 1</p>
+                </div>
+                <div class="social-links">
+                    <h3>Мы в социальных сетях</h3>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Telegram</a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Акционерное Общество "Точка". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
