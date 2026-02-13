@@ -89,8 +89,8 @@
         .sidebar {
             position: fixed;
             left: 0;
-            top: 0;
-            height: 100vh;
+            top: 80px;
+            height: calc(100vh - 80px);
             width: 80px;
             display: flex;
             flex-direction: column;
@@ -167,15 +167,7 @@
             align-items: center;
         }
         
-        .theme-switcher {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
-            padding: 8px 12px;
-            color: white;
-            cursor: pointer;
-            backdrop-filter: blur(10px);
-        }
+
         
         .logo {
             height: 40px;
@@ -608,7 +600,7 @@
                 <a href="#contacts" data-translate="menu_contacts">Контакты</a>
             </nav>
             <div class="header-controls">
-                <button class="theme-switcher" id="themeBtn">☀️</button>
+
                 <button class="lang-switcher" id="langBtn">RU</button>
             </div>
             <button class="hamburger" id="hamburger">☰</button>
@@ -1369,9 +1361,7 @@
             const langBtn = document.getElementById('langBtn');
             langBtn.addEventListener('click', toggleLanguage);
             
-            // Set up theme switcher
-            const themeBtn = document.getElementById('themeBtn');
-            themeBtn.addEventListener('click', toggleTheme);
+
             
             // Set up hamburger menu
             const hamburger = document.getElementById('hamburger');
@@ -1432,6 +1422,7 @@
             } else {
                 currentLang = 'ru';
             }
+            localStorage.setItem('selectedLanguage', currentLang);
             updateLanguage();
         }
         // Theme toggle functionality
