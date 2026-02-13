@@ -11,8 +11,8 @@
         :root {
             --dark-bg-1: #0F0F12;
             --dark-bg-2: #141418;
-            --light-bg-1: #FFFFFF;
-            --light-bg-2: #F5F5F5;
+            --light-bg-1: #FAFAFA;
+            --light-bg-2: #EEEEEE;
             --terracotta: #C97C5D;
             --sage-green: #A0B29C;
             --glass-bg: rgba(255, 255, 255, 0.08);
@@ -24,7 +24,7 @@
         .light-theme {
             --bg-color: linear-gradient(135deg, var(--light-bg-1), var(--light-bg-2));
             --text-color: #333333;
-            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-bg: rgba(255, 255, 255, 0.85);
             --glass-border: rgba(0, 0, 0, 0.1);
         }
         
@@ -578,60 +578,51 @@
         <section id="loyalty">
             <div class="container">
                 <h2 class="section-title" data-translate="loyalty_title">Программы лояльности</h2>
-                <div class="loyalty-grid">
-                    <div class="card loyalty-card">
-                        <div class="loyalty-icon">
-                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="30" height="30" rx="8" fill="white"/>
-                                <circle cx="10" cy="10" r="3" fill="#C97C5D"/>
-                                <circle cx="20" cy="10" r="3" fill="#C97C5D"/>
-                                <circle cx="10" cy="20" r="3" fill="#C97C5D"/>
-                                <circle cx="20" cy="20" r="3" fill="#C97C5D"/>
-                                <path d="M15 8L15 22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M8 15H22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
+                <div class="loyalty-section">
+                    <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 40px; margin-bottom: 40px; backdrop-filter: blur(20px);">
+                        <h3 style="color: var(--terracotta); font-size: 1.8rem; margin-bottom: 20px;" data-translate="loyalty_overview_title">Комплексное решение для бизнеса</h3>
+                        <p style="color: var(--sage-green); line-height: 1.8; margin-bottom: 25px;" data-translate="loyalty_overview_desc">АО «Точка» предоставляет полный спектр услуг по реализации и управлению программами лояльности. Наши решения позволяют объединять различные каналы взаимодействия с клиентами, анализировать поведение потребителей и повышать эффективность маркетинговых кампаний.</p>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 30px;">
+                            <div style="padding: 20px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 15px;">📊</div>
+                                <h4 style="color: var(--terracotta); margin-bottom: 10px;" data-translate="loyalty_analytics_title">Аналитика и отчеты</h4>
+                                <p style="color: var(--sage-green);" data-translate="loyalty_analytics_desc">Подробная аналитика поведения участников программ лояльности</p>
+                            </div>
+                            <div style="padding: 20px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 15px;">🔄</div>
+                                <h4 style="color: var(--terracotta); margin-bottom: 10px;" data-translate="loyalty_integration_title">Интеграции</h4>
+                                <p style="color: var(--sage-green);" data-translate="loyalty_integration_desc">Интеграция с CRM, ERP, POS-системами и другими бизнес-приложениями</p>
+                            </div>
+                            <div style="padding: 20px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 15px;">💳</div>
+                                <h4 style="color: var(--terracotta); margin-bottom: 10px;" data-translate="loyalty_cards_title">Карты и счета</h4>
+                                <p style="color: var(--sage-green);" data-translate="loyalty_cards_desc">Физические и виртуальные карты лояльности, накопительные счета</p>
+                            </div>
+                            <div style="padding: 20px; text-align: center;">
+                                <div style="font-size: 2.5rem; margin-bottom: 15px;">📱</div>
+                                <h4 style="color: var(--terracotta); margin-bottom: 10px;" data-translate="loyalty_mobile_title">Мобильные приложения</h4>
+                                <p style="color: var(--sage-green);" data-translate="loyalty_mobile_desc">Собственные мобильные приложения для участников программ</p>
+                            </div>
                         </div>
-                        <h3 data-translate="loyalty_aggregator_title">Универсальный агрегатор</h3>
-                        <p data-translate="loyalty_aggregator_desc">Объединяйте все балльные накопления клиентов в одной системе</p>
                     </div>
-                    <div class="card loyalty-card">
-                        <div class="loyalty-icon">
-                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="30" height="30" rx="8" fill="white"/>
-                                <path d="M8 10C8 8.34315 9.34315 7 11 7H19C20.6569 7 22 8.34315 22 10V20C22 21.6569 20.6569 23 19 23H11C9.34315 23 8 21.6569 8 20V10Z" stroke="#C97C5D" stroke-width="2"/>
-                                <path d="M15 13V17" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M13 15H17" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="15" cy="10" r="2" fill="#C97C5D"/>
-                            </svg>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
+                        <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 30px; backdrop-filter: blur(20px);">
+                            <h3 style="color: var(--terracotta); font-size: 1.5rem; margin-bottom: 15px;" data-translate="loyalty_aggregator_title">Универсальный агрегатор</h3>
+                            <p style="color: var(--sage-green); line-height: 1.6;" data-translate="loyalty_aggregator_desc">Объединяйте все балльные накопления клиентов в одной системе</p>
                         </div>
-                        <h3 data-translate="loyalty_redemption_title">Кросс-программный выкуп</h3>
-                        <p data-translate="loyalty_redemption_desc">Возможность обмена баллов между различными программами</p>
-                    </div>
-                    <div class="card loyalty-card">
-                        <div class="loyalty-icon">
-                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="30" height="30" rx="8" fill="white"/>
-                                <path d="M8 15H22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M15 8L22 15L15 22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <circle cx="11" cy="11" r="2" fill="#C97C5D"/>
-                                <circle cx="19" cy="19" r="2" fill="#C97C5D"/>
-                            </svg>
+                        <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 30px; backdrop-filter: blur(20px);">
+                            <h3 style="color: var(--terracotta); font-size: 1.5rem; margin-bottom: 15px;" data-translate="loyalty_redemption_title">Кросс-программный выкуп</h3>
+                            <p style="color: var(--sage-green); line-height: 1.6;" data-translate="loyalty_redemption_desc">Возможность обмена баллов между различными программами</p>
                         </div>
-                        <h3 data-translate="loyalty_sbp_title">Выкуп через СБП</h3>
-                        <p data-translate="loyalty_sbp_desc">Конвертируйте баллы в рубли через систему быстрых платежей</p>
-                    </div>
-                    <div class="card loyalty-card">
-                        <div class="loyalty-icon">
-                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect width="30" height="30" rx="8" fill="white"/>
-                                <circle cx="15" cy="10" r="4" stroke="#C97C5D" stroke-width="2"/>
-                                <path d="M5 25C5 19.4772 9.47715 15 15 15C20.5228 15 25 19.4772 25 25" stroke="#C97C5D" stroke-width="2"/>
-                                <path d="M10 20H20" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
-                                <circle cx="15" cy="10" r="1.5" fill="#C97C5D"/>
-                            </svg>
+                        <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 30px; backdrop-filter: blur(20px);">
+                            <h3 style="color: var(--terracotta); font-size: 1.5rem; margin-bottom: 15px;" data-translate="loyalty_sbp_title">Выкуп через СБП</h3>
+                            <p style="color: var(--sage-green); line-height: 1.6;" data-translate="loyalty_sbp_desc">Конвертируйте баллы в рубли через систему быстрых платежей</p>
                         </div>
-                        <h3 data-translate="loyalty_employee_title">Корпоративные награды</h3>
-                        <p data-translate="loyalty_employee_desc">Системы вознаграждения для внутренних программ мотивации</p>
+                        <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 30px; backdrop-filter: blur(20px);">
+                            <h3 style="color: var(--terracotta); font-size: 1.5rem; margin-bottom: 15px;" data-translate="loyalty_employee_title">Корпоративные награды</h3>
+                            <p style="color: var(--sage-green); line-height: 1.6;" data-translate="loyalty_employee_desc">Системы вознаграждения для внутренних программ мотивации</p>
+                        </div>
                     </div>
                 </div>
             </div>
