@@ -3,531 +3,796 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АО Точка - Развиваем цифровую экономику России</title>
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="/css/reset.css">
-    <link rel="stylesheet" href="/css/variables.css">
-    <link rel="stylesheet" href="/css/base.css">
-    <link rel="stylesheet" href="/css/layout.css">
-    <link rel="stylesheet" href="/css/components.css">
-    <link rel="stylesheet" href="/css/animations.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-        // Register the ScrollTrigger plugin
-        gsap.registerPlugin(ScrollTrigger);
-    </script>
+    <title>АО «Точка» — Цифровая инфраструктура для малого бизнеса</title>
+    <link rel="icon" href="/logo512.png" type="image/png">
+    <link rel="apple-touch-icon" href="/logo512.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-bg-1: #0F0F12;
+            --dark-bg-2: #141418;
+            --terracotta: #C97C5D;
+            --sage-green: #A0B29C;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg-1), var(--dark-bg-2));
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(201, 124, 93, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(160, 178, 156, 0.1) 0%, transparent 20%);
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            border-bottom: 1px solid var(--glass-border);
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .lang-switcher {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: white;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--terracotta);
+        }
+        
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, white, var(--terracotta));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--sage-green);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            background: var(--terracotta);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(201, 124, 93, 0.3);
+        }
+        
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--terracotta);
+        }
+        
+        .tech-grid, .business-grid, .loyalty-grid, .banking-grid, .security-grid, .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: var(--terracotta);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .card p {
+            color: var(--sage-green);
+            line-height: 1.6;
+        }
+        
+        .tech-icon, .business-icon, .loyalty-icon, .banking-icon, .security-icon, .docs-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        footer {
+            background: var(--glass-bg);
+            border-top: 1px solid var(--glass-border);
+            padding: 40px 0;
+            text-align: center;
+            backdrop-filter: blur(20px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--dark-bg-2);
+            padding: 20px;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+        
+        .mobile-menu.active {
+            display: flex;
+        }
+        
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+            
+            nav {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Desktop Sidebar -->
-    <aside class="sidebar" id="desktopSidebar">
-        <div class="accent-stripe"></div>
-        <div class="logo-area">
-            <img src="/img/logo.svg" alt="АО Точка" class="logo-image">
-            <span class="logo-text">АО Точка</span>
+    <header>
+        <div class="container header-content">
+            <img src="/logo512.png" alt="АО «Точка»" class="logo" id="logo">
+            <nav id="desktop-nav">
+                <a href="#technologies" data-translate="menu_technologies">Технологии</a>
+                <a href="#for-business" data-translate="menu_business">Для бизнеса</a>
+                <a href="#loyalty" data-translate="menu_loyalty">Программы лояльности</a>
+                <a href="#banking" data-translate="menu_banking">Банковские интеграции</a>
+                <a href="#security" data-translate="menu_security">Безопасность</a>
+                <a href="#documentation" data-translate="menu_docs">Документация</a>
+                <a href="#contacts" data-translate="menu_contacts">Контакты</a>
+            </nav>
+            <button class="lang-switcher" id="langBtn">RU</button>
+            <button class="hamburger" id="hamburger">☰</button>
         </div>
-        
-        <nav class="menu">
-            <a href="#hero" class="menu-item active" data-target="hero">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 3L3 10V20H21V10L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 21V14H15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.home">Главная</span>
-            </a>
-            
-            <a href="#technologies" class="menu-item" data-target="technologies">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-                    <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
-                    <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.technologies">Технологии</span>
-            </a>
-            
-            <a href="#for-business" class="menu-item" data-target="for-business">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.for-business">Для бизнеса</span>
-            </a>
-            
-            <a href="#loyalty-programs" class="menu-item" data-target="loyalty-programs">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 12v5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 15h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.loyalty-programs">Программы лояльности</span>
-            </a>
-            
-            <a href="#banking-integrations" class="menu-item" data-target="banking-integrations">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 10h18M3 14h18m-9-8v16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 4l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 20l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.banking-integrations">Банковские интеграции</span>
-            </a>
-            
-            <a href="#security" class="menu-item" data-target="security">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.security">Безопасность</span>
-            </a>
-            
-            <a href="#documentation" class="menu-item" data-target="documentation">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <polyline points="10 9 9 9 8 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.documentation">Документация</span>
-            </a>
-            
-            <a href="#ecosystem" class="menu-item" data-target="ecosystem">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                    <line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="2"/>
-                    <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.ecosystem">Экосистема</span>
-            </a>
-            
-            <a href="#solutions" class="menu-item" data-target="solutions">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-                    <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
-                    <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.solutions">Решения</span>
-            </a>
-            
-            <a href="#partners" class="menu-item" data-target="partners">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M17 3.13C17.8604 3.35031 18.623 3.85071 19.1676 4.55232C19.7122 5.25392 20.0078 6.11683 20.0078 7.005C20.0078 7.89318 19.7122 8.75608 19.1676 9.45769C18.623 10.1593 17.8604 10.6597 17 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.partners">Партнеры</span>
-            </a>
-            
-            <a href="#careers" class="menu-item" data-target="careers">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.careers">Карьера</span>
-            </a>
-            
-            <a href="#news" class="menu-item" data-target="news">
-                <svg class="menu-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2"/>
-                    <path d="M15 7H9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M15 11H9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <path d="M15 15H9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-                <span class="menu-text" data-i18n="nav.news">Новости</span>
-            </a>
-        </nav>
-        
-        <div class="theme-toggle" title="Переключить тему">
-            <span>🌙</span>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#technologies" data-translate="menu_technologies">Технологии</a>
+            <a href="#for-business" data-translate="menu_business">Для бизнеса</a>
+            <a href="#loyalty" data-translate="menu_loyalty">Программы лояльности</a>
+            <a href="#banking" data-translate="menu_banking">Банковские интеграции</a>
+            <a href="#security" data-translate="menu_security">Безопасность</a>
+            <a href="#documentation" data-translate="menu_docs">Документация</a>
+            <a href="#contacts" data-translate="menu_contacts">Контакты</a>
         </div>
-        
-        <div class="lang-switcher">
-            <button class="lang-btn active" data-lang="ru">RU</button>
-            <span class="lang-separator">/</span>
-            <button class="lang-btn" data-lang="en">EN</button>
-            <span class="lang-separator">/</span>
-            <button class="lang-btn" data-lang="cn">CN</button>
-        </div>
-    </aside>
+    </header>
 
-    <!-- Mobile Hamburger Button -->
-    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Открыть меню">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M3 12H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M3 6H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <path d="M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-    </button>
-
-    <!-- Mobile Menu Panel -->
-    <div class="mobile-menu-panel" id="mobileMenuPanel">
-        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Закрыть меню">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-        </button>
-        
-        <div class="mobile-menu-grid">
-            <a href="#hero" class="mobile-menu-btn" data-target="hero">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 3L3 10V20H21V10L12 3Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 21V14H15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="nav.home">Главная</span>
-            </a>
-            
-            <a href="#technologies" class="mobile-menu-btn" data-target="technologies">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-                    <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
-                    <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span data-i18n="nav.technologies">Технологии</span>
-            </a>
-            
-            <a href="#for-business" class="mobile-menu-btn" data-target="for-business">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="nav.for-business">Для бизнеса</span>
-            </a>
-            
-            <a href="#loyalty-programs" class="mobile-menu-btn" data-target="loyalty-programs">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 12v5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 15h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="nav.loyalty-programs">Программы лояльности</span>
-            </a>
-            
-            <a href="#banking-integrations" class="mobile-menu-btn" data-target="banking-integrations">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 10h18M3 14h18m-9-8v16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 4l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M8 20l4-4 4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="nav.banking-integrations">Банковские интеграции</span>
-            </a>
-            
-            <a href="#security" class="mobile-menu-btn" data-target="security">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="nav.security">Безопасность</span>
-            </a>
-            
-            <a href="#documentation" class="mobile-menu-btn" data-target="documentation">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <polyline points="14 2 14 8 20 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <polyline points="10 9 9 9 8 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="nav.documentation">Документация</span>
-            </a>
-            
-            <a href="#ecosystem" class="mobile-menu-btn" data-target="ecosystem">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                    <line x1="12" y1="8" x2="12" y2="16" stroke="currentColor" stroke-width="2"/>
-                    <line x1="8" y1="12" x2="16" y2="12" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span data-i18n="nav.ecosystem">Экосистема</span>
-            </a>
-            
-            <a href="#solutions" class="mobile-menu-btn" data-target="solutions">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
-                    <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
-                    <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
-                </svg>
-                <span data-i18n="nav.solutions">Решения</span>
-            </a>
-            
-            <a href="#partners" class="mobile-menu-btn" data-target="partners">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M17 3.13C17.8604 3.35031 18.623 3.85071 19.1676 4.55232C19.7122 5.25392 20.0078 6.11683 20.0078 7.005C20.0078 7.89318 19.7122 8.75608 19.1676 9.45769C18.623 10.1593 17.8604 10.6597 17 10.88" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="nav.partners">Партнеры</span>
-            </a>
-            
-            <a href="#careers" class="mobile-menu-btn" data-target="careers">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span data-i18n="nav.careers">Карьера</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Main Content -->
-    <main class="main-content">
-        <section id="hero" class="section hero" data-section="hero">
-            <div class="container">
-                <h1 class="hero-title" data-i18n="hero.title">Развиваем цифровую экономику России</h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">Инновационные финтех решения для бизнеса любого размера</p>
+    <main>
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <h1 data-translate="hero_title">Цифровая инфраструктура для малого бизнеса</h1>
+                <p data-translate="hero_subtitle">Платформенные решения, финтех-интеграции и системы лояльности — всё в одном технологическом стеке.</p>
+                <a href="#technologies" class="btn" data-translate="hero_cta">Изучить технологии</a>
             </div>
         </section>
 
-        <section id="technologies" class="section technologies" data-section="technologies">
+        <section id="technologies">
             <div class="container">
-                <h2 class="section-title" data-i18n="technologies.title">Технологии</h2>
-                <div class="tech-stack">
-                    <span class="tech-badge">Microservices</span>
-                    <span class="tech-badge">Kubernetes</span>
-                    <span class="tech-badge">Kafka</span>
-                    <span class="tech-badge">PostgreSQL</span>
-                    <span class="tech-badge">REST/GraphQL API</span>
-                    <span class="tech-badge">CI/CD</span>
-                    <span class="tech-badge">Prometheus</span>
-                    <span class="tech-badge">Sentry</span>
+                <h2 class="section-title" data-translate="tech_title">Технологии</h2>
+                <div class="tech-grid">
+                    <div class="card">
+                        <div class="tech-icon">⚙️</div>
+                        <h3 data-translate="tech_micro_title">Микросервисы</h3>
+                        <p data-translate="tech_micro_desc">Node.js, Python, Go — масштабируемая архитектура для высокой нагрузки</p>
+                    </div>
+                    <div class="card">
+                        <div class="tech-icon">🔄</div>
+                        <h3 data-translate="tech_kubernetes_title">Kubernetes, Kafka</h3>
+                        <p data-translate="tech_kubernetes_desc">Контейнеризация и потоковая обработка данных в реальном времени</p>
+                    </div>
+                    <div class="card">
+                        <div class="tech-icon">📡</div>
+                        <h3 data-translate="tech_api_title">REST/GraphQL API</h3>
+                        <p data-translate="tech_api_desc">Открытые интерфейсы с полной документацией OpenAPI</p>
+                    </div>
+                    <div class="card">
+                        <div class="tech-icon">🔒</div>
+                        <h3 data-translate="tech_devops_title">CI/CD, Мониторинг</h3>
+                        <p data-translate="tech_devops_desc">Прометей, Зенси, автоматические тесты и деплои</p>
+                    </div>
+                    <div class="card">
+                        <div class="tech-icon">📋</div>
+                        <h3 data-translate="tech_compliance_title">Соответствие нормам</h3>
+                        <p data-translate="tech_compliance_desc">Полное соблюдение российского законодательства (152-ФЗ, 161-ФЗ)</p>
+                    </div>
+                    <div class="card">
+                        <div class="tech-icon">🌐</div>
+                        <h3 data-translate="tech_scalability_title">Масштабируемость</h3>
+                        <p data-translate="tech_scalability_desc">Гибкая архитектура для роста вашего бизнеса</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="for-business" class="section for-business" data-section="for-business">
+        <section id="for-business">
             <div class="container">
-                <h2 class="section-title" data-i18n="for-business.title">Для бизнеса</h2>
+                <h2 class="section-title" data-translate="business_title">Для бизнеса</h2>
                 <div class="business-grid">
-                    <div class="business-card">
-                        <h3 data-i18n="for-business.payments">Приём платежей</h3>
-                        <p data-i18n="for-business.payments-desc">Принимайте оплату и чаевые в баллах и рублях</p>
+                    <div class="card">
+                        <div class="business-icon">💳</div>
+                        <h3 data-translate="business_payments_title">Прием платежей</h3>
+                        <p data-translate="business_payments_desc">Принимайте оплату и чаевые в баллах/рублях через единую систему</p>
                     </div>
-                    <div class="business-card">
-                        <h3 data-i18n="for-business.fiscalization">Автоматическая фискализация</h3>
-                        <p data-i18n="for-business.fiscalization-desc">Для самозанятых и малого бизнеса</p>
+                    <div class="card">
+                        <div class="business-icon">📝</div>
+                        <h3 data-translate="business_fiscal_title">Автофискализация</h3>
+                        <p data-translate="business_fiscal_desc">Автоматическая передача данных для самозанятых в ФНС</p>
                     </div>
-                    <div class="business-card">
-                        <h3 data-i18n="for-business.loyalty">Белый лейбл лояльности</h3>
-                        <p data-i18n="for-business.loyalty-desc">Собственные программы лояльности</p>
+                    <div class="card">
+                        <div class="business-icon">🏷️</div>
+                        <h3 data-translate="business_white_label_title">Белый лейбл</h3>
+                        <p data-translate="business_white_label_desc">Собственные программы лояльности под ваш бренд</p>
                     </div>
-                    <div class="business-card">
-                        <h3 data-i18n="for-business.hr">HR бонусы</h3>
-                        <p data-i18n="for-business.hr-desc">Системы вознаграждения сотрудников</p>
+                    <div class="card">
+                        <div class="business-icon">👥</div>
+                        <h3 data-translate="business_hr_title">HR-бонусы</h3>
+                        <p data-translate="business_hr_desc">Системы поощрения сотрудников через балловую программу</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="loyalty-programs" class="section loyalty-programs" data-section="loyalty-programs">
+        <section id="loyalty">
             <div class="container">
-                <h2 class="section-title" data-i18n="loyalty-programs.title">Программы лояльности</h2>
+                <h2 class="section-title" data-translate="loyalty_title">Программы лояльности</h2>
                 <div class="loyalty-grid">
-                    <div class="loyalty-card">
-                        <h3 data-i18n="loyalty.universal">Универсальный агрегатор</h3>
-                        <p data-i18n="loyalty.universal-desc">Объединение разных программ лояльности</p>
+                    <div class="card">
+                        <div class="loyalty-icon">🔄</div>
+                        <h3 data-translate="loyalty_aggregator_title">Универсальный агрегатор</h3>
+                        <p data-translate="loyalty_aggregator_desc">Объединяйте все балльные накопления клиентов в одной системе</p>
                     </div>
-                    <div class="loyalty-card">
-                        <h3 data-i18n="loyalty.redemption">Кросс-программный обмен</h3>
-                        <p data-i18n="loyalty.redemption-desc">Обналичивание через СБП</p>
+                    <div class="card">
+                        <div class="loyalty-icon">🎁</div>
+                        <h3 data-translate="loyalty_redemption_title">Кросс-программный выкуп</h3>
+                        <p data-translate="loyalty_redemption_desc">Возможность обмена баллов между различными программами</p>
                     </div>
-                    <div class="loyalty-card">
-                        <h3 data-i18n="loyalty.employee">Сотруднические награды</h3>
-                        <p data-i18n="loyalty.employee-desc">Системы вознаграждения персонала</p>
+                    <div class="card">
+                        <div class="loyalty-icon">💰</div>
+                        <h3 data-translate="loyalty_sbp_title">Выкуп через СБП</h3>
+                        <p data-translate="loyalty_sbp_desc">Конвертируйте баллы в рубли через систему быстрых платежей</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="banking-integrations" class="section banking-integrations" data-section="banking-integrations">
-            <div class="container">
-                <h2 class="section-title" data-i18n="banking-integrations.title">Банковские интеграции</h2>
-                <div class="integration-grid">
-                    <div class="integration-card">
-                        <h3 data-i18n="banking.payment-agent">Модель банковского платежного агента</h3>
-                        <p data-i18n="banking.payment-agent-desc">Соответствие 161-ФЗ</p>
-                    </div>
-                    <div class="integration-card">
-                        <h3 data-i18n="banking.payments">СБП, Mir Pay, QR-платежи</h3>
-                        <p data-i18n="banking.payments-desc">Разнообразие способов оплаты</p>
-                    </div>
-                    <div class="integration-card">
-                        <h3 data-i18n="banking.accounts">Специальные счета</h3>
-                        <p data-i18n="banking.accounts-desc">OFD, ККТ поддержка</p>
+                    <div class="card">
+                        <div class="loyalty-icon">💼</div>
+                        <h3 data-translate="loyalty_employee_title">Корпоративные награды</h3>
+                        <p data-translate="loyalty_employee_desc">Системы вознаграждения для внутренних программ мотивации</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="security" class="section security" data-section="security">
+        <section id="banking">
             <div class="container">
-                <h2 class="section-title" data-i18n="security.title">Безопасность</h2>
+                <h2 class="section-title" data-translate="banking_title">Банковские интеграции</h2>
+                <div class="banking-grid">
+                    <div class="card">
+                        <div class="banking-icon">🏦</div>
+                        <h3 data-translate="banking_agent_title">Модель платежного агента</h3>
+                        <p data-translate="banking_agent_desc">Работаем по схеме банковского платежного агента (161-ФЗ)</p>
+                    </div>
+                    <div class="card">
+                        <div class="banking-icon">💳</div>
+                        <h3 data-translate="banking_payments_title">СБП, Mir Pay, QR-платежи</h3>
+                        <p data-translate="banking_payments_desc">Полная интеграция с национальными платежными системами</p>
+                    </div>
+                    <div class="card">
+                        <div class="banking-icon">📊</div>
+                        <h3 data-translate="banking_accounts_title">Специальные счета</h3>
+                        <p data-translate="banking_accounts_desc">Отдельные счета для хранения средств клиентов</p>
+                    </div>
+                    <div class="card">
+                        <div class="banking-icon">🖨️</div>
+                        <h3 data-translate="banking_ofd_title">OFD и ККТ</h3>
+                        <p data-translate="banking_ofd_desc">Интеграция с операторами фискальных данных и онлайн-кассами</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="security">
+            <div class="container">
+                <h2 class="section-title" data-translate="security_title">Безопасность</h2>
                 <div class="security-grid">
-                    <div class="security-card">
-                        <h3 data-i18n="security.storage">Хранение данных в России</h3>
-                        <p data-i18n="security.storage-desc">Соответствие требованиям законодательства</p>
+                    <div class="card">
+                        <div class="security-icon">🇷🇺</div>
+                        <h3 data-translate="security_data_title">Хранение данных в РФ</h3>
+                        <p data-translate="security_data_desc">Все данные наших клиентов находятся на территории России</p>
                     </div>
-                    <div class="security-card">
-                        <h3 data-i18n="security.encryption">Сквозное шифрование</h3>
-                        <p data-i18n="security.encryption-desc">Защита всех данных</p>
+                    <div class="card">
+                        <div class="security-icon">🔒</div>
+                        <h3 data-translate="security_encryption_title">Сквозное шифрование</h3>
+                        <p data-translate="security_encryption_desc">Защита данных на уровне приложений и транспорта</p>
                     </div>
-                    <div class="security-card">
-                        <h3 data-i18n="security.pentests">Регулярные пентесты</h3>
-                        <p data-i18n="security.pentests-desc">WAF, DDoS защита</p>
+                    <div class="card">
+                        <div class="security-icon">🔍</div>
+                        <h3 data-translate="security_penetration_title">Регулярные пентесты</h3>
+                        <p data-translate="security_penetration_desc">Постоянные проверки уязвимостей и тестирование безопасности</p>
                     </div>
-                    <div class="security-card">
-                        <h3 data-i18n="security.pcidss">Готовность к PCI DSS</h3>
-                        <p data-i18n="security.pcidss-desc">Соответствие стандартам безопасности</p>
+                    <div class="card">
+                        <div class="security-icon">🛡️</div>
+                        <h3 data-translate="security_protection_title">WAF и DDoS-защита</h3>
+                        <p data-translate="security_protection_desc">Защита от веб-атак и распределенных атак типа "отказ в обслуживании"</p>
+                    </div>
+                    <div class="card">
+                        <div class="security-icon">✅</div>
+                        <h3 data-translate="security_pci_title">Соответствие PCI DSS</h3>
+                        <p data-translate="security_pci_desc">Соблюдение международных стандартов безопасности платежных данных</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="documentation" class="section documentation" data-section="documentation">
+        <section id="documentation">
             <div class="container">
-                <h2 class="section-title" data-i18n="documentation.title">Документация</h2>
+                <h2 class="section-title" data-translate="docs_title">Документация</h2>
                 <div class="docs-grid">
-                    <div class="docs-card">
-                        <h3 data-i18n="documentation.api">Публичный API портал</h3>
-                        <p data-i18n="documentation.api-desc">Swagger документация</p>
+                    <div class="card">
+                        <div class="docs-icon">📚</div>
+                        <h3 data-translate="docs_api_title">Портал API</h3>
+                        <p data-translate="docs_api_desc">Открытый портал с интерактивной документацией Swagger</p>
                     </div>
-                    <div class="docs-card">
-                        <h3 data-i18n="documentation.guides">Интеграционные гайды</h3>
-                        <p data-i18n="documentation.guides-desc">Пошаговые инструкции</p>
+                    <div class="card">
+                        <div class="docs-icon">📖</div>
+                        <h3 data-translate="docs_guides_title">Гайды по интеграции</h3>
+                        <p data-translate="docs_guides_desc">Пошаговые руководства для быстрого подключения к нашей платформе</p>
                     </div>
-                    <div class="docs-card">
-                        <h3 data-i18n="documentation.sla">SLA и гарантии</h3>
-                        <p data-i18n="documentation.sla-desc">Гарантии доступности</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="ecosystem" class="section ecosystem" data-section="ecosystem">
-            <div class="container">
-                <h2 class="section-title" data-i18n="ecosystem.title">Наша экосистема</h2>
-                <div class="ecosystem-grid">
-                    <div class="ecosystem-card">
-                        <h3>АО Точка</h3>
-                        <p>Материнская компания</p>
-                    </div>
-                    <div class="ecosystem-card">
-                        <h3>АО Платформа (76%)</h3>
-                        <p>Дочерняя структура</p>
-                    </div>
-                    <div class="ecosystem-card">
-                        <h3>ПК Академия</h3>
-                        <p>Образовательная платформа</p>
-                    </div>
-                    <div class="ecosystem-card">
-                        <h3>ЛОВИИ</h3>
-                        <p>Инвестиционный фонд</p>
+                    <div class="card">
+                        <div class="docs-icon">📈</div>
+                        <h3 data-translate="docs_sla_title">SLA и гарантии</h3>
+                        <p data-translate="docs_sla_desc">Прозрачные соглашения об уровне сервиса и доступности</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="solutions" class="section solutions" data-section="solutions">
+        <section id="contacts">
             <div class="container">
-                <h2 class="section-title" data-i18n="solutions.title">Наши решения</h2>
-                <div class="solutions-grid">
-                    <div class="solution-card">
-                        <h3>Платежные решения</h3>
-                        <p>Обработка платежей для бизнеса</p>
-                    </div>
-                    <div class="solution-card">
-                        <h3>Программы лояльности</h3>
-                        <p>Системы вознаграждений клиентов</p>
-                    </div>
-                    <div class="solution-card">
-                        <h3>Белый лейбл</h3>
-                        <p>Готовые решения под ваш бренд</p>
-                    </div>
-                    <div class="solution-card">
-                        <h3>API интеграции</h3>
-                        <p>Техническая инфраструктура</p>
-                    </div>
-                    <div class="solution-card">
-                        <h3>Аналитика</h3>
-                        <p>Бизнес-аналитика и отчеты</p>
-                    </div>
-                    <div class="solution-card">
-                        <h3>Мобильные приложения</h3>
-                        <p>Приложения для клиентов</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="partners" class="section partners" data-section="partners">
-            <div class="container">
-                <h2 class="section-title" data-i18n="partners.title">Наши партнёры</h2>
-                <div class="partners-grid">
-                    <div class="partner-logo">Partner 1</div>
-                    <div class="partner-logo">Partner 2</div>
-                    <div class="partner-logo">Partner 3</div>
-                    <div class="partner-logo">Partner 4</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="business-model" class="section business-model" data-section="business-model">
-            <div class="container">
-                <h2 class="section-title">Бизнес-модель</h2>
-                <div class="business-model-diagram">
-                    <p>Структурная схема компании</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="technology" class="section technology" data-section="technology">
-            <div class="container">
-                <h2 class="section-title">Технологии</h2>
-                <div class="tech-stack">
-                    <span class="tech-badge">React</span>
-                    <span class="tech-badge">Node.js</span>
-                    <span class="tech-badge">PostgreSQL</span>
-                    <span class="tech-badge">AWS</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="careers" class="section careers" data-section="careers">
-            <div class="container">
-                <h2 class="section-title" data-i18n="careers.title">Карьера в AO Tochka</h2>
-                <div class="careers-content">
-                    <p>Присоединяйтесь к нашей команде инноваторов</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="news" class="section news" data-section="news">
-            <div class="container">
-                <h2 class="section-title" data-i18n="news.title">Новости и пресс-релизы</h2>
-                <div class="news-grid">
-                    <article class="news-item">
-                        <h3>Новость 1</h3>
-                        <p>Описание новости</p>
-                    </article>
-                    <article class="news-item">
-                        <h3>Новость 2</h3>
-                        <p>Описание новости</p>
-                    </article>
+                <h2 class="section-title" data-translate="contacts_title">Контакты</h2>
+                <div class="card" style="text-align: center;">
+                    <h3 data-translate="contact_info">АО «Точка»</h3>
+                    <p data-translate="contact_address">Москва, улица Тверская, д. 1</p>
+                    <p><a href="mailto:info@tochka.com" style="color: var(--terracotta);">info@tochka.com</a></p>
+                    <p><a href="tel:+74951234567" style="color: var(--terracotta);">+7 (495) 123-45-67</a></p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <p>&copy; 2024 AO Tochka. Все права защищены.</p>
-            <p>АО Точка - Развиваем цифровую экономику России</p>
+            <p>&copy; 2026 АО «Точка». <span data-translate="footer_rights">Все права защищены</span>.</p>
         </div>
     </footer>
 
-    <script src="/js/main.js"></script>
-    <script src="/js/navigation.js"></script>
-    <script src="/js/theme.js"></script>
-    <script src="/js/language.js"></script>
-    <script src="/js/gsap-init.js"></script>
+    <script>
+        // Language management
+        const translations = {
+            ru: {
+                menu_technologies: "Технологии",
+                menu_business: "Для бизнеса",
+                menu_loyalty: "Программы лояльности",
+                menu_banking: "Банковские интеграции",
+                menu_security: "Безопасность",
+                menu_docs: "Документация",
+                menu_contacts: "Контакты",
+                hero_title: "Цифровая инфраструктура для малого бизнеса",
+                hero_subtitle: "Платформенные решения, финтех-интеграции и системы лояльности — всё в одном технологическом стеке.",
+                hero_cta: "Изучить технологии",
+                tech_title: "Технологии",
+                tech_micro_title: "Микросервисы",
+                tech_micro_desc: "Node.js, Python, Go — масштабируемая архитектура для высокой нагрузки",
+                tech_kubernetes_title: "Kubernetes, Kafka",
+                tech_kubernetes_desc: "Контейнеризация и потоковая обработка данных в реальном времени",
+                tech_api_title: "REST/GraphQL API",
+                tech_api_desc: "Открытые интерфейсы с полной документацией OpenAPI",
+                tech_devops_title: "CI/CD, Мониторинг",
+                tech_devops_desc: "Прометей, Зенси, автоматические тесты и деплои",
+                tech_compliance_title: "Соответствие нормам",
+                tech_compliance_desc: "Полное соблюдение российского законодательства (152-ФЗ, 161-ФЗ)",
+                tech_scalability_title: "Масштабируемость",
+                tech_scalability_desc: "Гибкая архитектура для роста вашего бизнеса",
+                business_title: "Для бизнеса",
+                business_payments_title: "Прием платежей",
+                business_payments_desc: "Принимайте оплату и чаевые в баллах/рублях через единую систему",
+                business_fiscal_title: "Автофискализация",
+                business_fiscal_desc: "Автоматическая передача данных для самозанятых в ФНС",
+                business_white_label_title: "Белый лейбл",
+                business_white_label_desc: "Собственные программы лояльности под ваш бренд",
+                business_hr_title: "HR-бонусы",
+                business_hr_desc: "Системы поощрения сотрудников через балловую программу",
+                loyalty_title: "Программы лояльности",
+                loyalty_aggregator_title: "Универсальный агрегатор",
+                loyalty_aggregator_desc: "Объединяйте все балльные накопления клиентов в одной системе",
+                loyalty_redemption_title: "Кросс-программный выкуп",
+                loyalty_redemption_desc: "Возможность обмена баллов между различными программами",
+                loyalty_sbp_title: "Выкуп через СБП",
+                loyalty_sbp_desc: "Конвертируйте баллы в рубли через систему быстрых платежей",
+                loyalty_employee_title: "Корпоративные награды",
+                loyalty_employee_desc: "Системы вознаграждения для внутренних программ мотивации",
+                banking_title: "Банковские интеграции",
+                banking_agent_title: "Модель платежного агента",
+                banking_agent_desc: "Работаем по схеме банковского платежного агента (161-ФЗ)",
+                banking_payments_title: "СБП, Mir Pay, QR-платежи",
+                banking_payments_desc: "Полная интеграция с национальными платежными системами",
+                banking_accounts_title: "Специальные счета",
+                banking_accounts_desc: "Отдельные счета для хранения средств клиентов",
+                banking_ofd_title: "OFD и ККТ",
+                banking_ofd_desc: "Интеграция с операторами фискальных данных и онлайн-кассами",
+                security_title: "Безопасность",
+                security_data_title: "Хранение данных в РФ",
+                security_data_desc: "Все данные наших клиентов находятся на территории России",
+                security_encryption_title: "Сквозное шифрование",
+                security_encryption_desc: "Защита данных на уровне приложений и транспорта",
+                security_penetration_title: "Регулярные пентесты",
+                security_penetration_desc: "Постоянные проверки уязвимостей и тестирование безопасности",
+                security_protection_title: "WAF и DDoS-защита",
+                security_protection_desc: "Защита от веб-атак и распределенных атак типа \"отказ в обслуживании\"",
+                security_pci_title: "Соответствие PCI DSS",
+                security_pci_desc: "Соблюдение международных стандартов безопасности платежных данных",
+                docs_title: "Документация",
+                docs_api_title: "Портал API",
+                docs_api_desc: "Открытый портал с интерактивной документацией Swagger",
+                docs_guides_title: "Гайды по интеграции",
+                docs_guides_desc: "Пошаговые руководства для быстрого подключения к нашей платформе",
+                docs_sla_title: "SLA и гарантии",
+                docs_sla_desc: "Прозрачные соглашения об уровне сервиса и доступности",
+                contacts_title: "Контакты",
+                contact_info: "АО «Точка»",
+                contact_address: "Москва, улица Тверская, д. 1",
+                footer_rights: "Все права защищены"
+            },
+            en: {
+                menu_technologies: "Technologies",
+                menu_business: "For Business",
+                menu_loyalty: "Loyalty Programs",
+                menu_banking: "Banking Integrations",
+                menu_security: "Security",
+                menu_docs: "Documentation",
+                menu_contacts: "Contacts",
+                hero_title: "Digital Infrastructure for Small Business",
+                hero_subtitle: "Fintech platform, loyalty operator, and banking integrations — all in one technological stack.",
+                hero_cta: "Explore Technologies",
+                tech_title: "Technologies",
+                tech_micro_title: "Microservices",
+                tech_micro_desc: "Node.js, Python, Go — scalable architecture for high load",
+                tech_kubernetes_title: "Kubernetes, Kafka",
+                tech_kubernetes_desc: "Containerization and real-time data streaming",
+                tech_api_title: "REST/GraphQL API",
+                tech_api_desc: "Open interfaces with full OpenAPI documentation",
+                tech_devops_title: "CI/CD, Monitoring",
+                tech_devops_desc: "Prometheus, Sentry, automated tests and deployments",
+                tech_compliance_title: "Regulatory Compliance",
+                tech_compliance_desc: "Full compliance with Russian legislation (152-FZ, 161-FZ)",
+                tech_scalability_title: "Scalability",
+                tech_scalability_desc: "Flexible architecture for your business growth",
+                business_title: "For Business",
+                business_payments_title: "Payment Acceptance",
+                business_payments_desc: "Accept payments and tips in points/rubles through a unified system",
+                business_fiscal_title: "Auto-fiscalization",
+                business_fiscal_desc: "Automatic data transmission for self-employed to tax authorities",
+                business_white_label_title: "White Label",
+                business_white_label_desc: "Own loyalty programs under your brand",
+                business_hr_title: "HR Bonuses",
+                business_hr_desc: "Employee incentive systems through point programs",
+                loyalty_title: "Loyalty Programs",
+                loyalty_aggregator_title: "Universal Aggregator",
+                loyalty_aggregator_desc: "Combine all customer point accruals in one system",
+                loyalty_redemption_title: "Cross-program Redemption",
+                loyalty_redemption_desc: "Ability to exchange points between different programs",
+                loyalty_sbp_title: "Redemption via SBP",
+                loyalty_sbp_desc: "Convert points to rubles via Fast Payment System",
+                loyalty_employee_title: "Corporate Rewards",
+                loyalty_employee_desc: "Reward systems for internal motivation programs",
+                banking_title: "Banking Integrations",
+                banking_agent_title: "Payment Agent Model",
+                banking_agent_desc: "Working via banking payment agent scheme (161-FZ)",
+                banking_payments_title: "SBP, Mir Pay, QR Payments",
+                banking_payments_desc: "Full integration with national payment systems",
+                banking_accounts_title: "Special Accounts",
+                banking_accounts_desc: "Separate accounts for storing client funds",
+                banking_ofd_title: "OFD and KKT",
+                banking_ofd_desc: "Integration with fiscal data operators and online cash registers",
+                security_title: "Security",
+                security_data_title: "Data Storage in RF",
+                security_data_desc: "All our clients' data is located within Russia",
+                security_encryption_title: "End-to-end Encryption",
+                security_encryption_desc: "Data protection at application and transport level",
+                security_penetration_title: "Regular Penetration Tests",
+                security_penetration_desc: "Constant vulnerability checks and security testing",
+                security_protection_title: "WAF and DDoS Protection",
+                security_protection_desc: "Protection against web attacks and distributed denial-of-service attacks",
+                security_pci_title: "PCI DSS Compliance",
+                security_pci_desc: "Compliance with international payment data security standards",
+                docs_title: "Documentation",
+                docs_api_title: "API Portal",
+                docs_api_desc: "Public portal with interactive Swagger documentation",
+                docs_guides_title: "Integration Guides",
+                docs_guides_desc: "Step-by-step guides for quick platform connection",
+                docs_sla_title: "SLA and Guarantees",
+                docs_sla_desc: "Transparent service level agreements and availability guarantees",
+                contacts_title: "Contacts",
+                contact_info: "AO Tochka",
+                contact_address: "Moscow, Tverskaya Street, 1",
+                footer_rights: "All rights reserved"
+            },
+            cn: {
+                menu_technologies: "技术",
+                menu_business: "商业服务",
+                menu_loyalty: "忠诚度计划",
+                menu_banking: "银行集成",
+                menu_security: "安全",
+                menu_docs: "文档",
+                menu_contacts: "联系",
+                hero_title: "小微企业数字基础设施",
+                hero_subtitle: "金融科技平台、忠诚度运营商和银行集成——全部在一个技术堆栈中。",
+                hero_cta: "探索技术",
+                tech_title: "技术",
+                tech_micro_title: "微服务",
+                tech_micro_desc: "Node.js、Python、Go——用于高负载的可扩展架构",
+                tech_kubernetes_title: "Kubernetes、Kafka",
+                tech_kubernetes_desc: "容器化和实时数据流",
+                tech_api_title: "REST/GraphQL API",
+                tech_api_desc: "具有完整OpenAPI文档的开放接口",
+                tech_devops_title: "CI/CD、监控",
+                tech_devops_desc: "普罗米修斯、哨兵、自动化测试和部署",
+                tech_compliance_title: "法规合规",
+                tech_compliance_desc: "完全符合俄罗斯法律（152-FZ，161-FZ）",
+                tech_scalability_title: "可扩展性",
+                tech_scalability_desc: "灵活的架构以支持您的业务增长",
+                business_title: "商业服务",
+                business_payments_title: "支付接受",
+                business_payments_desc: "通过统一系统接受积分/卢布支付和小费",
+                business_fiscal_title: "自动记账",
+                business_fiscal_desc: "自动向税务部门传输个体经营者的数据",
+                business_white_label_title: "白标",
+                business_white_label_desc: "您品牌下的自有忠诚度计划",
+                business_hr_title: "人力资源奖金",
+                business_hr_desc: "通过积分计划激励员工的系统",
+                loyalty_title: "忠诚度计划",
+                loyalty_aggregator_title: "通用聚合器",
+                loyalty_aggregator_desc: "在一个系统中合并所有客户积分累积",
+                loyalty_redemption_title: "跨计划兑换",
+                loyalty_redemption_desc: "在不同计划之间兑换积分的能力",
+                loyalty_sbp_title: "通过SBP兑换",
+                loyalty_sbp_desc: "通过快速支付系统将积分转换为卢布",
+                loyalty_employee_title: "企业奖励",
+                loyalty_employee_desc: "内部激励计划的奖励系统",
+                banking_title: "银行集成",
+                banking_agent_title: "支付代理模式",
+                banking_agent_desc: "通过银行支付代理方案运营（161-FZ）",
+                banking_payments_title: "SBP、Mir Pay、二维码支付",
+                banking_payments_desc: "与国家支付系统的全面集成",
+                banking_accounts_title: "特殊账户",
+                banking_accounts_desc: "用于存储客户资金的单独账户",
+                banking_ofd_title: "OFD和KKT",
+                banking_ofd_desc: "与财政数据操作员和在线收银机的集成",
+                security_title: "安全",
+                security_data_title: "俄罗斯联邦数据存储",
+                security_data_desc: "我们所有客户的数据都位于俄罗斯境内",
+                security_encryption_title: "端到端加密",
+                security_encryption_desc: "应用程序和传输级别的数据保护",
+                security_penetration_title: "定期渗透测试",
+                security_penetration_desc: "持续的漏洞检查和安全测试",
+                security_protection_title: "WAF和DDoS防护",
+                security_protection_desc: "防范网络攻击和分布式拒绝服务攻击",
+                security_pci_title: "PCI DSS合规",
+                security_pci_desc: "遵守国际支付数据安全标准",
+                docs_title: "文档",
+                docs_api_title: "API门户",
+                docs_api_desc: "具有交互式Swagger文档的公共门户",
+                docs_guides_title: "集成指南",
+                docs_guides_desc: "快速连接平台的分步指南",
+                docs_sla_title: "服务水平协议和保证",
+                docs_sla_desc: "透明的服务水平协议和可用性保证",
+                contacts_title: "联系方式",
+                contact_info: "AO Tochka",
+                contact_address: "莫斯科特维尔大街1号",
+                footer_rights: "保留所有权利"
+            }
+        };
+
+        // Current language
+        let currentLang = 'ru';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLanguage();
+            
+            // Set up language switcher
+            const langBtn = document.getElementById('langBtn');
+            langBtn.addEventListener('click', toggleLanguage);
+            
+            // Set up hamburger menu
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Update all translatable elements
+        function updateLanguage() {
+            document.documentElement.lang = currentLang;
+            
+            // Update language button
+            document.getElementById('langBtn').textContent = currentLang.toUpperCase();
+            
+            // Update all elements with data-translate attribute
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if(translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Toggle between languages
+        function toggleLanguage() {
+            if(currentLang === 'ru') {
+                currentLang = 'en';
+            } else if(currentLang === 'en') {
+                currentLang = 'cn';
+            } else {
+                currentLang = 'ru';
+            }
+            updateLanguage();
+        }
+    </script>
 </body>
 </html>
