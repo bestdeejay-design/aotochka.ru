@@ -1,5 +1,16 @@
 /* Component styles */
 
+/* Accent stripe for both themes */
+.accent-stripe {
+  height: 6px;
+  width: 100%;
+  background: var(--accent-stripe);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10001;
+}
+
 /* Desktop Sidebar */
 .sidebar {
   position: fixed;
@@ -8,11 +19,12 @@
   height: 100vh;
   width: 80px;
   background: var(--sidebar-bg);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px); /* Increased blur to match iOS 17 style */
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
   transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 10000;
   padding: 24px 0;
-  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.08);
+  box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.05), 2px 0 20px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
