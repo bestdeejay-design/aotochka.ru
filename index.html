@@ -11,8 +11,8 @@
         :root {
             --dark-bg-1: #0F0F12;
             --dark-bg-2: #141418;
-            --light-bg-1: #FAFAFA;
-            --light-bg-2: #EEEEEE;
+            --light-bg-1: #EDEDED;
+            --light-bg-2: #DCDCDC;
             --terracotta: #C97C5D;
             --sage-green: #A0B29C;
             --glass-bg: rgba(255, 255, 255, 0.08);
@@ -24,7 +24,7 @@
         .light-theme {
             --bg-color: linear-gradient(135deg, var(--light-bg-1), var(--light-bg-2));
             --text-color: #333333;
-            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-bg: rgba(255, 255, 255, 0.75);
             --glass-border: rgba(0, 0, 0, 0.1);
         }
         
@@ -81,8 +81,84 @@
         
         .header-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
+            gap: 15px;
+        }
+        
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            width: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            z-index: 999;
+            backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            border-right: 1px solid var(--glass-border);
+        }
+        
+        .sidebar-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 30px;
+        }
+        
+        .logo-link {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        .logo {
+            height: 40px;
+            width: auto;
+        }
+        
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            width: 100%;
+        }
+        
+        .sidebar-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: color 0.3s;
+            width: 100%;
+            padding: 10px 0;
+        }
+        
+        .sidebar-item:hover {
+            color: var(--terracotta);
+        }
+        
+        .sidebar-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-label {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 5px;
+            opacity: 0.8;
         }
         
         .header-controls {
@@ -462,6 +538,43 @@
             border-bottom: 1px solid var(--glass-border);
         }
         
+        main {
+            margin-top: 0;
+            padding-left: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 60px;
+                padding: 15px 0;
+            }
+            
+            .sidebar-icon {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .sidebar-label {
+                font-size: 0.6rem;
+            }
+            
+            main {
+                padding-left: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .sidebar {
+                width: 0;
+                padding: 0;
+                overflow: hidden;
+            }
+            
+            main {
+                padding-left: 0;
+            }
+        }
+        
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
@@ -482,18 +595,87 @@
     </style>
 </head>
 <body>
+    <aside class="sidebar">
+        <div class="sidebar-content">
+            <a href="#home" class="logo-link">
+                <img src="/img/logo.svg" alt="АО «Точка»" class="logo" id="logo">
+            </a>
+            <nav class="sidebar-nav">
+                <a href="#technologies" class="sidebar-item" title="Технологии">
+                    <div class="sidebar-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-label" data-translate="menu_technologies">Технологии</span>
+                </a>
+                <a href="#for-business" class="sidebar-item" title="Технологии и Решения">
+                    <div class="sidebar-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="9" y1="9" x2="15" y2="15" stroke="currentColor" stroke-width="2"/>
+                            <line x1="15" y1="9" x2="9" y2="15" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-label" data-translate="menu_business">Решения</span>
+                </a>
+                <a href="#loyalty" class="sidebar-item" title="Программы лояльности">
+                    <div class="sidebar-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.84 4.61C20.3292 4.09943 19.721 3.5094 19.0492 3.42154C18.3773 3.14802 17.654 2.99967 16.92 3C15.3156 3.0021 13.7471 3.5094 12.42 4.45C11.0929 3.5094 9.52444 3.0021 7.92 3C7.18603 2.99967 6.46268 3.14802 5.79084 3.42154C5.119 3.69506 4.51076 4.09943 4 4.61" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 19L11 21L15 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-label" data-translate="menu_loyalty">Лояльность</span>
+                </a>
+                <a href="#banking" class="sidebar-item" title="Банковские интеграции">
+                    <div class="sidebar-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="2"/>
+                            <line x1="9" y1="21" x2="9" y2="9" stroke="currentColor" stroke-width="2"/>
+                            <line x1="15" y1="21" x2="15" y2="9" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-label" data-translate="menu_banking">Банк</span>
+                </a>
+                <a href="#security" class="sidebar-item" title="Безопасность">
+                    <div class="sidebar-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-label" data-translate="menu_security">Безопасность</span>
+                </a>
+                <a href="#documentation" class="sidebar-item" title="Документация">
+                    <div class="sidebar-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 2V8H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 13H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 17H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 9H9H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-label" data-translate="menu_docs">Документы</span>
+                </a>
+                <a href="#contacts" class="sidebar-item" title="Контакты">
+                    <div class="sidebar-icon">
+                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 7L12 12L4 7M20 17H4M20 12L12 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <span class="sidebar-label" data-translate="menu_contacts">Контакты</span>
+                </a>
+            </nav>
+        </div>
+    </aside>
+    
     <header>
         <div class="container header-content">
-            <a href="#home"><img src="/img/logo.svg" alt="АО «Точка»" class="logo" id="logo"></a>
-            <nav id="desktop-nav">
-                <a href="#technologies" data-translate="menu_technologies">Технологии</a>
-                <a href="#for-business" data-translate="menu_business">Технологии и Решения</a>
-                <a href="#loyalty" data-translate="menu_loyalty">Программы лояльности</a>
-                <a href="#banking" data-translate="menu_banking">Банковские интеграции</a>
-                <a href="#security" data-translate="menu_security">Безопасность</a>
-                <a href="#documentation" data-translate="menu_docs">Документация</a>
-                <a href="#contacts" data-translate="menu_contacts">Контакты</a>
-            </nav>
             <div class="header-controls">
                 <button class="theme-switcher" id="themeBtn">☀️</button>
                 <button class="lang-switcher" id="langBtn">RU</button>
