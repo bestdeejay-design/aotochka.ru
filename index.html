@@ -183,6 +183,17 @@
             backdrop-filter: blur(10px);
         }
         
+        .theme-toggle {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: white;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            font-size: 1rem;
+        }
+        
         .hamburger {
             display: none;
             background: none;
@@ -600,7 +611,7 @@
                 <a href="#contacts" data-translate="menu_contacts">Контакты</a>
             </nav>
             <div class="header-controls">
-
+                <button class="theme-toggle" id="themeBtn">🌙</button>
                 <button class="lang-switcher" id="langBtn">RU</button>
             </div>
             <button class="hamburger" id="hamburger">☰</button>
@@ -1128,7 +1139,7 @@
         const translations = {
             ru: {
                 menu_technologies: "Технологии",
-                menu_business: "Для бизнеса",
+                menu_business: "Технологии и Решения",
                 menu_loyalty: "Программы лояльности",
                 menu_banking: "Банковские интеграции",
                 menu_security: "Безопасность",
@@ -1150,7 +1161,7 @@
                 tech_compliance_desc: "Полное соблюдение российского законодательства (152-ФЗ, 161-ФЗ)",
                 tech_scalability_title: "Масштабируемость",
                 tech_scalability_desc: "Гибкая архитектура для роста вашего бизнеса",
-                business_title: "Для бизнеса",
+                business_title: "Технологии и Решения",
                 business_payments_title: "Прием платежей",
                 business_payments_desc: "Принимайте оплату и чаевые в баллах/рублях через единую систему",
                 business_fiscal_title: "Автофискализация",
@@ -1202,7 +1213,7 @@
             },
             en: {
                 menu_technologies: "Technologies",
-                menu_business: "For Business",
+                menu_business: "Технологии и Решения",
                 menu_loyalty: "Loyalty Programs",
                 menu_banking: "Banking Integrations",
                 menu_security: "Security",
@@ -1224,7 +1235,7 @@
                 tech_compliance_desc: "Full compliance with Russian legislation (152-FZ, 161-FZ)",
                 tech_scalability_title: "Scalability",
                 tech_scalability_desc: "Flexible architecture for your business growth",
-                business_title: "For Business",
+                business_title: "Бизнес-решения",
                 business_payments_title: "Payment Acceptance",
                 business_payments_desc: "Accept payments and tips in points/rubles through a unified system",
                 business_fiscal_title: "Auto-fiscalization",
@@ -1276,7 +1287,7 @@
             },
             cn: {
                 menu_technologies: "技术",
-                menu_business: "商业服务",
+                menu_business: "技术和解决方案",
                 menu_loyalty: "忠诚度计划",
                 menu_banking: "银行集成",
                 menu_security: "安全",
@@ -1298,7 +1309,7 @@
                 tech_compliance_desc: "完全符合俄罗斯法律（152-FZ，161-FZ）",
                 tech_scalability_title: "可扩展性",
                 tech_scalability_desc: "灵活的架构以支持您的业务增长",
-                business_title: "商业服务",
+                business_title: "商务解决方案",
                 business_payments_title: "支付接受",
                 business_payments_desc: "通过统一系统接受积分/卢布支付和小费",
                 business_fiscal_title: "自动记账",
@@ -1414,6 +1425,81 @@
         }
 
         // Toggle between languages
+        // Language management
+        let currentLang = localStorage.getItem('selectedLanguage') || 'ru';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateLanguage();
+            
+            // Set up language switcher
+            const langBtn = document.getElementById('langBtn');
+            langBtn.addEventListener('click', toggleLanguage);
+            
+            // Set up theme toggle
+            const themeBtn = document.getElementById('themeBtn');
+            themeBtn.addEventListener('click', toggleTheme);
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if(savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                themeBtn.textContent = '🌙';
+            } else {
+                themeBtn.textContent = '☀️';
+            }
+            
+            // Set up hamburger menu
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobileMenu');
+            hamburger.addEventListener('click', () => {
+                mobileMenu.classList.toggle('active');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+
+        // Update all translatable elements
+        function updateLanguage() {
+            document.documentElement.lang = currentLang;
+            
+            // Update language button
+            document.getElementById('langBtn').textContent = currentLang.toUpperCase();
+            
+            // Update all elements with data-translate attribute
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if(translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Toggle between languages
         function toggleLanguage() {
             if(currentLang === 'ru') {
                 currentLang = 'en';
@@ -1425,6 +1511,7 @@
             localStorage.setItem('selectedLanguage', currentLang);
             updateLanguage();
         }
+        
         // Theme toggle functionality
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
@@ -1435,14 +1522,6 @@
             const themeBtn = document.getElementById('themeBtn');
             themeBtn.textContent = isLightTheme ? '🌙' : '☀️';
         }
-
-        // Check for saved theme preference or default to dark
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedTheme = localStorage.getItem('theme');
-            if(savedTheme === 'light') {
-                document.body.classList.add('light-theme');
-            }
-        });
     </script>
 </body>
 </html>
