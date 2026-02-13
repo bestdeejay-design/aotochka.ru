@@ -1,14 +1,1 @@
-```
-# Image assets
-img/close-icon.svg
-img/logo.svg
-img/menu-icon.svg
-img/theme-icon.svg
-
-# HTML file
-index.html
-```
-
-Wait, I need to reconsider. These are actual source files being added, not build artifacts or temporary files. SVG images and HTML files are part of the source code. Following rule #6, since these are source/config files and not build artifacts, dependencies, or temp files, the output should be empty.
-
-(empty)
+(index.html is a source file, so according to rule 6, since there are only source/config files and no build artifacts, dependencies, or temp files, the output should be empty)
