@@ -68,6 +68,22 @@
             align-items: center;
         }
         
+        .header-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .theme-switcher {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            color: white;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+        }
+        
         .logo {
             height: 40px;
         }
@@ -183,6 +199,60 @@
             transition: transform 0.3s;
         }
         
+        .tech-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s;
+        }
+        
+        .business-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s;
+        }
+        
+        .loyalty-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s;
+        }
+        
+        .banking-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s;
+        }
+        
+        .security-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s;
+        }
+        
+        .docs-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            transition: transform 0.3s;
+        }
+        
         .card:hover {
             transform: translateY(-5px);
         }
@@ -198,7 +268,67 @@
             line-height: 1.6;
         }
         
-        .tech-icon, .business-icon, .loyalty-icon, .banking-icon, .security-icon, .docs-icon {
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .business-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .loyalty-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .banking-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .security-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--terracotta);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .docs-icon {
             width: 50px;
             height: 50px;
             background: var(--terracotta);
@@ -264,7 +394,7 @@
 <body>
     <header>
         <div class="container header-content">
-            <img src="/logo512.png" alt="АО «Точка»" class="logo" id="logo">
+            <a href="#home"><img src="/img/logo.svg" alt="АО «Точка»" class="logo" id="logo"></a>
             <nav id="desktop-nav">
                 <a href="#technologies" data-translate="menu_technologies">Технологии</a>
                 <a href="#for-business" data-translate="menu_business">Для бизнеса</a>
@@ -274,7 +404,10 @@
                 <a href="#documentation" data-translate="menu_docs">Документация</a>
                 <a href="#contacts" data-translate="menu_contacts">Контакты</a>
             </nav>
-            <button class="lang-switcher" id="langBtn">RU</button>
+            <div class="header-controls">
+                <button class="theme-switcher" id="themeBtn">☀️</button>
+                <button class="lang-switcher" id="langBtn">RU</button>
+            </div>
             <button class="hamburger" id="hamburger">☰</button>
         </div>
         <div class="mobile-menu" id="mobileMenu">
@@ -301,33 +434,67 @@
             <div class="container">
                 <h2 class="section-title" data-translate="tech_title">Технологии</h2>
                 <div class="tech-grid">
-                    <div class="card">
-                        <div class="tech-icon">⚙️</div>
+                    <div class="card tech-card">
+                        <div class="tech-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 12H22M8 15H22M8 18H16" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="tech_micro_title">Микросервисы</h3>
                         <p data-translate="tech_micro_desc">Node.js, Python, Go — масштабируемая архитектура для высокой нагрузки</p>
                     </div>
-                    <div class="card">
-                        <div class="tech-icon">🔄</div>
+                    <div class="card tech-card">
+                        <div class="tech-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M15 8L22 15L15 22L8 15L15 8Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M12 12L15 15L20 8" stroke="#C97C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="tech_kubernetes_title">Kubernetes, Kafka</h3>
                         <p data-translate="tech_kubernetes_desc">Контейнеризация и потоковая обработка данных в реальном времени</p>
                     </div>
-                    <div class="card">
-                        <div class="tech-icon">📡</div>
+                    <div class="card tech-card">
+                        <div class="tech-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <circle cx="15" cy="15" r="8" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M15 7V5M15 23V21M7 15H5M23 15H21" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="tech_api_title">REST/GraphQL API</h3>
                         <p data-translate="tech_api_desc">Открытые интерфейсы с полной документацией OpenAPI</p>
                     </div>
-                    <div class="card">
-                        <div class="tech-icon">🔒</div>
+                    <div class="card tech-card">
+                        <div class="tech-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 15H22M15 8L22 15L15 22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="tech_devops_title">CI/CD, Мониторинг</h3>
-                        <p data-translate="tech_devops_desc">Прометей, Зенси, автоматические тесты и деплои</p>
+                        <p data-translate="tech_devops_desc">Prometheus, Sentry, автоматические тесты и деплои</p>
                     </div>
-                    <div class="card">
-                        <div class="tech-icon">📋</div>
+                    <div class="card tech-card">
+                        <div class="tech-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M12 12H18M12 15H18M12 18H16" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M9 9V21C9 21.5523 9.44772 22 10 22H20C20.5523 22 21 21.5523 21 21V9C21 8.44772 20.5523 8 20 8H10C9.44772 8 9 8.44772 9 9Z" stroke="#C97C5D" stroke-width="2"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="tech_compliance_title">Соответствие нормам</h3>
                         <p data-translate="tech_compliance_desc">Полное соблюдение российского законодательства (152-ФЗ, 161-ФЗ)</p>
                     </div>
-                    <div class="card">
-                        <div class="tech-icon">🌐</div>
+                    <div class="card tech-card">
+                        <div class="tech-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 15C8 15 9.5 12 15 12C20.5 12 22 15 22 15C22 15 20.5 18 15 18C9.5 18 8 15 8 15Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M12 15C12 15 12.5 13.5 15 13.5C17.5 13.5 18 15 18 15C18 15 17.5 16.5 15 16.5C12.5 16.5 12 15 12 15Z" stroke="#C97C5D" stroke-width="2"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="tech_scalability_title">Масштабируемость</h3>
                         <p data-translate="tech_scalability_desc">Гибкая архитектура для роста вашего бизнеса</p>
                     </div>
@@ -339,23 +506,51 @@
             <div class="container">
                 <h2 class="section-title" data-translate="business_title">Для бизнеса</h2>
                 <div class="business-grid">
-                    <div class="card">
-                        <div class="business-icon">💳</div>
+                    <div class="card business-card">
+                        <div class="business-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 15H22M8 10H22M8 20H18" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 25H20C21.1046 25 22 24.1046 22 23V7C22 5.89543 21.1046 5 20 5H10C8.89543 5 8 5.89543 8 7V23C8 24.1046 8.89543 25 10 25Z" stroke="#C97C5D" stroke-width="2"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="business_payments_title">Прием платежей</h3>
                         <p data-translate="business_payments_desc">Принимайте оплату и чаевые в баллах/рублях через единую систему</p>
                     </div>
-                    <div class="card">
-                        <div class="business-icon">📝</div>
+                    <div class="card business-card">
+                        <div class="business-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M15 8C16.6569 8 18 6.65685 18 5C18 3.34315 16.6569 2 15 2C13.3431 2 12 3.34315 12 5C12 6.65685 13.3431 8 15 8Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M8 10C9.65685 10 11 8.65685 11 7C11 5.34315 9.65685 4 8 4C6.34315 4 5 5.34315 5 7C5 8.65685 6.34315 10 8 10Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M22 10C23.6569 10 25 8.65685 25 7C25 5.34315 23.6569 4 22 4C20.3431 4 19 5.34315 19 7C19 8.65685 20.3431 10 22 10Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M5 12H25V25C25 26.1046 24.1046 27 23 27H7C5.89543 27 5 26.1046 5 25V12Z" stroke="#C97C5D" stroke-width="2"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="business_fiscal_title">Автофискализация</h3>
                         <p data-translate="business_fiscal_desc">Автоматическая передача данных для самозанятых в ФНС</p>
                     </div>
-                    <div class="card">
-                        <div class="business-icon">🏷️</div>
+                    <div class="card business-card">
+                        <div class="business-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M15 10C17.7614 10 20 7.76142 20 5C20 2.23858 17.7614 0 15 0C12.2386 0 10 2.23858 10 5C10 7.76142 12.2386 10 15 10Z" fill="#C97C5D"/>
+                                <path d="M15 20C17.7614 20 20 17.7614 20 15C20 12.2386 17.7614 10 15 10C12.2386 10 10 12.2386 10 15C10 17.7614 12.2386 20 15 20Z" fill="#C97C5D"/>
+                                <path d="M15 30C17.7614 30 20 27.7614 20 25C20 22.2386 17.7614 20 15 20C12.2386 20 10 22.2386 10 25C10 27.7614 12.2386 30 15 30Z" fill="#C97C5D"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="business_white_label_title">Белый лейбл</h3>
                         <p data-translate="business_white_label_desc">Собственные программы лояльности под ваш бренд</p>
                     </div>
-                    <div class="card">
-                        <div class="business-icon">👥</div>
+                    <div class="card business-card">
+                        <div class="business-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <circle cx="15" cy="10" r="4" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M5 25C5 19.4772 9.47715 15 15 15C20.5228 15 25 19.4772 25 25" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M10 25H20" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="business_hr_title">HR-бонусы</h3>
                         <p data-translate="business_hr_desc">Системы поощрения сотрудников через балловую программу</p>
                     </div>
@@ -367,23 +562,57 @@
             <div class="container">
                 <h2 class="section-title" data-translate="loyalty_title">Программы лояльности</h2>
                 <div class="loyalty-grid">
-                    <div class="card">
-                        <div class="loyalty-icon">🔄</div>
+                    <div class="card loyalty-card">
+                        <div class="loyalty-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <circle cx="10" cy="10" r="3" fill="#C97C5D"/>
+                                <circle cx="20" cy="10" r="3" fill="#C97C5D"/>
+                                <circle cx="10" cy="20" r="3" fill="#C97C5D"/>
+                                <circle cx="20" cy="20" r="3" fill="#C97C5D"/>
+                                <path d="M15 8L15 22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M8 15H22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="loyalty_aggregator_title">Универсальный агрегатор</h3>
                         <p data-translate="loyalty_aggregator_desc">Объединяйте все балльные накопления клиентов в одной системе</p>
                     </div>
-                    <div class="card">
-                        <div class="loyalty-icon">🎁</div>
+                    <div class="card loyalty-card">
+                        <div class="loyalty-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 10C8 8.34315 9.34315 7 11 7H19C20.6569 7 22 8.34315 22 10V20C22 21.6569 20.6569 23 19 23H11C9.34315 23 8 21.6569 8 20V10Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M15 13V17" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M13 15H17" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="15" cy="10" r="2" fill="#C97C5D"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="loyalty_redemption_title">Кросс-программный выкуп</h3>
                         <p data-translate="loyalty_redemption_desc">Возможность обмена баллов между различными программами</p>
                     </div>
-                    <div class="card">
-                        <div class="loyalty-icon">💰</div>
+                    <div class="card loyalty-card">
+                        <div class="loyalty-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 15H22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 8L22 15L15 22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="11" cy="11" r="2" fill="#C97C5D"/>
+                                <circle cx="19" cy="19" r="2" fill="#C97C5D"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="loyalty_sbp_title">Выкуп через СБП</h3>
                         <p data-translate="loyalty_sbp_desc">Конвертируйте баллы в рубли через систему быстрых платежей</p>
                     </div>
-                    <div class="card">
-                        <div class="loyalty-icon">💼</div>
+                    <div class="card loyalty-card">
+                        <div class="loyalty-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <circle cx="15" cy="10" r="4" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M5 25C5 19.4772 9.47715 15 15 15C20.5228 15 25 19.4772 25 25" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M10 20H20" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="15" cy="10" r="1.5" fill="#C97C5D"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="loyalty_employee_title">Корпоративные награды</h3>
                         <p data-translate="loyalty_employee_desc">Системы вознаграждения для внутренних программ мотивации</p>
                     </div>
@@ -395,23 +624,54 @@
             <div class="container">
                 <h2 class="section-title" data-translate="banking_title">Банковские интеграции</h2>
                 <div class="banking-grid">
-                    <div class="card">
-                        <div class="banking-icon">🏦</div>
+                    <div class="card banking-card">
+                        <div class="banking-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M5 10H25C25.5523 10 26 10.4477 26 11V25C26 25.5523 25.5523 26 25 26H5C4.44772 26 4 25.5523 4 25V11C4 10.4477 4.44772 10 5 10Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M8 5C8 3.34315 9.34315 2 11 2H19C20.6569 2 22 3.34315 22 5V10H8V5Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M12 15H18" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 18H18" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="banking_agent_title">Модель платежного агента</h3>
                         <p data-translate="banking_agent_desc">Работаем по схеме банковского платежного агента (161-ФЗ)</p>
                     </div>
-                    <div class="card">
-                        <div class="banking-icon">💳</div>
+                    <div class="card banking-card">
+                        <div class="banking-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 10C8 8.34315 9.34315 7 11 7H19C20.6569 7 22 8.34315 22 10V20C22 21.6569 20.6569 23 19 23H11C9.34315 23 8 21.6569 8 20V10Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M8 13H22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="12" cy="17" r="1" fill="#C97C5D"/>
+                                <circle cx="15" cy="17" r="1" fill="#C97C5D"/>
+                                <circle cx="18" cy="17" r="1" fill="#C97C5D"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="banking_payments_title">СБП, Mir Pay, QR-платежи</h3>
                         <p data-translate="banking_payments_desc">Полная интеграция с национальными платежными системами</p>
                     </div>
-                    <div class="card">
-                        <div class="banking-icon">📊</div>
+                    <div class="card banking-card">
+                        <div class="banking-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <circle cx="15" cy="13" r="6" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M10 18C10 20.2091 11.7909 22 14 22H16C18.2091 22 20 20.2091 20 18C20 15.7909 18.2091 14 16 14H14C11.7909 14 10 15.7909 10 18Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M15 11V15" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="banking_accounts_title">Специальные счета</h3>
                         <p data-translate="banking_accounts_desc">Отдельные счета для хранения средств клиентов</p>
                     </div>
-                    <div class="card">
-                        <div class="banking-icon">🖨️</div>
+                    <div class="card banking-card">
+                        <div class="banking-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M6 15C6 10.0294 10.0294 6 15 6C19.9706 6 24 10.0294 24 15C24 19.9706 19.9706 24 15 24C10.0294 24 6 19.9706 6 15Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M15 10V15L18 17" stroke="#C97C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M10 15H20" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="banking_ofd_title">OFD и ККТ</h3>
                         <p data-translate="banking_ofd_desc">Интеграция с операторами фискальных данных и онлайн-кассами</p>
                     </div>
@@ -423,28 +683,73 @@
             <div class="container">
                 <h2 class="section-title" data-translate="security_title">Безопасность</h2>
                 <div class="security-grid">
-                    <div class="card">
-                        <div class="security-icon">🇷🇺</div>
+                    <div class="card security-card">
+                        <div class="security-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M5 10H25C25.5523 10 26 10.4477 26 11V25C26 25.5523 25.5523 26 25 26H5C4.44772 26 4 25.5523 4 25V11C4 10.4477 4.44772 10 5 10Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M15 5L15 10" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 5L20 5" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="15" cy="18" r="3" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M12 21L18 21" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="security_data_title">Хранение данных в РФ</h3>
                         <p data-translate="security_data_desc">Все данные наших клиентов находятся на территории России</p>
                     </div>
-                    <div class="card">
-                        <div class="security-icon">🔒</div>
+                    <div class="card security-card">
+                        <div class="security-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M5 12C5 8.13401 8.13401 5 12 5H18C21.866 5 25 8.13401 25 12V20C25 23.866 21.866 27 18 27H12C8.13401 27 5 23.866 5 20V12Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M12 15L13.5 16.5L16 14" stroke="#C97C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle cx="15" cy="18" r="2" fill="#C97C5D"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="security_encryption_title">Сквозное шифрование</h3>
                         <p data-translate="security_encryption_desc">Защита данных на уровне приложений и транспорта</p>
                     </div>
-                    <div class="card">
-                        <div class="security-icon">🔍</div>
+                    <div class="card security-card">
+                        <div class="security-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <circle cx="15" cy="15" r="8" stroke="#C97C5D" stroke-width="2"/>
+                                <circle cx="15" cy="15" r="3" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M15 7L15 5" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 23L15 21" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M7 15L5 15" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M23 15L21 15" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 10L8.5 8.5" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M20 20L21.5 21.5" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M20 10L21.5 8.5" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M10 20L8.5 21.5" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="security_penetration_title">Регулярные пентесты</h3>
                         <p data-translate="security_penetration_desc">Постоянные проверки уязвимостей и тестирование безопасности</p>
                     </div>
-                    <div class="card">
-                        <div class="security-icon">🛡️</div>
+                    <div class="card security-card">
+                        <div class="security-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M5 10L15 5L25 10L25 25C25 26.1046 24.1046 27 23 27H7C5.89543 27 5 26.1046 5 25V10Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M9 15L12 18L15 15L18 18L21 15" stroke="#C97C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 12L15 15L18 12" stroke="#C97C5D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="security_protection_title">WAF и DDoS-защита</h3>
                         <p data-translate="security_protection_desc">Защита от веб-атак и распределенных атак типа "отказ в обслуживании"</p>
                     </div>
-                    <div class="card">
-                        <div class="security-icon">✅</div>
+                    <div class="card security-card">
+                        <div class="security-icon">
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M15 5C18.3137 5 21 7.68629 21 11V21C21 24.3137 18.3137 27 15 27C11.6863 27 9 24.3137 9 21V11C9 7.68629 11.6863 5 15 5Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M12 12H18" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 15H18" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 18H16" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
                         <h3 data-translate="security_pci_title">Соответствие PCI DSS</h3>
                         <p data-translate="security_pci_desc">Соблюдение международных стандартов безопасности платежных данных</p>
                     </div>
@@ -456,34 +761,41 @@
             <div class="container">
                 <h2 class="section-title" data-translate="docs_title">Документация</h2>
                 <div class="docs-grid">
-                    <div class="card docs-card-1">
+                    <div class="card docs-card">
                         <div class="docs-icon">
-                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="5" y="5" width="40" height="40" rx="8" fill="#C97C5D"/>
-                                <path d="M15 20H35M15 25H35M15 30H25" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                                <path d="M20 15L25 10L30 15" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M10 8C10 6.89543 10.8954 6 12 6H18C19.1046 6 20 6.89543 20 8V22C20 23.1046 19.1046 24 18 24H12C10.8954 24 10 23.1046 10 22V8Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M12 11H18" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 15H18" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M12 19H16" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 4L15 6" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <h3 data-translate="docs_api_title">Портал API</h3>
                         <p data-translate="docs_api_desc">Открытый портал с интерактивной документацией Swagger</p>
                     </div>
-                    <div class="card docs-card-2">
+                    <div class="card docs-card">
                         <div class="docs-icon">
-                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="5" y="5" width="40" height="40" rx="8" fill="#C97C5D"/>
-                                <path d="M25 15L35 25L25 35L15 25L25 15Z" stroke="white" stroke-width="3"/>
-                                <path d="M20 22L23 25L30 18" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 10C8 8.34315 9.34315 7 11 7H19C20.6569 7 22 8.34315 22 10V20C22 21.6569 20.6569 23 19 23H11C9.34315 23 8 21.6569 8 20V10Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M15 13V17" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M13 15H17" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="15" cy="10" r="2" fill="#C97C5D"/>
                             </svg>
                         </div>
                         <h3 data-translate="docs_guides_title">Гайды по интеграции</h3>
                         <p data-translate="docs_guides_desc">Пошаговые руководства для быстрого подключения к нашей платформе</p>
                     </div>
-                    <div class="card docs-card-3">
+                    <div class="card docs-card">
                         <div class="docs-icon">
-                            <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <rect x="5" y="5" width="40" height="40" rx="8" fill="#C97C5D"/>
-                                <circle cx="25" cy="25" r="8" stroke="white" stroke-width="3"/>
-                                <path d="M25 17V9M25 33V25M17 25H9M33 25H25" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="30" height="30" rx="8" fill="white"/>
+                                <path d="M8 15C8 15 9.5 12 15 12C20.5 12 22 15 22 15C22 15 20.5 18 15 18C9.5 18 8 15 8 15Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M12 15C12 15 12.5 13.5 15 13.5C17.5 13.5 18 15 18 15C18 15 17.5 16.5 15 16.5C12.5 16.5 12 15 12 15Z" stroke="#C97C5D" stroke-width="2"/>
+                                <path d="M15 8V10" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M15 20V22" stroke="#C97C5D" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </div>
                         <h3 data-translate="docs_sla_title">SLA и гарантии</h3>
@@ -750,6 +1062,10 @@
             const langBtn = document.getElementById('langBtn');
             langBtn.addEventListener('click', toggleLanguage);
             
+            // Set up theme switcher
+            const themeBtn = document.getElementById('themeBtn');
+            themeBtn.addEventListener('click', toggleTheme);
+            
             // Set up hamburger menu
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobileMenu');
@@ -811,6 +1127,27 @@
             }
             updateLanguage();
         }
+        // Theme toggle functionality
+        function toggleTheme() {
+            document.body.classList.toggle('light-theme');
+            const isLightTheme = document.body.classList.contains('light-theme');
+            localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
+            
+            // Update theme button icon
+            const themeBtn = document.getElementById('themeBtn');
+            themeBtn.textContent = isLightTheme ? '🌙' : '☀️';
+        }
+
+        // Check for saved theme preference or default to dark
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            if(savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                document.getElementById('themeBtn').textContent = '🌙';
+            } else {
+                document.getElementById('themeBtn').textContent = '☀️';
+            }
+        });
     </script>
 </body>
 </html>
