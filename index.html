@@ -1361,8 +1361,8 @@
             }
         };
 
-        // Current language
-        let currentLang = 'ru';
+        // Current language - check localStorage first
+        let currentLang = localStorage.getItem('selectedLanguage') || 'ru';
 
         // Initialize the page
         document.addEventListener('DOMContentLoaded', function() {
