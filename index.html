@@ -11,10 +11,21 @@
         :root {
             --dark-bg-1: #0F0F12;
             --dark-bg-2: #141418;
+            --light-bg-1: #FFFFFF;
+            --light-bg-2: #F5F5F5;
             --terracotta: #C97C5D;
             --sage-green: #A0B29C;
             --glass-bg: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.1);
+            --text-color: white;
+            --bg-color: linear-gradient(135deg, var(--dark-bg-1), var(--dark-bg-2));
+        }
+
+        .light-theme {
+            --bg-color: linear-gradient(135deg, var(--light-bg-1), var(--light-bg-2));
+            --text-color: #333333;
+            --glass-bg: rgba(255, 255, 255, 0.7);
+            --glass-border: rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -25,11 +36,12 @@
         
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, var(--dark-bg-1), var(--dark-bg-2));
-            color: white;
+            background: var(--bg-color);
+            color: var(--text-color);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
+            transition: background 0.3s ease, color 0.3s ease;
         }
         
         body::before {
@@ -44,6 +56,11 @@
                 radial-gradient(circle at 90% 80%, rgba(160, 178, 156, 0.1) 0%, transparent 20%);
             pointer-events: none;
             z-index: -1;
+            opacity: 0.3;
+        }
+
+        .light-theme::before {
+            opacity: 0.1;
         }
         
         .container {
