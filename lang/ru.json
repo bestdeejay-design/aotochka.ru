@@ -1,6 +1,6 @@
 {
   "menu_technologies": "Технологии",
-  "menu_business": "Для бизнеса",
+  "menu_business": "Технологии и Решения",
   "menu_loyalty": "Программы лояльности",
   "menu_banking": "Банковские интеграции",
   "menu_security": "Безопасность",
@@ -22,7 +22,7 @@
   "tech_compliance_desc": "Полное соблюдение российского законодательства (152-ФЗ, 161-ФЗ)",
   "tech_scalability_title": "Масштабируемость",
   "tech_scalability_desc": "Гибкая архитектура для роста вашего бизнеса",
-  "business_title": "Для бизнеса",
+  "business_title": "Технологии и Решения",
   "business_payments_title": "Прием платежей",
   "business_payments_desc": "Принимайте оплату и чаевые в баллах/рублях через единую систему",
   "business_fiscal_title": "Автофискализация",
