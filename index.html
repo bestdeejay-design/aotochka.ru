@@ -27,13 +27,13 @@
             --glass-bg: rgba(255, 255, 255, 0.75);
             --glass-border: rgba(0, 0, 0, 0.1);
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background: var(--bg-color);
@@ -43,7 +43,7 @@
             position: relative;
             transition: background 0.3s ease, color 0.3s ease;
         }
-        
+
         body::before {
             content: '';
             position: fixed;
@@ -51,7 +51,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 radial-gradient(circle at 10% 20%, rgba(201, 124, 93, 0.1) 0%, transparent 20%),
                 radial-gradient(circle at 90% 80%, rgba(160, 178, 156, 0.1) 0%, transparent 20%);
             pointer-events: none;
@@ -62,13 +62,13 @@
         .light-theme::before {
             opacity: 0.1;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         header {
             padding: 20px 0;
             position: sticky;
@@ -78,14 +78,14 @@
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
         }
-        
+
         .header-content {
             display: flex;
             justify-content: flex-end;
             align-items: center;
             gap: 15px;
         }
-        
+
         .sidebar {
             position: fixed;
             left: 0;
@@ -101,7 +101,7 @@
             background: var(--glass-bg);
             border-right: 1px solid var(--glass-border);
         }
-        
+
         .sidebar-content {
             display: flex;
             flex-direction: column;
@@ -109,19 +109,19 @@
             width: 100%;
             gap: 30px;
         }
-        
+
         .logo-link {
             display: flex;
             justify-content: center;
             width: 100%;
             margin-bottom: 10px;
         }
-        
+
         .logo {
             height: 40px;
             width: auto;
         }
-        
+
         .sidebar-nav {
             display: flex;
             flex-direction: column;
@@ -129,7 +129,7 @@
             gap: 30px;
             width: 100%;
         }
-        
+
         .sidebar-item {
             display: flex;
             flex-direction: column;
@@ -140,11 +140,11 @@
             width: 100%;
             padding: 10px 0;
         }
-        
+
         .sidebar-item:hover {
             color: var(--terracotta);
         }
-        
+
         .sidebar-icon {
             width: 40px;
             height: 40px;
@@ -153,26 +153,26 @@
             justify-content: center;
             margin-bottom: 5px;
         }
-        
+
         .sidebar-label {
             font-size: 0.7rem;
             text-align: center;
             margin-top: 5px;
             opacity: 0.8;
         }
-        
+
         .header-controls {
             display: flex;
             gap: 15px;
             align-items: center;
         }
-        
 
-        
+
+
         .logo {
             height: 40px;
         }
-        
+
         .lang-switcher {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -182,7 +182,7 @@
             cursor: pointer;
             backdrop-filter: blur(10px);
         }
-        
+
         .theme-toggle {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -193,7 +193,7 @@
             backdrop-filter: blur(10px);
             font-size: 1rem;
         }
-        
+
         .hamburger {
             display: none;
             background: none;
@@ -202,23 +202,23 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
-        
+
         nav {
             display: flex;
             gap: 30px;
         }
-        
+
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
         }
-        
+
         nav a:hover {
             color: var(--terracotta);
         }
-        
+
         .hero {
             min-height: 90vh;
             display: flex;
@@ -227,12 +227,12 @@
             text-align: center;
             position: relative;
         }
-        
+
         .hero-content {
             max-width: 800px;
             z-index: 2;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
             font-weight: 700;
@@ -242,14 +242,14 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             color: var(--sage-green);
             margin-bottom: 2rem;
             line-height: 1.6;
         }
-        
+
         .btn {
             background: var(--terracotta);
             color: white;
@@ -262,36 +262,36 @@
             text-decoration: none;
             display: inline-block;
         }
-        
+
         .btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(201, 124, 93, 0.3);
         }
-        
+
         section {
             padding: 100px 0;
             position: relative;
         }
-        
+
         .section-title {
             font-size: 2.5rem;
             margin-bottom: 3rem;
             text-align: center;
             color: var(--terracotta);
         }
-        
+
         .tech-grid, .loyalty-grid, .security-grid, .docs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .business-grid, .banking-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .business-section, .banking-section {
             position: relative;
             overflow: hidden;
@@ -302,25 +302,25 @@
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
         }
-        
+
         .business-content, .banking-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: center;
         }
-        
+
         .business-text, .banking-text {
             z-index: 2;
         }
-        
+
         .business-visual, .banking-visual {
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 2;
         }
-        
+
         .business-item, .banking-item {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -330,12 +330,12 @@
             backdrop-filter: blur(10px);
             transition: transform 0.3s ease;
         }
-        
+
         .business-item:hover, .banking-item:hover {
             transform: translateX(10px);
             background: rgba(201, 124, 93, 0.1);
         }
-        
+
         .business-icon-large, .banking-icon-large {
             width: 60px;
             height: 60px;
@@ -347,18 +347,18 @@
             margin-bottom: 15px;
             font-size: 1.5rem;
         }
-        
+
         @media (max-width: 900px) {
             .business-content, .banking-content {
                 grid-template-columns: 1fr;
             }
-            
+
             .business-visual, .banking-visual {
                 order: -1;
                 margin-bottom: 30px;
             }
         }
-        
+
         .card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -367,7 +367,7 @@
             backdrop-filter: blur(20px);
             transition: transform 0.3s;
         }
-        
+
         .tech-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -376,7 +376,7 @@
             backdrop-filter: blur(20px);
             transition: transform 0.3s;
         }
-        
+
         .business-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -385,7 +385,7 @@
             backdrop-filter: blur(20px);
             transition: transform 0.3s;
         }
-        
+
         .loyalty-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -394,7 +394,7 @@
             backdrop-filter: blur(20px);
             transition: transform 0.3s;
         }
-        
+
         .banking-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -403,7 +403,7 @@
             backdrop-filter: blur(20px);
             transition: transform 0.3s;
         }
-        
+
         .security-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -412,7 +412,7 @@
             backdrop-filter: blur(20px);
             transition: transform 0.3s;
         }
-        
+
         .docs-card {
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -421,22 +421,22 @@
             backdrop-filter: blur(20px);
             transition: transform 0.3s;
         }
-        
+
         .card:hover {
             transform: translateY(-5px);
         }
-        
+
         .card h3 {
             color: var(--terracotta);
             margin-bottom: 15px;
             font-size: 1.5rem;
         }
-        
+
         .card p {
             color: var(--sage-green);
             line-height: 1.6;
         }
-        
+
         .tech-icon {
             width: 50px;
             height: 50px;
@@ -448,7 +448,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
-        
+
         .business-icon {
             width: 50px;
             height: 50px;
@@ -460,7 +460,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
-        
+
         .loyalty-icon {
             width: 50px;
             height: 50px;
@@ -472,7 +472,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
-        
+
         .banking-icon {
             width: 50px;
             height: 50px;
@@ -484,7 +484,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
-        
+
         .security-icon {
             width: 50px;
             height: 50px;
@@ -496,7 +496,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
-        
+
         .docs-icon {
             width: 50px;
             height: 50px;
@@ -508,7 +508,7 @@
             margin-bottom: 20px;
             font-size: 1.5rem;
         }
-        
+
         footer {
             background: var(--glass-bg);
             border-top: 1px solid var(--glass-border);
@@ -516,7 +516,7 @@
             text-align: center;
             backdrop-filter: blur(20px);
         }
-        
+
         .mobile-menu {
             display: none;
             position: fixed;
@@ -529,68 +529,68 @@
             gap: 15px;
             z-index: 999;
         }
-        
+
         .mobile-menu.active {
             display: flex;
         }
-        
+
         .mobile-menu a {
             color: white;
             text-decoration: none;
             padding: 10px;
             border-bottom: 1px solid var(--glass-border);
         }
-        
+
         main {
             margin-top: 0;
             padding-left: 80px;
         }
-        
+
         @media (max-width: 768px) {
             .sidebar {
                 width: 60px;
                 padding: 15px 0;
             }
-            
+
             .sidebar-icon {
                 width: 30px;
                 height: 30px;
             }
-            
+
             .sidebar-label {
                 font-size: 0.6rem;
             }
-            
+
             main {
                 padding-left: 60px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .sidebar {
                 width: 0;
                 padding: 0;
                 overflow: hidden;
             }
-            
+
             main {
                 padding-left: 0;
             }
         }
-        
+
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
             }
-            
+
             nav {
                 display: none;
             }
-            
+
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .section-title {
                 font-size: 2rem;
             }
@@ -611,7 +611,7 @@
                 <a href="#contacts" data-translate="menu_contacts">Контакты</a>
             </nav>
             <div class="header-controls">
-                <button class="theme-toggle" id="themeBtn">🌙</button>
+                <button class="theme-toggle" id="themeBtn">☀️</button>
                 <button class="lang-switcher" id="langBtn">RU</button>
             </div>
             <button class="hamburger" id="hamburger">☰</button>
@@ -847,7 +847,7 @@
                                 <div style="position: absolute; width: 150px; height: 150px; border: 2px solid var(--terracotta); border-radius: 50%; opacity: 0.3;"></div>
                                 <div style="position: absolute; width: 100px; height: 100px; border: 2px solid var(--sage-green); border-radius: 50%; opacity: 0.3;"></div>
                                 <div style="position: relative; z-index: 3; text-align: center;">
-                                    <div style="font-size: 3rem; margin-bottom: 15px;">🏢</div>
+                                    <div style="font-size: 3rem; margin-bottom: 15px;">🏗️</div>
                                     <h3 style="color: var(--terracotta); font-size: 1.5rem; margin-bottom: 10px;" data-translate="business_visual_title">Комплексные решения</h3>
                                     <p style="color: var(--sage-green);" data-translate="business_visual_desc">Для роста и развития вашего бизнеса</p>
                                 </div>
@@ -888,7 +888,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 30px;">
                         <div style="background: var(--glass-bg); border: 1px solid var(--glass-border); border-radius: 16px; padding: 30px; backdrop-filter: blur(20px);">
                             <h3 style="color: var(--terracotta); font-size: 1.5rem; margin-bottom: 15px;" data-translate="loyalty_aggregator_title">Универсальный агрегатор</h3>
@@ -1148,7 +1148,7 @@
 
         // Store loaded translations
         let translations = {};
-        
+
         // Initialize translations
         async function initializeTranslations() {
             const langs = ['ru', 'en', 'cn'];
@@ -1165,15 +1165,15 @@
             // Load translations before updating the language
             await initializeTranslations();
             updateLanguage();
-            
+
             // Set up language switcher
             const langBtn = document.getElementById('langBtn');
             langBtn.addEventListener('click', toggleLanguage);
-            
+
             // Set up theme toggle
             const themeBtn = document.getElementById('themeBtn');
             themeBtn.addEventListener('click', toggleTheme);
-            
+
             // Check for saved theme preference
             const savedTheme = localStorage.getItem('theme');
             if(savedTheme === 'light') {
@@ -1182,16 +1182,14 @@
             } else {
                 themeBtn.textContent = '☀️';
             }
-            
 
-            
             // Set up hamburger menu
             const hamburger = document.getElementById('hamburger');
             const mobileMenu = document.getElementById('mobileMenu');
             hamburger.addEventListener('click', () => {
                 mobileMenu.classList.toggle('active');
             });
-            
+
             // Close mobile menu when clicking on a link
             const mobileLinks = mobileMenu.querySelectorAll('a');
             mobileLinks.forEach(link => {
@@ -1199,14 +1197,14 @@
                     mobileMenu.classList.remove('active');
                 });
             });
-            
+
             // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
                     if(targetId === '#') return;
-                    
+
                     const targetElement = document.querySelector(targetId);
                     if(targetElement) {
                         window.scrollTo({
@@ -1218,15 +1216,13 @@
             });
         });
 
-
-        
         // Update all translatable elements
         function updateLanguage() {
             document.documentElement.lang = currentLang;
-            
+
             // Update language button
             document.getElementById('langBtn').textContent = currentLang.toUpperCase();
-            
+
             // Update all elements with data-translate attribute
             const elements = document.querySelectorAll('[data-translate]');
             elements.forEach(element => {
@@ -1241,55 +1237,20 @@
         function toggleLanguage() {
             // Switch between languages
             currentLang = currentLang === 'ru' ? 'en' : currentLang === 'en' ? 'cn' : 'ru';
-            
+
             // Save selected language to localStorage
             localStorage.setItem('selectedLanguage', currentLang);
-            
+
             // Update the UI
             updateLanguage();
         }
-            
-            // Set up hamburger menu
-            const hamburger = document.getElementById('hamburger');
-            const mobileMenu = document.getElementById('mobileMenu');
-            hamburger.addEventListener('click', () => {
-                mobileMenu.classList.toggle('active');
-            });
-            
-            // Close mobile menu when clicking on a link
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.remove('active');
-                });
-            });
-            
-            // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    if(targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
 
-
-        
         // Theme toggle functionality
         function toggleTheme() {
             document.body.classList.toggle('light-theme');
             const isLightTheme = document.body.classList.contains('light-theme');
             localStorage.setItem('theme', isLightTheme ? 'light' : 'dark');
-            
+
             // Update theme button icon
             const themeBtn = document.getElementById('themeBtn');
             themeBtn.textContent = isLightTheme ? '🌙' : '☀️';
