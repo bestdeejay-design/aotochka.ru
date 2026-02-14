@@ -1170,6 +1170,19 @@
             const langBtn = document.getElementById('langBtn');
             langBtn.addEventListener('click', toggleLanguage);
             
+            // Set up theme toggle
+            const themeBtn = document.getElementById('themeBtn');
+            themeBtn.addEventListener('click', toggleTheme);
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if(savedTheme === 'light') {
+                document.body.classList.add('light-theme');
+                themeBtn.textContent = '🌙';
+            } else {
+                themeBtn.textContent = '☀️';
+            }
+            
 
             
             // Set up hamburger menu
@@ -1225,29 +1238,16 @@
         }
 
         // Toggle between languages
-        // Language management
-        let currentLang = localStorage.getItem('selectedLanguage') || 'ru';
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
+        function toggleLanguage() {
+            // Switch between languages
+            currentLang = currentLang === 'ru' ? 'en' : currentLang === 'en' ? 'cn' : 'ru';
+            
+            // Save selected language to localStorage
+            localStorage.setItem('selectedLanguage', currentLang);
+            
+            // Update the UI
             updateLanguage();
-            
-            // Set up language switcher
-            const langBtn = document.getElementById('langBtn');
-            langBtn.addEventListener('click', toggleLanguage);
-            
-            // Set up theme toggle
-            const themeBtn = document.getElementById('themeBtn');
-            themeBtn.addEventListener('click', toggleTheme);
-            
-            // Check for saved theme preference
-            const savedTheme = localStorage.getItem('theme');
-            if(savedTheme === 'light') {
-                document.body.classList.add('light-theme');
-                themeBtn.textContent = '🌙';
-            } else {
-                themeBtn.textContent = '☀️';
-            }
+        }
             
             // Set up hamburger menu
             const hamburger = document.getElementById('hamburger');
@@ -1265,7 +1265,7 @@
             });
             
             // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^=\"#\"]').forEach(anchor => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
                     const targetId = this.getAttribute('href');
