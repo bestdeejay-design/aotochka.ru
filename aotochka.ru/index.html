@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АО «Точка» — цифровая инфраструктура для малого бизнеса в РФ</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Боковое меню -->
+        <aside class="sidebar">
+            <div class="menu-toggle" id="menuToggle">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-section">
+                        <h3 class="section-title" data-i18n="main">Основное</h3>
+                        <ul class="sub-nav">
+                            <li><a href="#technologies" class="nav-link active" data-section="technologies"><span class="emoji">🔧</span> <span data-i18n="technologies_link">Технологии</span></a></li>
+                            <li><a href="#solutions" class="nav-link" data-section="solutions"><span class="emoji">💡</span> <span data-i18n="solutions_link">Решения</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-section">
+                        <h3 class="section-title" data-i18n="business">Для бизнеса</h3>
+                        <ul class="sub-nav">
+                            <li><a href="#loyalty" class="nav-link" data-section="loyalty"><span class="emoji">❤️</span> <span data-i18n="loyalty_link">Лояльность</span></a></li>
+                            <li><a href="#banking" class="nav-link" data-section="banking"><span class="emoji">💳</span> <span data-i18n="banking_link">Банки</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-section">
+                        <h3 class="section-title" data-i18n="support">Поддержка</h3>
+                        <ul class="sub-nav">
+                            <li><a href="#security" class="nav-link" data-section="security"><span class="emoji">🔒</span> <span data-i18n="security_link">Безопасность</span></a></li>
+                            <li><a href="#contacts" class="nav-link" data-section="contacts"><span class="emoji">📞</span> <span data-i18n="contacts_link">Контакты</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-section">
+                        <h3 class="section-title" data-i18n="settings">Настройки</h3>
+                        <ul class="sub-nav">
+                            <li><a href="#" class="lang-switch" data-lang="ru">🇷🇺 Русский</a></li>
+                            <li><a href="#" class="lang-switch" data-lang="en">🇬🇧 English</a></li>
+                            <li><a href="#" class="lang-switch" data-lang="cn">🇨🇳 中文</a></li>
+                            <li><a href="#" class="theme-toggle" id="themeToggle"><span data-i18n="toggle_theme">Переключить тему</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Основной контент -->
+        <main class="main-content">
+            <section id="technologies" class="content-section active">
+                <h1 data-i18n="technologies_title">Технологии</h1>
+                <p data-i18n="technologies_desc">Современные технологии для развития вашего бизнеса</p>
+            </section>
+
+            <section id="solutions" class="content-section">
+                <h1 data-i18n="solutions_title">Решения</h1>
+                <p data-i18n="solutions_desc">Комплексные решения для малого бизнеса</p>
+            </section>
+
+            <section id="loyalty" class="content-section">
+                <h1 data-i18n="loyalty_title">Лояльность</h1>
+                <p data-i18n="loyalty_desc">Программы лояльности для клиентов</p>
+            </section>
+
+            <section id="banking" class="content-section">
+                <h1 data-i18n="banking_title">Банки</h1>
+                <p data-i18n="banking_desc">Сервисы банковских операций</p>
+            </section>
+
+            <section id="security" class="content-section">
+                <h1 data-i18n="security_title">Безопасность</h1>
+                <p data-i18n="security_desc">Обеспечение безопасности данных</p>
+            </section>
+
+            <section id="contacts" class="content-section">
+                <h1 data-i18n="contacts_title">Контакты</h1>
+                <p data-i18n="contacts_desc">Связаться с нами</p>
+                
+                <form id="contactForm" class="contact-form">
+                    <input type="text" placeholder="" data-i18n-placeholder="name_placeholder" required>
+                    <input type="email" placeholder="" data-i18n-placeholder="email_placeholder" required>
+                    <textarea placeholder="" data-i18n-placeholder="message_placeholder" required></textarea>
+                    <button type="submit" data-i18n="send_button">Отправить</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
