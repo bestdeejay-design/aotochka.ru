@@ -1,0 +1,458 @@
+/* style.css — основные стили для TOCH.KA */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-bg-1: #0F0F12;
+    --dark-bg-2: #141418;
+    --terracotta: #C97C5D;
+    --sage-green: #A0B29C;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-color: white;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+@media (min-width: 769px) {
+    html {
+        scroll-snap-type: y mandatory;
+    }
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--dark-bg-1);
+    color: var(--text-color);
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Логотип (фиксированный) — одинаковый на всех устройствах */
+.logo {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    font-weight: 700;
+    font-size: 2rem;
+    z-index: 200;
+    background: linear-gradient(135deg, var(--terracotta), var(--sage-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    /* Фиксация для предотвращения сдвига */
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.logo span {
+    color: var(--terracotta);
+    -webkit-text-fill-color: initial;
+    background: none;
+}
+
+/* Гамбургер (фиксированный) — одинаковый на всех устройствах */
+.hamburger {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 200;
+    /* Фиксация для предотвращения сдвига */
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--text-color);
+    transition: all 0.3s ease;
+    transform-origin: left;
+}
+
+.hamburger.active span:first-child {
+    transform: rotate(45deg) translate(2px, -2px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:last-child {
+    transform: rotate(-45deg) translate(2px, 2px);
+}
+
+/* ========================================
+   АДАПТИВНАЯ ВЕРСТКА — Mobile First
+   ======================================== */
+
+/* Mobile: до 576px */
+@media (max-width: 576px) {
+    /* Логотип и бургер компактнее */
+    .logo {
+        font-size: 1.5rem;
+        top: 1.5rem;
+        left: 1.5rem;
+    }
+    .hamburger {
+        top: 1.5rem;
+        right: 1.5rem;
+        width: 26px;
+        height: 18px;
+    }
+    
+    /* Меню на всю ширину */
+    .menu-overlay {
+        max-width: 100%;
+        justify-content: flex-start;
+        padding-top: 7rem;
+    }
+    .menu-links a {
+        font-size: 1.4rem;
+    }
+    
+    /* Секции */
+    .section {
+        padding: 6rem 1.5rem 2rem;
+    }
+    .section h2 {
+        font-size: 1.75rem;
+    }
+    .section p {
+        font-size: 1rem;
+    }
+    
+    /* Карточки в одну колонку */
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .tech-card {
+        padding: 1.25rem;
+    }
+    .tech-card h3 {
+        font-size: 1.2rem;
+    }
+    .tech-icon {
+        font-size: 2rem;
+    }
+}
+
+/* Tablet: 577px — 991px */
+@media (min-width: 577px) and (max-width: 991px) {
+    .logo {
+        font-size: 1.75rem;
+    }
+    
+    .menu-overlay {
+        max-width: 360px;
+    }
+    .menu-links a {
+        font-size: 1.5rem;
+    }
+    
+    .section {
+        padding: 5rem 2rem;
+    }
+    .section h2 {
+        font-size: 2.25rem;
+    }
+    .section p {
+        font-size: 1.1rem;
+    }
+    
+    /* Карточки 2 в ряд */
+    .tech-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+    .tech-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Desktop: 992px — 1199px */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .section h2 {
+        font-size: 2.5rem;
+    }
+    
+    /* Карточки 2-3 в ряд */
+    .tech-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+    }
+}
+
+/* Large Desktop: 1200px+ */
+@media (min-width: 1200px) {
+    .section-content {
+        max-width: 900px;
+    }
+    .section h2 {
+        font-size: 3rem;
+    }
+    .section p {
+        font-size: 1.25rem;
+    }
+    
+    /* Карточки 3-4 в ряд */
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+/* Меню-оверлей */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 85%;
+    max-width: 360px;
+    height: 100%;
+    height: 100dvh;
+    background: rgba(15, 15, 18, 0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    z-index: 150;
+    padding: 2rem;
+}
+
+.menu-overlay.active {
+    transform: translateX(0);
+}
+
+/* Затемнение фона при открытом меню */
+.menu-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    z-index: 140;
+}
+
+.menu-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.menu-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 500;
+    transition: color 0.2s, transform 0.2s;
+}
+
+.menu-links a:hover {
+    color: var(--terracotta);
+    transform: scale(1.1);
+}
+
+.lang-switcher {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--glass-border);
+    color: var(--text-color);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.lang-btn.active {
+    background: var(--terracotta);
+    border-color: var(--terracotta);
+}
+
+.company-info {
+    position: absolute;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+/* Секции-слайды */
+.section {
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+@media (min-width: 769px) {
+    .section {
+        padding: 4rem 2rem;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+}
+
+.section-content {
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.section h2 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--terracotta), var(--sage-green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section p {
+    font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2rem;
+}
+
+/* Контейнеры для эффектов */
+.particle-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--terracotta);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--terracotta);
+    /* Ограничиваем позиционирование */
+    max-left: calc(100% - 6px);
+    max-top: calc(100% - 6px);
+}
+
+.mosaic-piece {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--terracotta);
+    opacity: 0.2;
+    border-radius: 10px;
+    transform-origin: center;
+    filter: blur(2px);
+    /* Ограничиваем позиционирование */
+    max-left: calc(100% - 50px);
+    max-top: calc(100% - 50px);
+}
+
+/* ===== НОВЫЕ СТИЛИ ДЛЯ КАРТОЧЕК ТЕХНОЛОГИЙ ===== */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Гарантия что grid не выходит за пределы */
+.tech-grid > * {
+    min-width: 0;
+}
+
+.tech-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 1.8rem 1.5rem;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: transform, opacity;
+}
+
+.tech-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tech-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    border-color: var(--terracotta);
+}
+
+.tech-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--terracotta);
+}
+
+.tech-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.tech-card p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+}
+
+

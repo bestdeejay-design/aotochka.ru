@@ -1,0 +1,17 @@
+{
+    "name": "TOCH.KA | Технологические решения",
+    "short_name": "TOCH.KA",
+    "description": "Технологические решения и инфраструктура для малого и микро бизнеса",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#0F0F12",
+    "theme_color": "#C97C5D",
+    "icons": [
+        {
+            "src": "favicon.svg",
+            "sizes": "any",
+            "type": "image/svg+xml",
+            "purpose": "any maskable"
+        }
+    ]
+}

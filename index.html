@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TOCH.KA | Технологические решения</title>
+    <!-- Preconnect to CDN for faster loading -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- GSAP, ScrollTrigger, TextPlugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Фавиконка -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="manifest" href="manifest.json">
+    <!-- Основные стили с антикэшем -->
+    <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+    <!-- Логотип -->
+    <a href="#hero" class="logo">TOCH<span>.</span>KA</a>
+
+    <!-- Гамбургер -->
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <!-- Затемнение фона для меню -->
+    <div class="menu-backdrop" id="menuBackdrop"></div>
+
+    <!-- Меню-оверлей -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-links">
+            <a href="#hero" data-i18n="menu_hero">Главная</a>
+            <a href="#tech" data-i18n="menu_technologies">Технологии</a>
+            <a href="#security" data-i18n="menu_security">Безопасность</a>
+            <a href="#banking" data-i18n="menu_banking">Банковские</a>
+            <a href="#projects" data-i18n="menu_projects">Проекты</a>
+            <a href="#cases" data-i18n="menu_cases">Кейсы</a>
+            <a href="#contacts" data-i18n="menu_contacts">Контакты</a>
+        </div>
+        <div class="lang-switcher">
+            <div class="lang-row">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+                <button class="lang-btn" data-lang="cn">中文</button>
+            </div>
+            <div class="lang-row">
+                <button class="lang-btn" data-lang="es">ES</button>
+                <button class="lang-btn" data-lang="jp">JP</button>
+            </div>
+        </div>
+        <div class="company-info" data-i18n="menu_company">АО «Точка» Технологические решения</div>
+    </div>
+
+    <!-- Секция 1: Hero (печатающийся текст + битые пиксели) -->
+    <section id="hero" class="section" data-effect="typewriter">
+        <!-- Эффект битых пикселей -->
+        <div class="dead-pixels-container" id="deadPixelsHero"></div>
+        <div class="section-content hero-content">
+            <h2 id="hero-line1" data-i18n="hero_line1">TOCH.KA</h2>
+            <p id="hero-line2" data-i18n="hero_line2">технологический партнёр</p>
+            <p id="hero-line3" data-i18n="hero_line3">финтех и платежи для малого бизнеса</p>
+        </div>
+    </section>
+
+    <!-- Секция 2: Технологии (сетка карточек + эффект Матрицы) -->
+    <section id="tech" class="section" data-effect="slideDark">
+        <!-- Световые шары под матрицей -->
+        <div class="matrix-glow-balls">
+            <div class="glow-ball ball-1"></div>
+            <div class="glow-ball ball-2"></div>
+            <div class="glow-ball ball-3"></div>
+        </div>
+        <!-- Фоновый эффект Матрицы -->
+        <canvas id="matrixCanvas" class="matrix-bg"></canvas>
+        <div class="section-content">
+            <h2 data-i18n="tech_title">Технологии</h2>
+            <div class="tech-grid">
+                <!-- Карточки будут вставлены через script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 3: Безопасность (мозаика + асимметричные карточки) -->
+    <section id="security" class="section" data-effect="mosaic">
+        <div class="section-content security-content">
+            <h2 data-i18n="security_title">Безопасность</h2>
+            <div class="security-grid">
+                <div class="security-card security-card-large">
+                    <div class="security-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 data-i18n="sec_card1_title">Защита периметра</h3>
+                    <div class="security-problem-wrapper">
+                        <span class="security-problem-icon">⚠️</span>
+                        <span class="security-problem-text" data-i18n="sec_card1_problem">DDoS, взломы, боты</span>
+                    </div>
+                    <p class="security-solution" data-i18n="sec_card1_solution">Непрерывный мониторинг периметра (EASM). Выявление уязвимостей до эксплуатации.</p>
+                </div>
+                <div class="security-card security-card-toggle">
+                    <div class="security-icon"><i class="fas fa-code"></i></div>
+                    <h3 data-i18n="sec_card2_title">Безопасная разработка</h3>
+                    <div class="security-toggle-wrapper">
+                        <button class="security-toggle-btn" data-toggle>
+                            <span data-i18n="sec_toggle_problem">Проблема</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <p class="security-problem-collapsible" data-i18n="sec_card2_problem">Ошибки в коде, утечки из тестовых сред, «теневые» IT-инструменты.</p>
+                    </div>
+                    <p class="security-solution" data-i18n="sec_card2_solution">Автоматизация проверок в CI/CD, изоляция тестовых данных.</p>
+                </div>
+                <div class="security-card">
+                    <div class="security-icon"><i class="fas fa-headset"></i></div>
+                    <h3 data-i18n="sec_card3_title">Реагирование 24/7</h3>
+                    <p class="security-solution" data-i18n="sec_card3_solution">Круглосуточный мониторинг инцидентов и расследование киберпреступлений.</p>
+                </div>
+                <!-- ВАРИАНТ 1: Сетка с иконками (активный) -->
+                <div class="security-card security-card-wide security-tech-v1">
+                    <div class="security-icon"><i class="fas fa-certificate"></i></div>
+                    <h3 data-i18n="sec_card4_title">Технологии и стандарты</h3>
+                    <div class="tech-grid-v1">
+                        <div class="tech-block-v1">
+                            <div class="tech-block-icon"><i class="fas fa-eye"></i></div>
+                            <span class="tech-block-title" data-i18n="sec_cat_monitoring">Мониторинг</span>
+                            <div class="tech-pills-v1">
+                                <span data-i18n="sec_pill_siem">SIEM</span>
+                                <span data-i18n="sec_pill_edr">EDR/XDR</span>
+                                <span data-i18n="sec_pill_nta">NTA/NDR</span>
+                            </div>
+                        </div>
+                        <div class="tech-block-v1">
+                            <div class="tech-block-icon"><i class="fas fa-shield-alt"></i></div>
+                            <span class="tech-block-title" data-i18n="sec_cat_perimeter">Периметр</span>
+                            <div class="tech-pills-v1">
+                                <span data-i18n="sec_pill_ngfw">NGFW</span>
+                                <span data-i18n="sec_pill_waf">WAF</span>
+                                <span data-i18n="sec_pill_antiddos">Anti-DDoS</span>
+                            </div>
+                        </div>
+                        <div class="tech-block-v1">
+                            <div class="tech-block-icon"><i class="fas fa-key"></i></div>
+                            <span class="tech-block-title" data-i18n="sec_cat_access">Доступ</span>
+                            <div class="tech-pills-v1">
+                                <span data-i18n="sec_pill_iam">IAM</span>
+                                <span data-i18n="sec_pill_pam">PAM</span>
+                                <span data-i18n="sec_pill_zerotrust">Zero Trust</span>
+                            </div>
+                        </div>
+                        <div class="tech-block-v1">
+                            <div class="tech-block-icon"><i class="fas fa-code"></i></div>
+                            <span class="tech-block-title" data-i18n="sec_cat_dev">DevSecOps</span>
+                            <div class="tech-pills-v1">
+                                <span data-i18n="sec_pill_sast">SAST</span>
+                                <span data-i18n="sec_pill_dast">DAST</span>
+                                <span data-i18n="sec_pill_k8s">K8s</span>
+                            </div>
+                        </div>
+                        <div class="tech-block-v1 tech-block-standards">
+                            <div class="tech-block-icon"><i class="fas fa-award"></i></div>
+                            <span class="tech-block-title" data-i18n="sec_cat_standards">Стандарты</span>
+                            <div class="tech-pills-v1">
+                                <span data-i18n="sec_pill_iso27001">ISO 27001</span>
+                                <span data-i18n="sec_pill_pcidss">PCI DSS</span>
+                                <span data-i18n="sec_pill_152fz">152-ФЗ</span>
+                                <span data-i18n="sec_pill_owasp">OWASP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mosaicSecurity" class="mosaic-container"></div>
+    </section>
+
+    <!-- Секция 4: Банковские интеграции (пульсирующие точки) -->
+    <section id="banking" class="section" data-effect="particles">
+        <!-- Пульсирующие частицы -->
+        <div class="particle-container" id="particlesBanking"></div>
+        <div class="section-content banking-content">
+            <h2 data-i18n="banking_title">Банковские интеграции</h2>
+            <div class="banking-v4">
+                <!-- Фоновый пульсирующий банк -->
+                <div class="banking-hub-bg-v4">
+                    <div class="hub-core-bg-v4">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="hub-ring-bg-v4 ring-bg-v4-1"></div>
+                    <div class="hub-ring-bg-v4 ring-bg-v4-2"></div>
+                    <div class="hub-ring-bg-v4 ring-bg-v4-3"></div>
+                    <div class="hub-ring-bg-v4 ring-bg-v4-4"></div>
+                </div>
+                
+                <!-- Верхний ряд: 4 карточки (3 одинаковые + 1 выше) -->
+                <div class="banking-top-v4">
+                    <div class="banking-left-v4">
+                        <!-- 3 карточки одинаковой высоты -->
+                        <div class="flow-cards-v4">
+                            <div class="flow-card-v4">
+                                <div class="flow-icon-v4"><i class="fas fa-qrcode"></i></div>
+                                <h3 data-i18n="bank_flow_in_title">Прием платежей</h3>
+                                <ul class="flow-list-v4">
+                                    <li data-i18n="bank_item_acquiring">Интернет-эквайринг — Visa, Mastercard, МИР</li>
+                                    <li data-i18n="bank_item_sbp">СБП — QR-код, от 0,4%</li>
+                                    <li data-i18n="bank_item_recurring">Рекурренты, подписки, SaaS</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flow-card-v4">
+                                <div class="flow-icon-v4"><i class="fas fa-cogs"></i></div>
+                                <h3 data-i18n="bank_flow_proc_title">Обработка</h3>
+                                <ul class="flow-list-v4">
+                                    <li data-i18n="bank_item_multi">Мультиэквайринг — отказоустойчивость</li>
+                                    <li data-i18n="bank_item_split">Сплитование платежей</li>
+                                    <li data-i18n="bank_item_agent">Платежный агент (161-ФЗ)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="flow-card-v4">
+                                <div class="flow-icon-v4"><i class="fas fa-shield-alt"></i></div>
+                                <h3 data-i18n="bank_flow_out_title">Безопасность</h3>
+                                <ul class="flow-list-v4">
+                                    <li data-i18n="bank_security_pci">PCI DSS, 3D Secure, токенизация</li>
+                                    <li data-i18n="bank_security_fraud">Антифрод, скоринг</li>
+                                    <li data-i18n="bank_security_law">115-ФЗ, 161-ФЗ, 152-ФЗ</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- BaaS в стиле горизонтальных полос -->
+                        <div class="baas-rows-v4">
+                            <div class="baas-header-v4">
+                                <i class="fas fa-cloud"></i>
+                                <span data-i18n="bank_baas_header">BaaS & White Label</span>
+                            </div>
+                            <div class="baas-row-v4">
+                                <div class="baas-row-icon-v4"><i class="fas fa-code"></i></div>
+                                <span class="baas-row-title-v4" data-i18n="bank_baas_api">Banking API</span>
+                                <div class="baas-row-pills-v4">
+                                    <span data-i18n="bank_pill_rest">REST API</span>
+                                    <span data-i18n="bank_pill_openapi">Open API 3.0</span>
+                                    <span data-i18n="bank_pill_webhooks">Webhooks</span>
+                                </div>
+                            </div>
+                            <div class="baas-row-v4">
+                                <div class="baas-row-icon-v4"><i class="fas fa-tag"></i></div>
+                                <span class="baas-row-title-v4" data-i18n="bank_baas_white">White Label</span>
+                                <div class="baas-row-pills-v4">
+                                    <span data-i18n="bank_item_white">Брендирование</span>
+                                    <span data-i18n="bank_pill_custom">Кастомизация</span>
+                                    <span data-i18n="bank_pill_mobile">Мобильное приложение</span>
+                                </div>
+                            </div>
+                            <div class="baas-row-v4">
+                                <div class="baas-row-icon-v4"><i class="fas fa-credit-card"></i></div>
+                                <span class="baas-row-title-v4" data-i18n="bank_baas_cards">Эмиссия карт</span>
+                                <div class="baas-row-pills-v4">
+                                    <span data-i18n="bank_item_cards">Виртуальные</span>
+                                    <span data-i18n="bank_pill_plastic">Пластиковые</span>
+                                    <span data-i18n="bank_pill_cobadge">Кобейджинг</span>
+                                </div>
+                            </div>
+                            <div class="baas-row-v4">
+                                <div class="baas-row-icon-v4"><i class="fas fa-money-check-alt"></i></div>
+                                <span class="baas-row-title-v4" data-i18n="bank_baas_payroll">Зарплатные проекты</span>
+                                <div class="baas-row-pills-v4">
+                                    <span data-i18n="bank_pill_bulk">Массовые выплаты</span>
+                                    <span data-i18n="bank_pill_employees">Сотрудники</span>
+                                    <span data-i18n="bank_pill_contractors">Подрядчики</span>
+                                </div>
+                            </div>
+                            <div class="baas-row-v4">
+                                <div class="baas-row-icon-v4"><i class="fas fa-wallet"></i></div>
+                                <span class="baas-row-title-v4" data-i18n="bank_baas_wallets">Кошельки</span>
+                                <div class="baas-row-pills-v4">
+                                    <span data-i18n="bank_pill_issue">Выпуск</span>
+                                    <span data-i18n="bank_pill_topup">Пополнение</span>
+                                    <span data-i18n="bank_pill_withdraw">Вывод средств</span>
+                                </div>
+                            </div>
+                            <div class="baas-row-v4">
+                                <div class="baas-row-icon-v4"><i class="fas fa-exchange-alt"></i></div>
+                                <span class="baas-row-title-v4" data-i18n="bank_baas_p2p">P2P-переводы</span>
+                                <div class="baas-row-pills-v4">
+                                    <span data-i18n="bank_pill_instant">Мгновенные</span>
+                                    <span data-i18n="bank_pill_byphone">По номеру телефона</span>
+                                    <span data-i18n="bank_pill_qr">QR-код</span>
+                                </div>
+                            </div>
+                            <div class="baas-row-v4">
+                                <div class="baas-row-icon-v4"><i class="fas fa-coins"></i></div>
+                                <span class="baas-row-title-v4" data-i18n="bank_baas_credit">Кредитование</span>
+                                <div class="baas-row-pills-v4">
+                                    <span data-i18n="bank_pill_pos">POS-кредиты</span>
+                                    <span data-i18n="bank_pill_install">Рассрочка</span>
+                                    <span data-i18n="bank_pill_bnpl">BNPL</span>
+                                </div>
+                            </div>
+                            <div class="baas-row-v4">
+                                <div class="baas-row-icon-v4"><i class="fas fa-piggy-bank"></i></div>
+                                <span class="baas-row-title-v4" data-i18n="bank_baas_deposits">Депозиты</span>
+                                <div class="baas-row-pills-v4">
+                                    <span data-i18n="bank_pill_savings">Накопительные</span>
+                                    <span data-i18n="bank_pill_term">Срочные</span>
+                                    <span data-i18n="bank_pill_deposits">Вклады</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Правая колонка: Безопасные сделки (выше) + Управление ликвидностью -->
+                    <div class="banking-right-v4">
+                        <div class="escrow-card-v4">
+                            <div class="escrow-icon-v4"><i class="fas fa-handshake"></i></div>
+                            <h4 data-i18n="bank_escrow_title">Безопасные сделки</h4>
+                            <ul class="escrow-list-v4">
+                                <li><strong data-i18n="bank_escrow_c2c">Escrow для C2C и B2B</strong> — <span data-i18n="bank_escrow_c2c_desc">резервирование средств до выполнения обязательств</span></li>
+                                <li><strong data-i18n="bank_escrow_guarantee">Гарантия безопасности</strong> — <span data-i18n="bank_escrow_guarantee_desc">защита для всех участников сделки</span></li>
+                                <li><strong data-i18n="bank_escrow_auto">Автоматическое освобождение</strong> — <span data-i18n="bank_escrow_auto_desc">по факту выполнения условий</span></li>
+                                <li><strong data-i18n="bank_escrow_arbitrage">Арбитраж</strong> — <span data-i18n="bank_escrow_arbitrage_desc">разрешение спорных ситуаций</span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="liquidity-card-v4">
+                            <div class="liquidity-icon-v4"><i class="fas fa-chart-line"></i></div>
+                            <h4 data-i18n="bank_liquidity_title">Управление ликвидностью</h4>
+                            <ul class="liquidity-list-v4">
+                                <li><strong data-i18n="bank_liquidity_cash">Cash Management</strong> — <span data-i18n="bank_liquidity_cash_desc">консолидация и управление денежными потоками</span></li>
+                                <li><strong data-i18n="bank_liquidity_predict">Предиктивная аналитика</strong> — <span data-i18n="bank_liquidity_predict_desc">прогнозирование потребностей в ликвидности</span></li>
+                                <li><strong data-i18n="bank_liquidity_diversify">Диверсификация</strong> — <span data-i18n="bank_liquidity_diversify_desc">распределение фондирования между банками</span></li>
+                                <li><strong data-i18n="bank_liquidity_optimize">Оптимизация</strong> — <span data-i18n="bank_liquidity_optimize_desc">снижение стоимости привлечения средств</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Compliance под всеми -->
+                <div class="compliance-v4">
+                    <span class="compliance-label-v4" data-i18n="bank_compliance_label">Compliance & Стандарты:</span>
+                    <div class="compliance-content-v4">
+                        <div class="compliance-section">
+                            <span class="compliance-subtitle" data-i18n="bank_compliance_law">Законодательство РФ:</span>
+                            <div class="compliance-tags-v4">
+                                <span data-i18n="bank_tag_115fz">115-ФЗ (AML/CFT)</span>
+                                <span data-i18n="bank_tag_161fz">161-ФЗ (НПС)</span>
+                                <span data-i18n="bank_tag_152fz">152-ФЗ (ПДн)</span>
+                                <span data-i18n="bank_tag_187fz">187-ФЗ (КИИ)</span>
+                            </div>
+                        </div>
+                        <div class="compliance-section">
+                            <span class="compliance-subtitle" data-i18n="bank_compliance_payment">Платежные стандарты:</span>
+                            <div class="compliance-tags-v4">
+                                <span data-i18n="bank_tag_pci">PCI DSS Level 1</span>
+                                <span data-i18n="bank_tag_3ds">3D Secure 2.0</span>
+                                <span data-i18n="bank_tag_token">Токенизация карт</span>
+                                <span data-i18n="bank_tag_sbp">SBP (Система быстрых платежей)</span>
+                            </div>
+                        </div>
+                        <div class="compliance-section">
+                            <span class="compliance-subtitle" data-i18n="bank_compliance_security">Информационная безопасность:</span>
+                            <div class="compliance-tags-v4">
+                                <span data-i18n="bank_tag_gost57580">ГОСТ 57580</span>
+                                <span data-i18n="bank_tag_gost27001">ГОСТ Р ИСО/МЭК 27001</span>
+                                <span data-i18n="bank_tag_cbest">CBEST (тестирование)</span>
+                            </div>
+                        </div>
+                        <div class="compliance-section">
+                            <span class="compliance-subtitle" data-i18n="bank_compliance_api">API и интеграции:</span>
+                            <div class="compliance-tags-v4">
+                                <span data-i18n="bank_tag_openapi">Open API 3.0</span>
+                                <span data-i18n="bank_tag_rest">REST/JSON</span>
+                                <span data-i18n="bank_tag_oauth">OAuth 2.0</span>
+                                <span data-i18n="bank_tag_webhooks">Webhooks</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Секция 5: Проекты (сборка карточек + сияющие точки) -->
+    <section id="projects" class="section" data-effect="projectsAssembly">
+        <!-- Сияющие точки на фоне -->
+        <div id="particlesProjects" class="particle-container"></div>
+        
+        <div class="section-content">
+            <h2 data-i18n="projects_title">Наши проекты</h2>
+            <p data-i18n="projects_desc">Более 50 успешных внедрений в ритейле, HoReCa и финтехе.</p>
+            
+            <!-- Сетка проектов -->
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Карточки проектов генерируются JS -->
+            </div>
+        </div>
+    </section>
+
+<!-- Секция: Кейсы (истории успеха) -->
+    <section id="cases" class="section" data-effect="slideDark">
+        <div class="section-content">
+            <h2 data-i18n="cases_title">Кейсы</h2>
+            
+            <div class="cases-grid">
+                <!-- Кейс: Платформа лояльности -->
+                <div class="case-card">
+                    <div class="case-metric">500 000+ <span class="case-unit">пользователей</span></div>
+                    <div class="case-name" data-i18n="case_loyalty_name">Платформа мультиканальной лояльности</div>
+                    <div class="case-desc" data-i18n="case_loyalty_desc">
+                        <p>iOS/Android приложения для клиентов и кассиров</p>
+                        <p>Онлайн-переводы баллов в реальном времени</p>
+                        <p>Интеграция с Яндекс.Go, Сбербанк, Тинькофф</p>
+                        <p>Конвертация баллов в промокоды Ozon, Wildberries</p>
+                        <p>Вывод на банковскую карту (СБП)</p>
+                        <p>Оплата баллами в 10 000+ торговых точках</p>
+                    </div>
+                </div>
+                
+                <!-- Кейс: Блокчейн платформа -->
+                <div class="case-card">
+                    <div class="case-metric">1000<span>/sec</span></div>
+                    <div class="case-name" data-i18n="case_blockchain_name">Приватная блокчейн-платформа</div>
+                    <div class="case-desc" data-i18n="case_blockchain_desc">
+                        <p>База данных на BigChainDB — открытый исходный код</p>
+                        <p>Цифровая инвентаризация с многоуровневой системой каталогов</p>
+                        <p>Смарт-контракты для автоматических транзакций</p>
+                        <p>Ролевая модель: автор, владелец, арендатор, покупатель</p>
+                        <p>Криптографическая защита и внешняя авторизация</p>
+                        <p>Независимость от внешних платформ</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Блок интеграций -->
+            <div class="integrations-block">
+                <h3 data-i18n="integrations_title">Мы интегрировали</h3>
+                <div class="integrations-grid" data-integrations>
+                    <div class="integration-item"><span data-i18n="int_beeline">Билайн</span></div>
+                    <div class="integration-item"><span data-i18n="int_yandexgo">Яндекс.Go</span></div>
+                    <div class="integration-item"><span data-i18n="int_cdek">СДЭК</span></div>
+                    <div class="integration-item"><span data-i18n="int_tinkoff">Тинькофф</span></div>
+                    <div class="integration-item"><span data-i18n="int_1c">1С</span></div>
+                    <div class="integration-item"><span data-i18n="int_sberbank">Сбербанк</span></div>
+                    <div class="integration-item"><span data-i18n="int_alfabank">Альфа-Банк</span></div>
+                    <div class="integration-item"><span data-i18n="int_yoomoney">ЮMoney</span></div>
+                    <div class="integration-item"><span data-i18n="int_mts">МТС</span></div>
+                    <div class="integration-item"><span data-i18n="int_aviasales">Aviasales</span></div>
+                    <div class="integration-item"><span data-i18n="int_yandex">Яндекс</span></div>
+                    <div class="integration-item"><span data-i18n="int_ostrovok">Ostrovok.ru</span></div>
+                    <div class="integration-item"><span data-i18n="int_sravni">Сравни.ру</span></div>
+                    <div class="integration-item"><span data-i18n="int_admitad">Admitad</span></div>
+                    <div class="integration-item"><span data-i18n="int_giftery">Giftery</span></div>
+                    <div class="integration-item"><span data-i18n="int_advcake">adv.cake</span></div>
+                    <div class="integration-item"><span data-i18n="int_xpartners">XPartners</span></div>
+                    <div class="integration-item"><span data-i18n="int_fotostrana">Фотострана</span></div>
+                    <div class="integration-item"><span data-i18n="int_magnit">Магнит</span></div>
+                    <div class="integration-item"><span data-i18n="int_lenta">Лента</span></div>
+                    <div class="integration-item"><span data-i18n="int_auchan">Ашан</span></div>
+                    <div class="integration-item"><span data-i18n="int_metro">Метро</span></div>
+                    <div class="integration-item"><span data-i18n="int_globus">Глобус</span></div>
+                    <div class="integration-item"><span data-i18n="int_superbabilon">СуперБабилон</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция 6: Контакты (мозаика) -->
+    <section id="contacts" class="section" data-effect="mosaic">
+        <div class="section-content">
+            <h2 id="contacts-title" data-i18n="contacts_title">Контакты</h2>
+            <p id="contacts-text" data-i18n="contacts_text">АО «Точка»<br>ИНН 9723270767<br>109651, г. Москва, ул. Перерва, д. 16, пом. 16П<br>+7 (911) 928-74-78<br>hello@aotochka.ru</p>
+        </div>
+        <div id="mosaicContacts" class="mosaic-container"></div>
+    </section>
+
+    <!-- Секция 7: Футер (печатающийся текст + метеоры) -->
+    <section id="footer" class="section" data-effect="typewriter">
+        <!-- Эффект битых пикселей -->
+        <div class="dead-pixels-container" id="deadPixelsFooter"></div>
+        <div class="section-content">
+            <h2 data-i18n="footer_copyright">© 2025 TOCH.KA</h2>
+            <p data-i18n="footer_rights">Все права защищены</p>
+            
+            <!-- QR-код с кастомным дизайном -->
+            <div class="qr-container">
+                <div class="qr-wrapper">
+                    <canvas id="qrCanvas"></canvas>
+                    <div class="qr-logo">
+                        <span>TOCH<span class="dot">.</span>KA</span>
+                    </div>
+                </div>
+                <span class="qr-label">aotochka.ru</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Кнопки навигации (glassmorphism) -->
+    <div class="nav-arrows">
+        <button class="nav-arrow nav-arrow-up" id="navUp" aria-label="Предыдущий слайд">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        <button class="nav-arrow nav-arrow-down" id="navDown" aria-label="Следующий слайд">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <!-- QRCode.js библиотека -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <!-- Основной скрипт с антикэшем -->
+    <script src="script.js?v=6"></script>
+    <!-- Модульная версия (требует сервера):
+    <script type="module" src="js/app.js?v=2"></script> -->
+    <!-- Service Worker для PWA -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(err => {
+                console.log('SW registration failed:', err);
+            });
+        }
+    </script>
+</body>
+</html>
